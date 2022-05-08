@@ -1,6 +1,7 @@
 import React from 'react';
-import WorkImg from '../assets/workImg.jpeg';
-import realEstate from '../assets/realestate.jpg';
+import weatherApp from '../assets/weatherpic-min.png';
+import lyricsFetcher from '../assets/lyricsfetcher-min.png';
+import travelPage from '../assets/travel-min.png';
 
 const Work = () => {
   return (
@@ -18,21 +19,21 @@ const Work = () => {
 
             {/* Grid Item */}
           <div
-            style={{ backgroundImage: `url(${WorkImg})` }}
+            style={{ backgroundImage: `url(${lyricsFetcher})` }}
             className='shadow-lg shadow-[#040c16] group container rounded-md flex justify-center items-center mx-auto content-div'
           >
             {/* Hover Effects */}
             <div className='opacity-0 group-hover:opacity-100'>
               <span className='text-2xl font-bold text-white tracking-wider'>
-                React JS Application
+                LyricsFetcher
               </span>
               <div className='pt-8 text-center'>
-                <a href='/'>
+                <a href='https://kingmathers92.github.io/lyricsFetcher/' target='_blank' rel="noopener noreferrer">
                   <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
                     Demo
                   </button>
                 </a>
-                <a href='/'>
+                <a href='https://github.com/kingmathers92/lyricsFetcher' target='_blank' rel="noopener noreferrer">
                   <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
                     Code
                   </button>
@@ -41,68 +42,21 @@ const Work = () => {
             </div>
           </div>
           <div
-            style={{ backgroundImage: `url(${realEstate})` }}
+            style={{ backgroundImage: `url(${weatherApp})` }}
             className='shadow-lg shadow-[#040c16] group container rounded-md flex justify-center items-center mx-auto content-div'
           >
             {/* Hover Effects */}
             <div className='opacity-0 group-hover:opacity-100'>
               <span className='text-2xl font-bold text-white tracking-wider'>
-                React JS Application
+                WeatherApp with JS
               </span>
               <div className='pt-8 text-center'>
-                <a href='/'>
+                <a href='https://weatherappdevstuff.netlify.app/' target='_blank' rel="noopener noreferrer">
                   <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
                     Demo
                   </button>
                 </a>
-                <a href='/'>
-                  <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
-                    Code
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-            {/* Grid Item */}
-          <div
-            style={{ backgroundImage: `url(${WorkImg})` }}
-            className='shadow-lg shadow-[#040c16] group container rounded-md flex justify-center items-center mx-auto content-div'
-          >
-            {/* Hover Effects */}
-            <div className='opacity-0 group-hover:opacity-100'>
-              <span className='text-2xl font-bold text-white tracking-wider'>
-                React JS Application
-              </span>
-              <div className='pt-8 text-center'>
-                <a href='/'>
-                  <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
-                    Demo
-                  </button>
-                </a>
-                <a href='/'>
-                  <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
-                    Code
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            style={{ backgroundImage: `url(${realEstate})` }}
-            className='shadow-lg shadow-[#040c16] group container rounded-md flex justify-center items-center mx-auto content-div'
-          >
-            {/* Hover Effects */}
-            <div className='opacity-0 group-hover:opacity-100'>
-              <span className='text-2xl font-bold text-white tracking-wider'>
-                React JS Application
-              </span>
-              <div className='pt-8 text-center'>
-                <a href='/'>
-                  <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
-                    Demo
-                  </button>
-                </a>
-                <a href='/'>
+                <a href='https://github.com/kingmathers92/weatherApp/' target='_blank' rel="noopener noreferrer">
                   <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
                     Code
                   </button>
@@ -112,44 +66,21 @@ const Work = () => {
           </div>
             {/* Grid Item */}
           <div
-            style={{ backgroundImage: `url(${WorkImg})` }}
+            style={{ backgroundImage: `url(${travelPage})` }}
             className='shadow-lg shadow-[#040c16] group container rounded-md flex justify-center items-center mx-auto content-div'
           >
             {/* Hover Effects */}
             <div className='opacity-0 group-hover:opacity-100'>
               <span className='text-2xl font-bold text-white tracking-wider'>
-                React JS Application
+                Travel Landing Page
               </span>
               <div className='pt-8 text-center'>
-                <a href='/'>
+                <a href='https://travell-landingpage.netlify.app/' target='_blank' rel="noopener noreferrer">
                   <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
                     Demo
                   </button>
                 </a>
-                <a href='/'>
-                  <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
-                    Code
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            style={{ backgroundImage: `url(${realEstate})` }}
-            className='shadow-lg shadow-[#040c16] group container rounded-md flex justify-center items-center mx-auto content-div'
-          >
-            {/* Hover Effects */}
-            <div className='opacity-0 group-hover:opacity-100'>
-              <span className='text-2xl font-bold text-white tracking-wider'>
-                React JS Application
-              </span>
-              <div className='pt-8 text-center'>
-                <a href='/'>
-                  <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
-                    Demo
-                  </button>
-                </a>
-                <a href='/'>
+                <a href='https://github.com/kingmathers92/travel-landingPage' target='_blank' rel="noopener noreferrer">
                   <button className='text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg'>
                     Code
                   </button>

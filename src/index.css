@@ -31,9 +31,6 @@
 
 #logo{
     color: #fff;
-}
-
-#logo {
     animation: 2s ease-out slidein;
 }
 
