@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Contact = () => {
+  const [userEmail, setUserEmail] = useState("");
+  const [userMessage, setUserMessasge] = useState("");
+
   return (
     <div
       name="contact"
@@ -8,6 +11,7 @@ const Contact = () => {
     >
       <form
         method="POST"
+        onClick={(e) => e.preventDefault()}
         action="https://getform.io/f/65c92a0f-7a6c-4355-83a7-dcd78c5a552f"
         className="flex flex-col max-w-[600px] w-full"
       >
@@ -28,6 +32,8 @@ const Contact = () => {
           type="email"
           placeholder="Email"
           name="email"
+          value={userEmail}
+          onChange={(e) => setUserEmail(e.target.value)}
           required
         />
         <textarea
@@ -35,9 +41,15 @@ const Contact = () => {
           name="message"
           rows="5"
           placeholder="Message"
+          onChange={(e) => setUserMessasge(e.target.value)}
+          value={userMessage}
           required
         ></textarea>
-        <button className="text-white border-2 hover:bg-blue-600 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center">
+        <button
+          disabled={userEmail && userMessage === ""}
+          type="submit"
+          className="text-white border-2 hover:bg-blue-600 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center"
+        >
           Let's Collaborate
         </button>
       </form>
