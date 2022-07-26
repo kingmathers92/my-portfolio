@@ -11,7 +11,6 @@ const Contact = () => {
     >
       <form
         method="POST"
-        onClick={(e) => e.preventDefault()}
         action="https://getform.io/f/65c92a0f-7a6c-4355-83a7-dcd78c5a552f"
         className="flex flex-col max-w-[600px] w-full"
       >
@@ -46,7 +45,7 @@ const Contact = () => {
           required
         ></textarea>
         <button
-          disabled={userEmail && userMessage === ""}
+          disabled={userEmail & (userMessage === "")}
           type="submit"
           className="text-white border-2 hover:bg-blue-600 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center"
         >
