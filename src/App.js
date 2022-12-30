@@ -4,17 +4,20 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Skills from "./components/Skills";
 import Work from "./components/Work";
+import { useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+  document.body.className = theme === "light" ? "light-theme" : "dark-theme";
   return (
-      <div>
-        <Navbar />
-        <Home />
-        <About />
-        <Skills />
-        <Work />
-        <Contact />
-      </div>
+    <div>
+      <Navbar theme={theme} setTheme={setTheme} />
+      <Home />
+      <About />
+      <Skills />
+      <Work />
+      <Contact />
+    </div>
   );
 }
 
