@@ -14,10 +14,12 @@ const About = () => {
         </div>
         <div className="max-w-[1000px] w-full grid sm:grid-cols-2 gap-8 px-4">
           <div className="sm:text-right text-4xl font-bold">
-            <p>Hi. I'm Khaled, nice to meet you. Please take a look around.</p>
+            <p className="about">
+              Hi. I'm Khaled, nice to meet you. Please take a look around.
+            </p>
           </div>
           <div>
-            <p>
+            <p className="about">
               Utilizing modern frontend development tools like React to deliver
               fast applications with user friendly interface using Tailwind CSS
               or Bootstrap. Also, I have some experience with backend working

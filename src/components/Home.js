@@ -14,7 +14,7 @@ const Home = () => {
         <h2 className="text-4xl sm:text-7xl font-bold text-[#8892b0]">
           I'm a Web Developer.
         </h2>
-        <p className="text-[#8892b0] py-4 max-w-[700px]">
+        <p className="about text-[#8892b0] py-4 max-w-[700px]">
           I’m a self taught full-stack developer specializing in building
           exceptional digital experiences. Currently, I’m focused on building
           responsive full-stack web applications.

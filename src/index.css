@@ -45,28 +45,28 @@
 }
 
 .light-theme {
-  /* Light theme styles go here */
   background-color: white;
   color: black;
 }
-.light-theme a, p {
-  /* Light theme styles go here */
+
+.light-theme a, .about {
   color: #0A192F;
 }
+
 .light-theme button {
-  /* Light theme styles go here */
   background-color: #0A192F;
 }
+
 .light-theme .nav {
-  /* Light theme styles go here */
   background-color: #8892B0;
 }
 
-
 .dark-theme {
-  /* Dark theme styles go here */
   background-color: #0A192F;
   color: white;
+}
+.dark-theme p{
+  color: #D1D5DB;
 }
 
 
