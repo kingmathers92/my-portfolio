@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+//import ScrollToTop from "react-scroll-to-top";
+import ScrollBackToTop from "./ScrollBackToTop";
 
 const Contact = () => {
   const [userEmail, setUserEmail] = useState("");
@@ -15,10 +17,10 @@ const Contact = () => {
         className="flex flex-col max-w-[600px] w-full"
       >
         <div className="pb-2">
-          <p className="text-4xl font-bold inline border-b-4 border-blue-600 text-gray-300">
+          <p className="text-4xl font-bold inline border-b-4 border-blue-600">
             Contact
           </p>
-          <p className="text-gray-300 py-4">Submit the form below</p>
+          <p className=" py-4">Submit the form below</p>
         </div>
         <input
           className="bg-[#ccd6f6] p-2"
@@ -52,6 +54,7 @@ const Contact = () => {
           Let's Collaborate
         </button>
       </form>
+      <ScrollBackToTop />
     </div>
   );
 };
