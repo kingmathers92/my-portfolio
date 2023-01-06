@@ -20,11 +20,11 @@ const Skills = () => {
           <p className="skill text-4xl font-bold inline border-b-4 border-blue-600 ">
             Skills
           </p>
-          <p className="py-4">These are the technologies I've worked with</p>
+          <p className="py-4">// These are the technologies I've worked with</p>
         </div>
 
         <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8">
-          <div className="skills shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+          <div className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500">
             <img
               style={{ padding: "10px" }}
               className="w-20 mx-auto"
@@ -33,7 +33,7 @@ const Skills = () => {
             />
             <p className="my-4">HTML</p>
           </div>
-          <div className="skills shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+          <div className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500">
             <img
               style={{ padding: "10px" }}
               className="w-20 mx-auto"
@@ -42,7 +42,7 @@ const Skills = () => {
             />
             <p className="my-4">CSS</p>
           </div>
-          <div className="skills shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+          <div className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500">
             <img
               style={{ padding: "10px" }}
               className="w-20 mx-auto"
@@ -51,7 +51,7 @@ const Skills = () => {
             />
             <p className="my-4">JavaScript</p>
           </div>
-          <div className="skills shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+          <div className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500">
             <img
               style={{ padding: "10px" }}
               className="w-20 mx-auto"
@@ -60,7 +60,7 @@ const Skills = () => {
             />
             <p className="my-4">React</p>
           </div>
-          <div className="skills shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+          <div className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500">
             <img
               style={{ padding: "10px" }}
               className="w-20 mx-auto"
@@ -69,7 +69,7 @@ const Skills = () => {
             />
             <p className="my-4">Node</p>
           </div>
-          <div className="skills shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+          <div className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500">
             <img
               style={{ padding: "10px" }}
               className="w-20 mx-auto"
@@ -78,7 +78,7 @@ const Skills = () => {
             />
             <p className="my-4">Github</p>
           </div>
-          <div className="skills shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+          <div className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500">
             <img
               style={{ padding: "10px" }}
               className="w-20 mx-auto"
@@ -87,7 +87,7 @@ const Skills = () => {
             />
             <p className="my-4">Bootstrap</p>
           </div>
-          <div className="skills shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+          <div className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500">
             <img
               style={{ padding: "10px" }}
               className="w-20 mx-auto"
@@ -96,7 +96,7 @@ const Skills = () => {
             />
             <p className="my-4">Django</p>
           </div>
-          <div className="skills shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+          <div className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500">
             <img
               style={{ padding: "10px" }}
               className="w-20 mx-auto"
@@ -105,7 +105,7 @@ const Skills = () => {
             />
             <p className="my-4">Python</p>
           </div>
-          <div className="skills shadow-md shadow-[#040c16] hover:scale-110 duration-500">
+          <div className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500">
             <img
               style={{ padding: "10px" }}
               className="w-20 mx-auto"

@@ -19,7 +19,7 @@ const Contact = ({ nav }) => {
           <p className="text-4xl font-bold inline border-b-4 border-blue-600">
             Contact
           </p>
-          <p className=" py-4">Submit the form below</p>
+          <p className=" py-4">// Submit the form below</p>
         </div>
         <input
           className="bg-[#ccd6f6] p-2"
@@ -53,7 +53,7 @@ const Contact = ({ nav }) => {
           Let's Collaborate
         </button>
       </form>
-      {!nav && <scrollbacktotop />}
+      {!nav && <ScrollBackToTop />}
     </div>
   );
 };

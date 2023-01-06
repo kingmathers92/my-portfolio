@@ -135,7 +135,7 @@ body.overflow-hidden {
   background-color: #0A192F;
 }
 
-.light-theme .nav, .skills {
+.light-theme .nav, .skillsCard {
   background-color: #8892B0;
 }
 
@@ -143,7 +143,7 @@ body.overflow-hidden {
   background-color: #0A192F;
   color: white;
 }
-.dark-theme .skills {
+.dark-theme .skillsCard {
   background-color: #0A192F;
 }
 
