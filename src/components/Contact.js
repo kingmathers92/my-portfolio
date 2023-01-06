@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-//import ScrollToTop from "react-scroll-to-top";
 import ScrollBackToTop from "./ScrollBackToTop";
 
-const Contact = () => {
+const Contact = ({ nav }) => {
   const [userEmail, setUserEmail] = useState("");
   const [userMessage, setUserMessasge] = useState("");
 
@@ -54,7 +53,7 @@ const Contact = () => {
           Let's Collaborate
         </button>
       </form>
-      <ScrollBackToTop />
+      {!nav && <scrollbacktotop />}
     </div>
   );
 };

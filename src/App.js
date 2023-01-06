@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [theme, setTheme] = useState("light");
+  const [nav, setNav] = useState(false);
   useEffect(() => {
     // Get the preferred theme of the user's device so it would be set as default intially
     const preferredColorScheme =
@@ -20,12 +21,12 @@ function App() {
   document.body.className = theme === "light" ? "light-theme" : "dark-theme";
   return (
     <div>
-      <Navbar theme={theme} setTheme={setTheme} />
+      <Navbar theme={theme} setTheme={setTheme} setNav={setNav} />
       <Home />
       <About />
       <Skills />
       <Work />
-      <Contact />
+      <Contact nav={nav} />
     </div>
   );
 }
