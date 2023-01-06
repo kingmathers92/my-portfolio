@@ -44,6 +44,28 @@
   }
 }
 
+.socialsHidden {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.socialsHidden li {
+  margin: 1rem 0;
+}
+
+.socialsHidden li a:hover {
+  cursor: pointer;
+}
+
+.darkModeMobile {
+  position: absolute;
+  top: 28px;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
 #btnTop {
   display: inline-block;
   background-color: #0A192F;
@@ -83,6 +105,10 @@
 .light-theme {
   background-color: #e4e5f1;
   color: black;
+
+}
+.light-theme .mobileMenu {
+  background-color: #e4e5f1;
 }
 
 .light-theme a, p, .about {
@@ -105,20 +131,23 @@
   background-color: #0A192F;
 }
 
-.light-theme .nav {
+.light-theme .nav, .skills {
   background-color: #8892B0;
 }
 
-.dark-theme {
+.dark-theme, .mobileMenu {
   background-color: #0A192F;
   color: white;
+}
+.dark-theme .skills {
+  background-color: #0A192F;
 }
 
 .dark-theme p{
   color: #D1D5DB;
 }
 
-.dark-theme .hi{
+.dark-theme .hi {
   color: #5CA5EE;
 }
 
