@@ -69,7 +69,11 @@ const Navbar = ({ theme, setTheme }) => {
         onClick={handleClick}
         className="md:hidden z-10 hover:cursor-pointer"
       >
-        {!nav ? <FaBars /> : <FaTimes />}
+        {!nav ? (
+          <FaBars />
+        ) : (
+          <FaTimes style={{ color: theme === "light" ? "#0A192F" : "#fff" }} />
+        )}
       </div>
 
       <ul
