@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import Logo from "../assets/logof.png";
+import LogoDark from "../assets/logofd.png";
+import LogoLight from "../assets/logof.png";
 import { Link } from "react-scroll";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
@@ -27,7 +28,11 @@ const Navbar = ({ theme, setTheme }) => {
     <div className="nav fixed w-full h-[60px] flex justify-between items-center px-4 text-gray-300">
       <div>
         <a href="/">
-          <img id="logo" src={Logo} alt="Logo" />
+          <img
+            id="logo"
+            src={theme === "dark" ? LogoDark : LogoLight}
+            alt="Logo"
+          />
         </a>
       </div>
 
