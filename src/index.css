@@ -30,7 +30,7 @@
 }
 
 #logo {
-  color: #fff;
+  width: 80px;
   animation: 2s ease-out slidein;
 }
 
