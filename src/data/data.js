@@ -1,7 +1,8 @@
-import weatherApp from "../assets/weatherpic-min.png";
-import lyricsFetcher from "../assets/lyricsfetcher-min.png";
-import travelPage from "../assets/travel-min.png";
+import weatherApp from "../assets/weatherpic.png";
+import lyricsFetcher from "../assets/lyricsfetcher.png";
+import travelPage from "../assets/travel.png";
 import pdfToAdudio from "../assets/logo-color.png";
+import crypto from "../assets/cryptod.png";
 
 export const data = [
   {
@@ -31,5 +32,12 @@ export const data = [
     image: pdfToAdudio,
     github: "https://github.com/kingmathers92/pdfToAudio",
     live: "",
+  },
+  {
+    id: 5,
+    name: "Crypto Monitor",
+    image: crypto,
+    github: "https://github.com/kingmathers92/CryptoMonitor",
+    live: "https://cryptomonitor-824dc.web.app/",
   },
 ];
