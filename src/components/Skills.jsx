@@ -1,5 +1,5 @@
 import React from "react";
-import { skillsData } from "../data/skillsData.js";
+import { skillsData } from "../data/SkillsData.js";
 
 const Skills = () => {
   const skill = skillsData;
@@ -24,7 +24,7 @@ const Skills = () => {
                 style={{ padding: "10px" }}
                 className="w-20 mx-auto"
                 src={item.image}
-                alt="HTML icon"
+                alt="icon"
               />
               <p className="my-4">{item.name}</p>
             </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { projectsData } from "../data/projectsData.js";
+import { projectsData } from "../data/ProjectsData.js";
 
 const Work = () => {
   const project = projectsData;
