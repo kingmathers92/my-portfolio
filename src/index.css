@@ -29,6 +29,10 @@
   ) !important;
 }
 
+.nav {
+  position: relative;
+}
+
 #logo {
   width: 80px;
   animation: 2s ease-out slidein;
