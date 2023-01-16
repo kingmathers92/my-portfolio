@@ -29,13 +29,8 @@
   ) !important;
 }
 
-.nav {
-  position: relative;
-  border-top-color: #0A192F;
-}
-
 #logo {
-  width: 80px;
+  width: 70px;
   animation: 2s ease-out slidein;
 }
 
@@ -146,6 +141,12 @@ body.overflow-hidden {
   background-color: #0A192F;
   color: white;
 }
+
+.dark-theme .nav {
+  background-color: #091930;
+  z-index: 10;
+}
+
 .dark-theme .skillsCard {
   background-color: #0A192F;
 }
