@@ -1,8 +1,8 @@
 import React from "react";
-import { data } from "../data/data.js";
+import { projectsData } from "../data/projectsData.js";
 
 const Work = () => {
-  const project = data;
+  const project = projectsData;
 
   return (
     <div name="work" className="w-full md:h-screen text-gray-300">

@@ -5,7 +5,7 @@ import tenzies from "../assets/tenzies.png";
 import pdfToAdudio from "../assets/logo-color.png";
 import crypto from "../assets/cryptod.png";
 
-export const data = [
+export const projectsData = [
   {
     id: 1,
     name: "WeatherApp with JS",
