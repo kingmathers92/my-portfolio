@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { projectsData } from "../data/ProjectsData.js";
+import Pagination from "./Pagination.jsx";
 
 const Work = () => {
-  const project = projectsData;
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+  const project = projectsData.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+  const totalPages = Math.ceil(projectsData.length / itemsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div name="work" className="w-full md:h-screen text-gray-300">
@@ -53,6 +64,11 @@ const Work = () => {
             </div>
           ))}
         </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </div>
     </div>
   );
