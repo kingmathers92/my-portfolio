@@ -1,13 +1,8 @@
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
-//import Skills from "./components/Skills";
-//import Work from "./components/Work";
 import { useState, useEffect, Suspense, lazy } from "react";
+import { Navbar, Home, About, Contact } from "./components/index";
 
-const SkillsLazy = lazy(() => import("./components/Skills"));
-const WorkLazy = lazy(() => import("./components/Work"));
+const Skills = lazy(() => import("./components/Skills"));
+const Work = lazy(() => import("./components/Work"));
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -30,8 +25,8 @@ function App() {
         <Navbar theme={theme} setTheme={setTheme} setNav={setNav} />
         <Home />
         <About />
-        <SkillsLazy />
-        <WorkLazy />
+        <Skills />
+        <Work />
         <Contact nav={nav} />
       </Suspense>
     </>
