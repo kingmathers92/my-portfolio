@@ -1,5 +1,4 @@
 import weatherApp from "../assets/weatherpic.png";
-import lyricsFetcher from "../assets/lyricsfetcher.png";
 import travelPage from "../assets/travel.png";
 import tenzies from "../assets/tenzies.png";
 import pdfToAdudio from "../assets/logo-color.png";
