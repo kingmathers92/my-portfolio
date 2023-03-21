@@ -5,15 +5,19 @@ import Pagination from "./Pagination.jsx";
 const Work = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const project = projectsData.slice(
+  const sortedProjects = projectsData.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+  const project = sortedProjects.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-  const totalPages = Math.ceil(projectsData.length / itemsPerPage);
+  const totalPages = Math.ceil(sortedProjects.length / itemsPerPage);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
 
   return (
     <div name="work" className="w-full md:h-screen text-gray-300">
