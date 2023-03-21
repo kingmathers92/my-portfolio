@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.dbd039d9.css",
-    "main.js": "/static/js/main.7b91cc5a.js",
+    "main.css": "/static/css/main.b70765f1.css",
+    "main.js": "/static/js/main.a059fd75.js",
+    "static/media/moviehub.png": "/static/media/moviehub.8c76bcf4847d0d04db61.png",
     "static/media/travel.png": "/static/media/travel.e4b6771fb667cf4f81c3.png",
     "static/media/weatherpic.png": "/static/media/weatherpic.ce3de209d1aafdb0b693.png",
     "static/media/resume.pdf": "/static/media/resume.0cc0802d9bb4c5080b5d.pdf",
+    "static/media/kby.png": "/static/media/kby.87246c79e2e22b67dd25.png",
     "static/media/logo-color.png": "/static/media/logo-color.2a6b8e14679701f52320.png",
     "static/media/cryptod.png": "/static/media/cryptod.43513449d2c9377f1f49.png",
     "static/media/react.png": "/static/media/react.89cefd999ca9b0768fed.png",
     "static/media/node.png": "/static/media/node.bee9856646d0ff6d00a3.png",
     "static/media/tenzies.png": "/static/media/tenzies.c753447b9654b1c4c6e7.png",
-    "static/media/logofd.png": "/static/media/logofd.befed0a7b8c0a68c7bd5.png",
-    "static/media/lyricsfetcher.png": "/static/media/lyricsfetcher.61576fad3d953f1a23de.png",
     "index.html": "/index.html",
-    "main.dbd039d9.css.map": "/static/css/main.dbd039d9.css.map",
-    "main.7b91cc5a.js.map": "/static/js/main.7b91cc5a.js.map"
+    "main.b70765f1.css.map": "/static/css/main.b70765f1.css.map",
+    "main.a059fd75.js.map": "/static/js/main.a059fd75.js.map"
   },
   "entrypoints": [
-    "static/css/main.dbd039d9.css",
-    "static/js/main.7b91cc5a.js"
+    "static/css/main.b70765f1.css",
+    "static/js/main.a059fd75.js"
   ]
 }
