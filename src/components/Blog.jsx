@@ -16,6 +16,7 @@ function Blog({ username }) {
         const posts = response.data.items;
         setPosts(posts);
         setPostsPerPage(posts.length);
+        console.log(posts);
       })
       .catch((error) => {
         console.error(error);
@@ -24,7 +25,7 @@ function Blog({ username }) {
 
   const stripTags = (html) => {
     if (!html) return "";
-    return html.replace(/<[^>]+>/g, "");
+    return html.replace(/<[^>]+>/g, "").replace(/Photo\s.*\sUnsplash/, "");
   };
 
   const indexOfLastPost = currentPage * postsPerPage;
