@@ -54,11 +54,11 @@ function Blog() {
           {currentPosts.map((post, index) => (
             <div
               key={index}
-              className="rounded-lg group h-auto mx-auto shadow-sm shadow-blue-300 m-2 p-2"
+              className="rounded-lg group h-auto mx-auto shadow-md shadow-blue-300 m-2 p-2"
             >
               <img src={post.image} alt="post" />
               <a href={post.link} target="_blank" rel="noreferrer">
-                <p className="text-xl mt-4 text-blue-300 brightness-150">
+                <p className="title text-xl mt-4 text-blue-300 brightness-150">
                   {post.title}
                 </p>
                 <br />
@@ -73,7 +73,9 @@ function Blog() {
                   alt="face"
                 />
                 <p className="mx-3">
-                  <span className="text-gray-200 text-sm">{post.time}</span>
+                  <span className="time text-gray-200 text-sm">
+                    {post.time}
+                  </span>
                 </p>
               </div>
             </div>
