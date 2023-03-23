@@ -6,13 +6,16 @@ import { blogData } from "../data/BlogData.js";
 function Blog() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
+  const sortedPosts = blogData.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
 
-  const currentPosts = blogData.slice(
+  const currentPosts = sortedPosts.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
-  const totalPages = Math.ceil(blogData.length / itemsPerPage);
+  const totalPages = Math.ceil(sortedPosts.length / itemsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
