@@ -116,8 +116,11 @@
   background-color: #e4e5f1;
 }
 
-.light-theme a, p, .about {
+.light-theme a, p, .about, .time {
   color: #0A192F;
+}
+.light-theme .group{
+  border: 1px solid #0A192F;
 }
 
 .light-theme #btnTop {
@@ -128,7 +131,7 @@
   color: #8892B0;
 }
 
-.light-theme .web {
+.light-theme .web, .title {
   color: #0A192F;
 }
 
