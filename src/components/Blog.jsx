@@ -1,42 +1,42 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+//import axios from "axios";
 import Pagination from "./Pagination.jsx";
+import { blogData } from "../data/BlogData.js";
 
-function Blog({ username }) {
-  const [posts, setPosts] = useState([]);
+function Blog() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
 
-  const currentPosts = posts.slice(
+  const currentPosts = blogData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
-  const totalPages = Math.ceil(posts.length / itemsPerPage);
+  const totalPages = Math.ceil(blogData.length / itemsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  useEffect(() => {
-    const username = "@khaledb.yahya";
-    const url = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${username}}`;
-    axios
-      .get(url)
-      .then((response) => {
-        const posts = response.data.items;
-        setPosts(posts);
-        console.log(posts);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   const username = "@khaledb.yahya";
+  //   const url = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${username}}`;
+  //   axios
+  //     .get(url)
+  //     .then((response) => {
+  //       const posts = response.data.items;
+  //       setPosts(posts);
+  //       console.log(posts);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
 
-  const stripTags = (html) => {
-    if (!html) return "";
-    return html.replace(/<[^>]+>/g, "").replace(/Photo\s.*\sUnsplash/, "");
-  };
+  // const stripTags = (html) => {
+  //   if (!html) return "";
+  //   return html.replace(/<[^>]+>/g, "").replace(/Photo\s.*\sUnsplash/, "");
+  // };
 
   return (
     <div name="blog" className="w-full md:h-screen mt-20">
@@ -48,22 +48,19 @@ function Blog({ username }) {
           <p className="py-6">// Check out some of my recent articles</p>
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {currentPosts.map((post) => (
+          {currentPosts.map((post, index) => (
             <div
-              key={post.guid}
+              key={index}
               className="rounded-lg group h-auto mx-auto shadow-sm shadow-blue-300 m-2 p-2"
             >
-              <img src={post.thumbnail} alt="post" />
+              <img src={post.image} alt="post" />
               <a href={post.link} target="_blank" rel="noreferrer">
                 <p className="text-xl mt-4 text-blue-300 brightness-150">
                   {post.title}
                 </p>
                 <br />
                 <div>
-                  <p className="text-sm font-light">
-                    {stripTags(post.description).slice(0, 250)}
-                    {stripTags(post.description).length > 250 ? "..." : ""}
-                  </p>
+                  <p className="text-sm font-light">{post.description}</p>
                 </div>
               </a>
               <div className="flex items-center right-0 bottom-0">
@@ -73,9 +70,7 @@ function Blog({ username }) {
                   alt="face"
                 />
                 <p className="mx-3">
-                  <span className="text-gray-200 text-sm">
-                    {new Date(post.pubDate).toLocaleDateString()}
-                  </span>
+                  <span className="text-gray-200 text-sm">{post.time}</span>
                 </p>
               </div>
             </div>
