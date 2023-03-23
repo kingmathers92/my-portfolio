@@ -9,15 +9,7 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 const Navbar = ({ theme, setTheme }) => {
   const [nav, setNav] = useState(false);
 
-  const handleClick = () => {
-    setNav(!nav);
-    document.backToTop.classList.toggle("hidden");
-    if (!nav) {
-      document.body.classList.remove("overflow-hidden");
-    } else {
-      document.body.classList.add("overflow-hidden");
-    }
-  };
+  const handleClick = () => setNav(!nav);
 
   const toggleDarkMode = (checked: boolean) => {
     setTheme(checked ? "dark" : "light");
