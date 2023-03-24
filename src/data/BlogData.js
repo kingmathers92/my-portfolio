@@ -21,7 +21,7 @@ export const blogData = [
   {
     title: "Redux for State Management",
     description:
-      "There are times when developers get stuck with a problem that has to do with version changes. Trying to run the code or test without upgrading the package can result in unexpected errors...",
+      "Redux is a predictable state container for JavaScript applications that can help you manage your application’s global state in a more organized and maintainable way...",
     image: "https://miro.medium.com/v2/resize:fit:1400/0*IzXEwuhsVbIuY4vv",
     time: "4 mins read",
     link: "https://medium.com/@khaledb.yahya/redux-for-state-management-de286cd99270/",
