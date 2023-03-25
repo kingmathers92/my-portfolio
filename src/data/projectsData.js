@@ -51,7 +51,7 @@ export const projectsData = [
     name: "Moviehub",
     image: moviehub,
     github: "https://github.com/kingmathers92/moviehub",
-    live: "https://kingmathers92.github.io/moviehub/",
+    live: "https://moviehubnet.netlify.app/",
     date: "2023-03-14",
   },
 ];
