@@ -116,9 +116,14 @@
   background-color: #e4e5f1;
 }
 
-.light-theme a, p, .about, .time {
+.light-theme a, p, .about {
   color: #0A192F;
 }
+
+.light-theme .time {
+  color: #0A192F;
+}
+
 .light-theme .group{
   border: 1px solid #0A192F;
 }
