@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import axios from "axios";
 import Pagination from "./Pagination.jsx";
 import { blogData } from "../data/BlogData.js";
 
@@ -20,26 +19,6 @@ function Blog() {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
-  // useEffect(() => {
-  //   const username = "@khaledb.yahya";
-  //   const url = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${username}}`;
-  //   axios
-  //     .get(url)
-  //     .then((response) => {
-  //       const posts = response.data.items;
-  //       setPosts(posts);
-  //       console.log(posts);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
-
-  // const stripTags = (html) => {
-  //   if (!html) return "";
-  //   return html.replace(/<[^>]+>/g, "").replace(/Photo\s.*\sUnsplash/, "");
-  // };
 
   return (
     <div name="blog" className="w-full md:h-screen mt-20">
@@ -68,7 +47,7 @@ function Blog() {
               </a>
               <div className="flex items-center right-0 bottom-0">
                 <img
-                  src="https://imgtr.ee/images/2023/03/22/qgGMU.png"
+                  src="https://imgtr.ee/images/2023/07/11/7f7acf0d9b774998003fcb6a7ed35fce.png"
                   className="rounded-full w-12 h-12 my-2"
                   alt="face"
                 />

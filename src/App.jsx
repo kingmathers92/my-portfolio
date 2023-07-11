@@ -1,5 +1,12 @@
 import { useState, useEffect, Suspense, lazy } from "react";
-import { Navbar, Home, About, Blog, Contact } from "./components/index";
+import {
+  Navbar,
+  Home,
+  About,
+  Blog,
+  Youtube,
+  Contact,
+} from "./components/index";
 
 const Skills = lazy(() => import("./components/Skills"));
 const Work = lazy(() => import("./components/Work"));
@@ -28,6 +35,7 @@ function App() {
         <Skills />
         <Work />
         <Blog />
+        <Youtube />
         <Contact nav={nav} />
       </Suspense>
     </>
