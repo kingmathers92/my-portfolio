@@ -27,4 +27,16 @@ export const blogData = [
     link: "https://medium.com/@khaledb.yahya/redux-for-state-management-de286cd99270/",
     date: "2023-03-09",
   },
+
+  {
+    title:
+      "Convert your Existing React jsApp to Android App Using the Ionic Capacitor",
+    description:
+      "Today I will show the easiest and simple way I’ve found to convert your existing React js app to an android app using ionic capacitor....",
+    image:
+      "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*5OMRCgJpFC0muhlnr5IokQ.jpeg",
+    time: "2 mins read",
+    link: "https://medium.com/@khaledb.yahya/convert-your-existing-react-jsapp-to-android-app-using-the-ionic-capacitor-94046389ba53/",
+    date: "2023-07-09",
+  },
 ];

@@ -61,6 +61,11 @@ const Navbar = ({ theme, setTheme }) => {
           </Link>
         </li>
         <li className="no-underline hover:underline">
+          <Link to="youtube" smooth={true} offset={-30} duration={500}>
+            Youtube
+          </Link>
+        </li>
+        <li className="no-underline hover:underline">
           <Link to="contact" smooth={true} offset={-20} duration={500}>
             Contact
           </Link>
@@ -141,6 +146,11 @@ const Navbar = ({ theme, setTheme }) => {
         <li className="py-6 text-4xl no-underline hover:underline">
           <Link onClick={handleClick} to="blog" smooth={true} duration={500}>
             Blog
+          </Link>
+        </li>
+        <li className="py-6 text-4xl no-underline hover:underline">
+          <Link onClick={handleClick} to="blog" smooth={true} duration={500}>
+            Youtube
           </Link>
         </li>
         <li className="py-6 text-4xl no-underline hover:underline">

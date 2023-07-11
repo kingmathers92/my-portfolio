@@ -1,19 +1,20 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {},
   },
   plugins: [
-    function ({addUtilities}) {
+    function ({ addUtilities }) {
       const extendUnderline = {
-          '.underline': {
-              'textDecoration': 'underline',
-              'text-decoration-color': '#fff',
-              'text-decoration-thickness': '2.5px',
-          },
-      }
-      addUtilities(extendUnderline)
-  }
+        ".underline": {
+          textDecoration: "underline",
+          "text-decoration-color": "#fff",
+          "text-decoration-thickness": "2.5px",
+        },
+      };
+      addUtilities(extendUnderline);
+    },
+    require("tailwind-scrollbar-hide"),
   ],
-}
+};
