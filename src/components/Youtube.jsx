@@ -11,6 +11,7 @@ function Youtube() {
           `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.REACT_APP_CHANNEL_ID}&maxResults=3&order=date&key=${process.env.REACT_APP_API_KEY}`
         );
         const data = await response.json();
+        console.log(data);
         const fetchedVideos = data.items;
         setVideos(fetchedVideos);
       } catch (error) {
@@ -52,27 +53,28 @@ function Youtube() {
             id="slider"
             className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide"
           >
-            {videos.map((video) => (
-              <div
-                key={video.id.videoId}
-                className="inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
-              >
-                <a
-                  href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+            {videos &&
+              videos.map((video) => (
+                <div
+                  key={video.id.videoId}
+                  className="inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
                 >
-                  <iframe
-                    src={`https://www.youtube.com/embed/${video.id.videoId}`}
-                    title={video.snippet.title}
-                    width="290"
-                    height="190"
-                    frameBorder="0"
-                    allowFullScreen
-                  ></iframe>
-                </a>
-              </div>
-            ))}
+                  <a
+                    href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                      title={video.snippet.title}
+                      width="290"
+                      height="190"
+                      frameBorder="0"
+                      allowFullScreen
+                    ></iframe>
+                  </a>
+                </div>
+              ))}
           </div>
           <MdChevronRight
             className="opacity-50 cursor-pointer hover:opacity-100"
