@@ -19,22 +19,11 @@ const Navbar = ({ theme, setTheme }) => {
     <div className="nav fixed w-full h-[60px] flex justify-between items-center px-4 text-gray-300">
       <div>
         <a href="/">
-          <img
-            id="logo"
-            //src={theme === "dark" ? LogoDark : LogoLight}
-            src={Logo}
-            alt="Logo"
-          />
+          <img id="logo" src={Logo} alt="Logo" />
         </a>
       </div>
 
       <menu className="hidden md:flex">
-        <DarkModeSwitch
-          style={{ marginBottom: "0rem" }}
-          checked={theme === "dark"}
-          onChange={toggleDarkMode}
-          size={25}
-        />
         <li className="no-underline hover:underline">
           <Link to="home" smooth={true} duration={500}>
             Home
@@ -70,6 +59,12 @@ const Navbar = ({ theme, setTheme }) => {
             Contact
           </Link>
         </li>
+        <DarkModeSwitch
+          style={{ marginBottom: "0rem" }}
+          checked={theme === "dark"}
+          onChange={toggleDarkMode}
+          size={25}
+        />
       </menu>
 
       <div
