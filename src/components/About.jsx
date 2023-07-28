@@ -1,35 +1,46 @@
 import React from "react";
+import { HiArrowNarrowRight } from "react-icons/hi";
+import { Link } from "react-scroll";
 
 const About = () => {
   return (
-    <div name="about" className="w-full h-screen text-gray-300">
-      <div className="flex flex-col justify-center items-center w-full h-full">
-        <div className="max-w-[1000px] w-full grid grid-cols-2 gap-8">
-          <div className="sm:text-right pb-8 pl-4">
-            <p className="text-4xl font-bold inline border-b-4 border-blue-600">
-              About
-            </p>
-          </div>
-          <div></div>
-        </div>
-        <div className="max-w-[1000px] w-full grid sm:grid-cols-2 gap-8 px-4">
-          <div className="sm:text-right text-4xl font-bold">
-            <p className="about">
-              Hi. I'm Khaled, nice to meet you. Please take a look around.
-            </p>
-          </div>
+    <>
+      {/* About Section */}
+      <div name="home" className="w-full h-screen pt-0 pb-0">
+        {/* Container */}
+        <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full">
+          <p className="hi left-animate">Hi, my name is</p>
+          <h1 className="name text-2xl sm:text-4xl font-bold text-[#ccd6f6] right-animate">
+            Khaled Ben Yahya
+          </h1>
+          <h2 className="web text-4xl sm:text-7xl font-bold text-[#8892b0] left-animate">
+            I'm a Software Developer.
+          </h2>
+          <p className="about text-[#8892b0] py-4 max-w-[700px] right-animate">
+            I’m full-stack developer specializing in building exceptional
+            digital experiences. Currently, I’m focused on building responsive
+            full-stack web applications.
+          </p>
+          <p className="about left-animate">
+            Utilizing modern frontend development tools like React to deliver
+            fast applications with user-friendly interfaces using Tailwind CSS
+            or Bootstrap. Also, I have some experience with backend working with
+            NodeJS and Django. What would you do if you had a software expert
+            available at your fingertips?
+          </p>
           <div>
-            <p className="about">
-              Utilizing modern frontend development tools like React to deliver
-              fast applications with user friendly interface using Tailwind CSS
-              or Bootstrap. Also, I have some experience with backend working
-              with NodeJS and Django. What would you do if you had a software
-              expert available at your fingertips?
-            </p>
+            <Link to="work" smooth={true} duration={500}>
+              <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-blue-600 hover:border-blue-600">
+                View Work
+                <span className="group-hover:rotate-90 duration-300">
+                  <HiArrowNarrowRight className="ml-3 " />
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

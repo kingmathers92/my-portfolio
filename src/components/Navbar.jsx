@@ -25,11 +25,6 @@ const Navbar = ({ theme, setTheme }) => {
 
       <menu className="hidden md:flex">
         <li className="no-underline hover:underline">
-          <Link to="home" smooth={true} duration={500}>
-            Home
-          </Link>
-        </li>
-        <li className="no-underline hover:underline">
           <Link to="about" smooth={true} offset={-20} duration={500}>
             About
           </Link>
@@ -50,7 +45,7 @@ const Navbar = ({ theme, setTheme }) => {
           </Link>
         </li>
         <li className="no-underline hover:underline">
-          <Link to="youtube" smooth={true} offset={-50} duration={500}>
+          <Link to="youtube" smooth={true} offset={160} duration={500}>
             Youtube
           </Link>
         </li>
@@ -118,11 +113,6 @@ const Navbar = ({ theme, setTheme }) => {
             </a>
           </li>
         </div>
-        <li className="py-6 text-4xl no-underline hover:underline">
-          <Link onClick={handleClick} to="home" smooth={true} duration={500}>
-            Home
-          </Link>
-        </li>
         <li className="py-6 text-4xl no-underline hover:underline">
           <Link onClick={handleClick} to="about" smooth={true} duration={500}>
             About

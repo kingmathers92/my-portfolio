@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Pagination from "./Pagination.jsx";
 import { blogData } from "../data/BlogData.js";
+import face from "../assets/face-min.png";
 
 function Blog() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,7 +22,7 @@ function Blog() {
   };
 
   return (
-    <div name="blog" className="w-full md:h-screen mt-20">
+    <div name="blog" className="w-full md:h-screen pt-20">
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-blue-600">
@@ -47,7 +48,7 @@ function Blog() {
               </a>
               <div className="flex items-center right-0 bottom-0">
                 <img
-                  src="https://imgtr.ee/images/2023/07/11/7f7acf0d9b774998003fcb6a7ed35fce.png"
+                  src={face}
                   className="rounded-full w-12 h-12 my-2"
                   alt="face"
                 />
