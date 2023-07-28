@@ -36,7 +36,7 @@ const Work = () => {
               key={index}
               style={{ backgroundImage: `url(${item.image})` }}
               className="shadow-lg shadow-[#040c16] group container rounded-md
-              flex justify-center text-center items-center mx-auto content-div"
+    flex justify-center text-center items-center mx-auto content-div"
             >
               {/* Hover effect for images */}
               <div className="opacity-0 group-hover:opacity-100 ">
@@ -48,20 +48,31 @@ const Work = () => {
                   <a href={item.github} target="_blank">
                     <button
                       className="text-center rounded-lg px-4 py-3 m-2
-                       bg-white text-gray-700 font-bold text-lg"
+             bg-white text-gray-700 font-bold text-lg"
                     >
                       Code
                     </button>
                   </a>
-                  {/* eslint-disable-next-line */}
-                  <a href={item.live} target="_blank">
+                  {/* Conditionally render the "Live" button */}
+                  {item.live ? (
+                    // eslint-disable-next-line
+                    <a href={item.live} target="_blank">
+                      <button
+                        className="text-center rounded-lg px-4 py-3 m-2
+               bg-white text-gray-700 font-bold text-lg"
+                      >
+                        Live
+                      </button>
+                    </a>
+                  ) : (
                     <button
                       className="text-center rounded-lg px-4 py-3 m-2
-                       bg-white text-gray-700 font-bold text-lg"
+             bg-white text-gray-700 font-bold text-lg opacity-50 cursor-not-allowed"
+                      disabled
                     >
                       Live
                     </button>
-                  </a>
+                  )}
                 </div>
               </div>
             </div>

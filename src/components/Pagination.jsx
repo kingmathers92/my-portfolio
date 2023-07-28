@@ -5,13 +5,14 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
   return (
     <div className="flex justify-center my-4">
-      <button
-        className="py-2 px-4 bg-blue-500 text-white rounded-l"
-        disabled={currentPage === 1}
-        onClick={() => onPageChange(currentPage - 1)}
-      >
-        Previous
-      </button>
+      {currentPage !== 1 && (
+        <button
+          className="py-2 px-4 bg-blue-500 text-white rounded-l"
+          onClick={() => onPageChange(currentPage - 1)}
+        >
+          Previous
+        </button>
+      )}
       {pages.map((page) => (
         <button
           key={page}
@@ -23,13 +24,14 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           {page}
         </button>
       ))}
-      <button
-        className="py-2 px-4 bg-blue-500 text-white rounded-r"
-        disabled={currentPage === totalPages}
-        onClick={() => onPageChange(currentPage + 1)}
-      >
-        Next
-      </button>
+      {currentPage !== totalPages && (
+        <button
+          className="py-2 px-4 bg-blue-500 text-white rounded-r"
+          onClick={() => onPageChange(currentPage + 1)}
+        >
+          Next
+        </button>
+      )}
     </div>
   );
 };
