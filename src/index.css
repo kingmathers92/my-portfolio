@@ -27,9 +27,12 @@
   background-size: cover;
   background-position: center;
   height: 200px;
+  opacity: 1;
+  transition: opacity 0.3s;
 }
 
 .content-div:hover {
+  opacity: 0.8;
   background-image: linear-gradient(
     to right,
     rgba(112, 157, 255, 0.8),
