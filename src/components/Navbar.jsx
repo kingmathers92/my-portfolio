@@ -69,7 +69,7 @@ const Navbar = ({ theme, setTheme }) => {
 
       <div
         onClick={handleClick}
-        className="md:hidden z-10 hover:cursor-pointer"
+        className="md:hidden z-10 hover:cursor-pointer text-2xl"
       >
         {!nav ? (
           <FaBars />
