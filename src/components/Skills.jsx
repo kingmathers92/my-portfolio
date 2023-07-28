@@ -18,11 +18,11 @@ const Skills = () => {
           {skill.map((item, index) => (
             <div
               key={index}
-              className="skillsCard shadow-md shadow-[#040c16] hover:scale-110 duration-500"
+              className="skillsCard rounded-md hover:scale-110 duration-500 group"
             >
               <img
                 style={{ padding: "10px" }}
-                className="w-20 mx-auto"
+                className="w-30 h-20 mx-auto"
                 src={item.image}
                 alt="icon"
               />

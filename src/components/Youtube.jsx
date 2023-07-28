@@ -7,13 +7,19 @@ function Youtube() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.REACT_APP_CHANNEL_ID}&maxResults=3&order=date&key=${process.env.REACT_APP_API_KEY}`
-        );
-        const data = await response.json();
-        console.log(data);
-        const fetchedVideos = data.items;
-        setVideos(fetchedVideos);
+        const cachedVideos = localStorage.getItem("cachedVideos");
+        if (cachedVideos) {
+          setVideos(JSON.parse(cachedVideos));
+        } else {
+          const response = await fetch(
+            `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.REACT_APP_CHANNEL_ID}&maxResults=3&order=date&key=${process.env.REACT_APP_API_KEY}`
+          );
+          const data = await response.json();
+          console.log(data);
+          const fetchedVideos = data.items;
+          setVideos(fetchedVideos);
+          localStorage.setItem("cachedVideos", JSON.stringify(fetchedVideos));
+        }
       } catch (error) {
         console.error("Error fetching video data:", error);
       }
@@ -35,7 +41,7 @@ function Youtube() {
   };
 
   return (
-    <div name="youtube" className="w-full md:h-screen mt-20">
+    <div name="youtube" className="w-full md:h-screen">
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-blue-600">

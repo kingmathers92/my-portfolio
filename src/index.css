@@ -171,3 +171,35 @@ canvas {
   background-color: transparent;
 }
 
+
+/* CSS Animation for about section*/
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.left-animate {
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.right-animate {
+  animation: slideInRight 1s ease-in-out;
+}
+
