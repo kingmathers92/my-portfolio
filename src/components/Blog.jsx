@@ -33,7 +33,7 @@ function Blog() {
           {currentPosts.map((post, index) => (
             <div
               key={index}
-              className="rounded-lg group h-auto mx-auto shadow-md shadow-blue-300 m-2 p-2"
+              className="rounded-lg group h-auto mx-auto m-2 p-2"
             >
               <img src={post.image} alt="post" />
               <a href={post.link} target="_blank" rel="noreferrer">

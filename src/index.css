@@ -42,17 +42,6 @@
 
 #logo {
   width: 70px;
-  animation: 2s ease-out slidein;
-}
-
-@keyframes slidein {
-  from {
-    transform: translateX(0%);
-  }
-
-  to {
-    transform: translateX(100%);
-  }
 }
 
 .socialsHidden {
@@ -155,6 +144,10 @@
 .dark-theme, .mobileMenu {
   background-color: #0A192F;
   color: white;
+}
+
+.dark-theme .group{
+  border: 1px solid #FFF;
 }
 
 .dark-theme .nav {
