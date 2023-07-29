@@ -21,7 +21,7 @@
 .loader {
   display:block;
   margin:auto;
-  color: #0A192F;
+  color: #68d391;
   z-index: 999;
 }
 
@@ -150,7 +150,7 @@
 }
 
 .dark-theme .group{
-  border: 1px solid #FFF;
+  border: 1px solid #68d391;
 }
 
 .dark-theme .nav {
@@ -210,7 +210,7 @@ canvas {
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 65vw;
-  height: 12.5vh;
+  height: auto;
 }
 
 .web::before{
@@ -219,21 +219,26 @@ canvas {
   overflow: hidden;
   color: #68d391;
   border-right: 4px solid #68d391;
-  top:0;
-  left:0;
-  width:0;
-  height: 100%;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: auto;
   animation: sway 6s linear infinite;
+}
+
+.light-theme .web::before{
+  color: #8892B0;
+  border-right: 4px solid #8892B0;
 }
 
 @keyframes sway {
   0%, 10%, 100% {
     width: 0%;
-    height:auto;
+    height: 110%;
   }
   70%, 80%, 90% {
     width: 100%;
-    height:auto;
+    height: 110%;
   }
 }
 
@@ -253,7 +258,7 @@ canvas {
 
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+/* @media (min-width: 768px) and (max-width: 1024px) {
   .web {
     max-width: 100%;
     height: auto;
@@ -264,5 +269,5 @@ canvas {
     height: auto;
     overflow: hidden;
   }
-}
+} */
 
