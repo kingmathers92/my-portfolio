@@ -15,11 +15,10 @@ const Contact = ({ nav }) => {
         action="https://getform.io/f/65c92a0f-7a6c-4355-83a7-dcd78c5a552f"
         className="flex flex-col max-w-[600px] w-full"
       >
-        <div className="pb-2">
+        <div className="pb-6">
           <p className="text-4xl font-bold inline border-b-4 border-blue-600">
             Contact
           </p>
-          <p className=" py-4">// Submit the form below</p>
         </div>
         <input
           className="bg-[#ccd6f6] p-2"
