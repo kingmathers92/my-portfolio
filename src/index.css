@@ -14,6 +14,9 @@
   }
 }
 
+.nav {
+  z-index: 10;
+}
 
 .loader {
   display:block;
@@ -152,7 +155,6 @@
 
 .dark-theme .nav {
   background-color: #091930;
-  z-index: 10;
 }
 
 .dark-theme .skillsCard {
@@ -164,7 +166,7 @@
 }
 
 .dark-theme .hi {
-  color: #5CA5EE;
+  color: #68d391;
 }
 
 canvas {
@@ -203,3 +205,43 @@ canvas {
   animation: slideInRight 1s ease-in-out;
 }
 
+.web {
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 65vw;
+  height: 12.5vh;
+}
+
+.web::before{
+  content: "I'm a Software Developer.";
+  position: absolute;
+  overflow: hidden;
+  color: #68d391;
+  border-right: 4px solid #68d391;
+  top:0;
+  left:0;
+  width:0;
+  height: 100%;
+  animation: sway 6s linear infinite;
+}
+
+@keyframes sway {
+  0%, 10%, 100% {
+    width: 0%;
+  }
+  70%, 80%, 90% {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .web {
+    max-width: 65vw;
+    height: 5vh;
+    overflow: hidden;
+  }
+  .web::before{
+    max-width: 90%;
+  }
+}

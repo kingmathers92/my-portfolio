@@ -11,10 +11,9 @@ const Skills = () => {
           <p className="skill text-4xl font-bold inline border-b-4 border-blue-600 ">
             Skills
           </p>
-          <p className="py-4">// These are the technologies I've worked with</p>
         </div>
 
-        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8">
+        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8 transform: none; transform-origin: 50% -10000% 0px;">
           {skill.map((item, index) => (
             <div
               key={index}
