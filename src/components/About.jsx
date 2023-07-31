@@ -22,11 +22,8 @@ const About = () => {
             full-stack web applications.
           </p>
           <p className="about left-animate">
-            Utilizing modern frontend development tools like React to deliver
-            fast applications with user-friendly interfaces using Tailwind CSS
-            or Bootstrap. Also, I have some experience with backend working with
-            NodeJS and Django. What would you do if you had a software expert
-            available at your fingertips?
+            What would you do if you had a software expert available at your
+            fingertips?
           </p>
           <div>
             <Link to="work" smooth={true} duration={500}>
