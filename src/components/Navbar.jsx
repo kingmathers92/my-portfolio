@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  FaBars,
+  FaTimes,
+  FaGithub,
+  FaYoutube,
+  FaLinkedin,
+} from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import Logo from "../assets/kby.png";
@@ -103,6 +109,11 @@ const Navbar = ({ theme, setTheme }) => {
             </a>
           </li>
           <li>
+            <a href="https://www.youtube.com/@devstuff92" target="blank">
+              <FaYoutube size={30} />
+            </a>
+          </li>
+          <li>
             <a href="mailto:khaledb.yahya@gmail.com" target="blank">
               <HiOutlineMail size={30} />
             </a>
@@ -147,7 +158,7 @@ const Navbar = ({ theme, setTheme }) => {
 
       <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
         <ul>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-blue-600">
+          <li className="w-[160px] h-[40px] rounded-t flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-blue-600">
             <a
               className="flex justify-between items-center w-full text-gray-300"
               href="https://www.linkedin.com/in/khaledbenyahya/"
@@ -156,7 +167,7 @@ const Navbar = ({ theme, setTheme }) => {
               Linkedin <FaLinkedin size={30} />
             </a>
           </li>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#333333]">
+          <li className="w-[160px] h-[40px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#333333]">
             <a
               className="flex justify-between items-center w-full text-gray-300"
               href="https://github.com/kingmathers92"
@@ -165,7 +176,16 @@ const Navbar = ({ theme, setTheme }) => {
               Github <FaGithub size={30} />
             </a>
           </li>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#EA4335]">
+          <li className="w-[160px] h-[40px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#c4302b]">
+            <a
+              className="flex justify-between items-center w-full text-gray-300"
+              href="https://www.youtube.com/@devstuff92"
+              target="blank"
+            >
+              Youtube <FaYoutube size={30} />
+            </a>
+          </li>
+          <li className="w-[160px] h-[40px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#00A4EF]">
             <a
               className="flex justify-between items-center w-full text-gray-300"
               href="mailto:khaledb.yahya@gmail.com"
@@ -174,7 +194,7 @@ const Navbar = ({ theme, setTheme }) => {
               Email <HiOutlineMail size={30} />
             </a>
           </li>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#34A853]">
+          <li className="w-[160px] h-[40px] rounded-b flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#34A853]">
             <a
               className="flex justify-between items-center w-full text-gray-300"
               href={require("../assets/resume.pdf")}
