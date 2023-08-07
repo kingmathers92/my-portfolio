@@ -10,15 +10,30 @@ function Youtube() {
         const cachedVideos = localStorage.getItem("cachedVideos");
         if (cachedVideos) {
           setVideos(JSON.parse(cachedVideos));
+          return;
         } else {
           const response = await fetch(
             `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.REACT_APP_CHANNEL_ID}&maxResults=3&order=date&key=${process.env.REACT_APP_API_KEY}`
           );
+
+          if (!response.ok) {
+            console.error(
+              "Error fetching video data. Response status:",
+              response.status
+            );
+            console.error("Response text:", await response.text());
+            return;
+          }
+
           const data = await response.json();
-          console.log(data);
-          const fetchedVideos = data.items;
-          setVideos(fetchedVideos);
-          localStorage.setItem("cachedVideos", JSON.stringify(fetchedVideos));
+
+          if (data.items && data.items.length < 0) {
+            const fetchedVideos = data.items;
+            setVideos(fetchedVideos);
+            localStorage.setItem("cachedVideos", JSON.stringify(fetchedVideos));
+          } else {
+            console.error("No videos found in response!");
+          }
         }
       } catch (error) {
         console.error("Error fetching video data:", error);
