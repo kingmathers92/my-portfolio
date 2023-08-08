@@ -17,8 +17,8 @@ const About = () => {
             I'm a Software Developer.
           </h2>
           <p className="about text-[#8892b0] py-4 max-w-[700px] right-animate">
-            I’m full-stack developer specializing in building exceptional
-            digital experiences. Currently, I’m focused on building responsive
+            I’m Software Developer specializing in building exceptional digital
+            experiences. Currently, I’m focused on building responsive
             full-stack web applications.
           </p>
           <p className="about left-animate">
