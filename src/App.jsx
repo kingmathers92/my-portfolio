@@ -1,5 +1,5 @@
 import { useState, useEffect, Suspense, lazy } from "react";
-import { Navbar, About, Blog, Youtube, Contact } from "./components/index";
+import { Navbar, Home, Blog, Youtube, Contact } from "./components/index";
 
 const Skills = lazy(() => import("./components/Skills"));
 const Work = lazy(() => import("./components/Work"));
@@ -23,7 +23,7 @@ function App() {
     <>
       <Suspense fallback={<h1 className="loader">Loading</h1>}>
         <Navbar theme={theme} setTheme={setTheme} setNav={setNav} />
-        <About />
+        <Home />
         <Skills />
         <Work />
         <Blog />

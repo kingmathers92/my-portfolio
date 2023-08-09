@@ -2,10 +2,10 @@ import React from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-scroll";
 
-const About = () => {
+const Home = () => {
   return (
     <>
-      {/* About Section */}
+      {/* Home Section */}
       <div name="home" className="w-full h-screen pt-0 pb-0">
         {/* Container */}
         <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full">
@@ -41,4 +41,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Home;
