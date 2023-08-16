@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { projectsData } from "../data/ProjectsData.js";
-import Pagination from "./Pagination.jsx";
+import { Pagination } from "../components/index";
 
 const Work = () => {
   const [currentPage, setCurrentPage] = useState(1);

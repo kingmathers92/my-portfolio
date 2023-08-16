@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ScrollBackToTop from "./ScrollBackToTop";
+import { ScrollBackToTop } from "../components/index";
 
 const Contact = ({ nav }) => {
   const [userEmail, setUserEmail] = useState("");
