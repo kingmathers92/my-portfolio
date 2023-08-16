@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Pagination from "./Pagination.jsx";
+import { Pagination } from "../components/index";
 import { blogData } from "../data/BlogData.js";
 import face from "../assets/face-min.png";
 

@@ -1,8 +1,9 @@
 import { useState, useEffect, Suspense, lazy } from "react";
-import { Navbar, Home, Blog, Youtube, Contact } from "./components/index";
+import { Navbar } from "./components/index";
+import { Home, Blog, Youtube, Contact } from "./pages/index";
 
-const Skills = lazy(() => import("./components/Skills"));
-const Work = lazy(() => import("./components/Work"));
+const Skills = lazy(() => import("./pages/Skills"));
+const Work = lazy(() => import("./pages/Work"));
 
 function App() {
   const [theme, setTheme] = useState("light");
