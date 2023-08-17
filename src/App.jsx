@@ -8,7 +8,21 @@ const Work = lazy(() => import("./pages/Work"));
 function App() {
   const [theme, setTheme] = useState("light");
   const [nav, setNav] = useState(false);
+  const [progressWidth, setProgressWidth] = useState(0);
 
+  const onScroll = () => {
+    let pixelsFromTop = window.scrollY;
+    let documentHeight = document.body.clientHeight;
+    let windowHeight = window.innerHeight;
+    let difference = documentHeight - windowHeight;
+    let percentage = (100 * pixelsFromTop) / difference;
+    setProgressWidth(percentage);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   useEffect(() => {
     // Get the preferred theme of the user's device so it would be set as default intially
     const preferredColorScheme =
@@ -24,6 +38,13 @@ function App() {
     <>
       <Suspense fallback={<h1 className="loader">Loading</h1>}>
         <Navbar theme={theme} setTheme={setTheme} setNav={setNav} />
+        <div className="progress_wrapper">
+          <div
+            className="progress_bar"
+            id="bar"
+            style={{ width: `${progressWidth}%` }}
+          ></div>
+        </div>
         <Home />
         <Skills />
         <Work />
