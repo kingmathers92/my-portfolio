@@ -249,7 +249,7 @@ canvas {
 
 .web {
   position: relative;
-  --light-theme-bg-space: nowrap;
+  white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 65vw;
   height: auto;
