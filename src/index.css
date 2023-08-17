@@ -149,10 +149,13 @@
   background-color: #555;
 }
 
+.light-theme #btnTop {
+  color: var(--light-theme-bg);
+}
+
 .light-theme {
   background-color: var(--light-theme-bg);
   color: var(--accent-color-dark);
-
 }
 
 .light-theme .mobileMenu {
