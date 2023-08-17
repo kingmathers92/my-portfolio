@@ -17,7 +17,7 @@ const Skills = () => {
           {skill.map((item, index) => (
             <div
               key={index}
-              className="skillsCard rounded-md hover:scale-110 duration-500 group"
+              className="skillsCard font-bold rounded-md hover:scale-110 duration-500 group"
             >
               <img
                 style={{ padding: "10px" }}

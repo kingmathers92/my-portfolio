@@ -61,7 +61,7 @@ const Navbar = ({ theme, setTheme }) => {
           </Link>
         </li>
         <DarkModeSwitch
-          style={{ marginBottom: "0rem" }}
+          style={{ marginBottom: "0rem", color: "#fff" }}
           checked={theme === "dark"}
           onChange={toggleDarkMode}
           size={25}
@@ -73,9 +73,9 @@ const Navbar = ({ theme, setTheme }) => {
         className="md:hidden z-10 hover:cursor-pointer text-2xl"
       >
         {!nav ? (
-          <FaBars />
+          <FaBars style={{ color: "#fff" }} />
         ) : (
-          <FaTimes style={{ color: theme === "light" ? "#0A192F" : "#fff" }} />
+          <FaTimes style={{ color: "#fff" }} />
         )}
       </div>
 

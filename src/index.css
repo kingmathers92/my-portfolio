@@ -14,6 +14,15 @@
   }
 }
 
+/* Color Variables */
+:root {
+  --primary-color: #0A192F;
+  --secondary-color: #68d391;
+  --light-theme-bg: #fff;
+  --text-color-dark: #D1D5DB;
+  --accent-color-light: #8892B0;
+  --accent-color-dark: #111;
+}
 
 * {
   margin: 0;
@@ -21,7 +30,7 @@
   box-sizing: border-box;
 }
 
-.nav {
+.nav, .progress_wrapper {
   z-index: 10;
 }
 
@@ -30,7 +39,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
 }
 
 .progress_bar {
@@ -39,7 +47,7 @@
   left: 0;
   width: 0%;
   height: 3px;
-  background-color: #68d391;
+  background-color: var(--secondary-color);
 }
 
 /* Custom Scroll-Bar */
@@ -48,18 +56,18 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--light-theme-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #68d391;
+  background: var(--secondary-color);
   border-radius: 4px;
 }
 
 .loader {
   display:block;
   margin:auto;
-  color: #68d391;
+  color: var(--secondary-color);
   z-index: 999;
 }
 
@@ -107,11 +115,11 @@
 
 #btnTop {
   display: inline-block;
-  background-color: #0A192F;
+  background-color: var(--primary-color);
   width: 50px;
   height: 50px;
   text-align: center;
-  border-color: #fff;
+  border-color: var(--light-theme-bg);
   border: 2px solid;
   position: fixed;
   bottom: 30px;
@@ -129,7 +137,7 @@
   font-style: normal;
   font-size: 2em;
   line-height: 50px;
-  color: #fff;
+  color: --light-theme-bg;
 }
 
 #btnTop:hover {
@@ -142,53 +150,50 @@
 }
 
 .light-theme {
-  background-color: #e4e5f1;
-  color: black;
+  background-color: var(--light-theme-bg);
+  color: var(--accent-color-dark);
 
 }
+
 .light-theme .mobileMenu {
-  background-color: #e4e5f1;
+  background-color: var(--accent-color-light);
 }
 
-.light-theme a, p, .about {
-  color: #0A192F;
+.light-theme p, .about {
+  color: var(--primary-color);
 }
 
 .light-theme .time {
-  color: #0A192F;
+  color: var(--primary-color);
 }
 
 .light-theme .group{
-  border: 1px solid #0A192F;
-}
-
-.light-theme #btnTop, ::-webkit-scrollbar-thumb {
-  border-color: #0A192F;
+  border: 1px solid var(--primary-color);
 }
 
 .light-theme .name {
-  color: #8892B0;
+  color: var(--accent-color-light);
 }
 
 .light-theme .web, .title {
-  color: #0A192F;
+  color: var(--primary-color);
 }
 
 .light-theme button {
-  background-color: #0A192F;
+  background-color: var(--primary-color);
 }
 
-.light-theme .nav, .skillsCard {
-  background-color: #8892B0;
+.light-theme .nav {
+  background-color: var(--primary-color);
 }
 
 .dark-theme, .mobileMenu {
-  background-color: #0A192F;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--light-theme-bg);
 }
 
-.dark-theme .group{
-  border: 1px solid #68d391;
+.dark-theme .group, .skillsCard{
+  border: 1px solid var(--secondary-color);
 }
 
 .dark-theme .nav {
@@ -196,21 +201,20 @@
 }
 
 .dark-theme .skillsCard {
-  background-color: #0A192F;
+  background-color: var(--primary-color);
 }
 
 .dark-theme p, .time {
-  color: #D1D5DB;
+  color: var(--light-theme-bg);
 }
 
 .dark-theme .hi {
-  color: #68d391;
+  color: var(--secondary-color);
 }
 
 canvas {
   background-color: transparent;
 }
-
 
 /* CSS Animation for about section*/
 @keyframes slideInLeft {
@@ -245,7 +249,7 @@ canvas {
 
 .web {
   position: relative;
-  white-space: nowrap;
+  --light-theme-bg-space: nowrap;
   text-overflow: ellipsis;
   max-width: 65vw;
   height: auto;
@@ -255,8 +259,8 @@ canvas {
   content: "I'm a Software Developer.";
   position: absolute;
   overflow: hidden;
-  color: #68d391;
-  border-right: 4px solid #68d391;
+  color: var(--secondary-color);
+  border-right: 4px solid var(--secondary-color);
   top: 0;
   left: 0;
   width: 0;
@@ -265,8 +269,8 @@ canvas {
 }
 
 .light-theme .web::before{
-  color: #8892B0;
-  border-right: 4px solid #8892B0;
+  color: --accent-color-light;
+  border-right: 4px solid --accent-color-light;
 }
 
 @keyframes sway {
@@ -308,4 +312,3 @@ canvas {
     overflow: hidden;
   }
 }
-

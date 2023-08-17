@@ -13,12 +13,10 @@ const Contact = ({ nav }) => {
       <form
         method="POST"
         action="https://getform.io/f/65c92a0f-7a6c-4355-83a7-dcd78c5a552f"
-        className="flex flex-col max-w-[600px] w-full"
+        className="flex flex-col max-w-[600px] w-full font-bold text-[#0A192F]"
       >
         <div className="pb-6">
-          <p className="text-4xl font-bold inline border-b-4 border-blue-600">
-            Contact
-          </p>
+          <p className="text-4xl inline border-b-4 border-blue-600">Contact</p>
         </div>
         <input
           className="bg-[#ccd6f6] p-2"
