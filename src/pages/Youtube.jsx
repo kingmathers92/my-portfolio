@@ -1,39 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 function Youtube() {
   const [videos, setVideos] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const cachedVideos = localStorage.getItem("cachedVideos");
-        if (cachedVideos) {
-          setVideos(JSON.parse(cachedVideos));
-          return;
-        } else {
-          const response = await fetch(
-            `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.REACT_APP_CHANNEL_ID}&maxResults=3&order=date&key=${process.env.REACT_APP_API_KEY}`
+        const response = await fetch(
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.REACT_APP_CHANNEL_ID}&maxResults=4&order=date&key=${process.env.REACT_APP_API_KEY}`
+        );
+
+        if (!response.ok) {
+          console.error(
+            "Error fetching video data. Response status:",
+            response.status
           );
+          console.error("Response text:", await response.text());
+          return;
+        }
 
-          if (!response.ok) {
-            console.error(
-              "Error fetching video data. Response status:",
-              response.status
-            );
-            console.error("Response text:", await response.text());
-            return;
-          }
+        const data = await response.json();
 
-          const data = await response.json();
-
-          if (data.items && data.items.length < 0) {
-            const fetchedVideos = data.items;
-            setVideos(fetchedVideos);
-            localStorage.setItem("cachedVideos", JSON.stringify(fetchedVideos));
-          } else {
-            console.error("No videos found in response!");
-          }
+        if (data.items && data.items.length > 0) {
+          setVideos(data.items);
+        } else {
+          console.error("No videos found in response!");
         }
       } catch (error) {
         console.error("Error fetching video data:", error);
@@ -44,15 +37,15 @@ function Youtube() {
   }, []);
 
   const slideLeft = () => {
-    const slider = document.getElementById("slider");
-    const scrollAmount = Math.min(slider.clientWidth, 500);
-    slider.scrollLeft -= scrollAmount;
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? videos.length - 1 : prevIndex - 1
+    );
   };
 
   const slideRight = () => {
-    const slider = document.getElementById("slider");
-    const scrollAmount = Math.min(slider.clientWidth, 500);
-    slider.scrollLeft += scrollAmount;
+    setCurrentIndex((prevIndex) =>
+      prevIndex === videos.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   return (
@@ -73,26 +66,20 @@ function Youtube() {
             id="slider"
             className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide"
           >
-            {videos &&
-              videos.map((video) => (
+            {videos.length > 0 &&
+              videos.map((video, index) => (
                 <div
                   key={video.id.videoId}
-                  className="inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
+                  className={`inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300 ${
+                    currentIndex === index ? "active" : ""
+                  }`}
                 >
-                  <a
-                    href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <iframe
-                      src={`https://www.youtube.com/embed/${video.id.videoId}`}
-                      title={video.snippet.title}
-                      width="290"
-                      height="190"
-                      frameBorder="0"
-                      allowFullScreen
-                    ></iframe>
-                  </a>
+                  <iframe
+                    className="video"
+                    title="Youtube player"
+                    sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
+                    src={`https://youtube.com/embed/${video.id.videoId}?autoplay=0`}
+                  ></iframe>
                 </div>
               ))}
           </div>
