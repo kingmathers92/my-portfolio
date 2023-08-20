@@ -34,7 +34,7 @@ const Work = () => {
             <div
               key={index}
               style={{ backgroundImage: `url(${item.image})` }}
-              className="group container rounded-md
+              className="group container object-contain rounded-md
     flex justify-center text-center items-center mx-auto content-div"
             >
               {/* Hover effect for images */}
