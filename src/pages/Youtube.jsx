@@ -3,7 +3,6 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 function Youtube() {
   const [videos, setVideos] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,15 +36,15 @@ function Youtube() {
   }, []);
 
   const slideLeft = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? videos.length - 1 : prevIndex - 1
-    );
+    const slider = document.getElementById("slider");
+    const scrollAmount = Math.min(slider.clientWidth, 500);
+    slider.scrollLeft -= scrollAmount;
   };
 
   const slideRight = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === videos.length - 1 ? 0 : prevIndex + 1
-    );
+    const slider = document.getElementById("slider");
+    const scrollAmount = Math.min(slider.clientWidth, 500);
+    slider.scrollLeft += scrollAmount;
   };
 
   return (
@@ -66,18 +65,16 @@ function Youtube() {
             id="slider"
             className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide"
           >
-            {videos.length > 0 &&
-              videos.map((video, index) => (
+            {videos &&
+              videos.map((video) => (
                 <div
                   key={video.id.videoId}
-                  className={`inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300 ${
-                    currentIndex === index ? "active" : ""
-                  }`}
+                  className="inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
                 >
                   <iframe
                     className="video"
                     title="Youtube player"
-                    sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
+                    sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation allowFullScreen"
                     src={`https://youtube.com/embed/${video.id.videoId}?autoplay=0`}
                   ></iframe>
                 </div>
