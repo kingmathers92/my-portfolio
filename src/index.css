@@ -102,15 +102,12 @@
 
 .socialsHidden li {
   margin: 1rem 0;
+  transition: transform 0.3s ease-in-out;
 }
 
 .socialsHidden li:hover {
   cursor: pointer;
   transform: scale(1.3);
-}
-
-.socialsHidden li {
-  transition: transform 0.3s ease-in-out;
 }
 
 #btnTop {
