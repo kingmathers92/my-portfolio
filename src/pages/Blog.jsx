@@ -21,6 +21,14 @@ function Blog() {
     setCurrentPage(pageNumber);
   };
 
+  const truncateText = (text, limit) => {
+    const words = text.split(" ");
+    if (words.length > limit) {
+      return words.slice(0, limit).join(" ") + "...";
+    }
+    return text;
+  };
+
   return (
     <div name="blog" className="w-full md:h-screen pt-20">
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
@@ -29,34 +37,37 @@ function Blog() {
             Blog
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 font-semibold">
           {currentPosts.map((post, index) => (
-            <div
-              key={index}
-              className="rounded-lg group h-auto mx-auto m-2 p-2"
-            >
-              <img src={post.image} alt="post" />
+            <div key={index} className="rounded-lg group p-3">
               <a href={post.link} target="_blank" rel="noreferrer">
-                <p className="title text-xl mt-4 text-blue-300 brightness-150">
+                <img
+                  src={post.image}
+                  alt="post"
+                  className="w-full h-40 object-cover rounded-lg"
+                />
+                <p className="title text-sm mt-4 text-blue-300 brightness-150">
                   {post.title}
                 </p>
                 <br />
-                <div>
-                  <p className="text-sm font-light">{post.description}</p>
+                <div className="mt-6 overflow-hidden">
+                  <p className="text-sm">
+                    {truncateText(post.description, 24)}
+                  </p>
+                </div>
+                <div className="flex items-center right-0 mt-8">
+                  <img
+                    src={face}
+                    className="rounded-full w-12 h-12 my-2"
+                    alt="face"
+                  />
+                  <p className="mx-3">
+                    <span className="time text-gray-200 text-sm">
+                      {post.time}
+                    </span>
+                  </p>
                 </div>
               </a>
-              <div className="flex items-center right-0 bottom-0">
-                <img
-                  src={face}
-                  className="rounded-full w-12 h-12 my-2"
-                  alt="face"
-                />
-                <p className="mx-3">
-                  <span className="time text-gray-200 text-sm">
-                    {post.time}
-                  </span>
-                </p>
-              </div>
             </div>
           ))}
         </div>
