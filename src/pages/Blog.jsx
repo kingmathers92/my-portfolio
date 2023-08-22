@@ -22,9 +22,8 @@ function Blog() {
   };
 
   const truncateText = (text, limit) => {
-    const words = text.split(" ");
-    if (words.length > limit) {
-      return words.slice(0, limit).join(" ") + "...";
+    if (text.length > limit) {
+      return text.slice(0, limit) + "...";
     }
     return text;
   };
@@ -47,12 +46,12 @@ function Blog() {
                   className="w-full h-40 object-cover rounded-lg"
                 />
                 <p className="title text-sm mt-4 text-blue-300 brightness-150">
-                  {post.title}
+                  {truncateText(post.title, 70)}
                 </p>
                 <br />
                 <div className="mt-6 overflow-hidden">
                   <p className="text-sm">
-                    {truncateText(post.description, 24)}
+                    {truncateText(post.description, 115)}
                   </p>
                 </div>
                 <div className="flex items-center right-0 mt-8">
