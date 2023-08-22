@@ -64,13 +64,6 @@
   border-radius: 4px;
 }
 
-.loader {
-  display:block;
-  margin:auto;
-  color: var(--secondary-color);
-  z-index: 999;
-}
-
 .content-div {
   background-repeat: no-repeat;
   background-size: cover;
