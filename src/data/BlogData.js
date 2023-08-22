@@ -32,11 +32,23 @@ export const blogData = [
     title:
       "Convert your Existing React js App to Android App Using the Ionic Capacitor",
     description:
-      "Today I will show the easiest and simple way I’ve found to convert your existing React js app to an android app using ionic capacitor....",
+      "Today I will show the easiest and simple way I’ve found to convert your existing React js app to an android app using ionic capacitor",
     image:
       "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*5OMRCgJpFC0muhlnr5IokQ.jpeg",
     time: "2 mins read",
     link: "https://medium.com/@khaledb.yahya/convert-your-existing-react-jsapp-to-android-app-using-the-ionic-capacitor-94046389ba53/",
     date: "2023-07-09",
+  },
+
+  {
+    title:
+      "Supercharge Redux with ‘immer’: Using ‘immer’ to update Redux state in a more readable and safer way.",
+    description:
+      "Using immer in Redux reducers can significantly improve the readability and maintainability of your code, while also helping to avoid potential issues that can arise when not using it",
+    image:
+      "https://miro.medium.com/v2/resize:fit:720/format:webp/1*paPOBEWu-xOlQV9fMM9Wzw.png",
+    time: "2 mins read",
+    link: "https://medium.com/@khaledb.yahya/supercharge-redux-with-immer-using-immer-to-update-redux-state-in-a-more-readable-and-safer-2d6655086d89",
+    date: "2023-08-22",
   },
 ];
