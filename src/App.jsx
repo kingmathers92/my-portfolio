@@ -1,6 +1,7 @@
 import { useState, useEffect, Suspense, lazy } from "react";
 import { Navbar } from "./components/index";
 import { Home, Blog, Youtube, Contact } from "./pages/index";
+import { MrMiyagi } from "@uiball/loaders";
 
 const Skills = lazy(() => import("./pages/Skills"));
 const Work = lazy(() => import("./pages/Work"));
@@ -36,7 +37,20 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<h1 className="loader">Loading</h1>}>
+      <Suspense
+        fallback={
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              minHeight: "100vh",
+            }}
+          >
+            <MrMiyagi size={60} lineWeight={3.5} speed={1} color="#68d391" />
+          </div>
+        }
+      >
         <Navbar theme={theme} setTheme={setTheme} setNav={setNav} />
         <div className="progress_wrapper">
           <div
