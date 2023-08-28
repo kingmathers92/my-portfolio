@@ -45,9 +45,9 @@ const Contact = ({ nav }) => {
         <button
           disabled={userEmail & (userMessage === "")}
           type="submit"
-          className="text-white border-2 hover:bg-blue-600 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center"
+          className="collab-btn text-white border-2 hover:bg-blue-600 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center"
         >
-          Let's Collaborate
+          Let's Collaborate <span className="rocket">🚀</span>
         </button>
       </form>
       {!nav && <ScrollBackToTop />}
