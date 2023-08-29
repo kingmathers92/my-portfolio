@@ -185,16 +185,12 @@
   color: var(--light-theme-bg);
 }
 
-.dark-theme .group, .skillsCard{
+.dark-theme .group {
   border: 1px solid var(--secondary-color);
 }
 
 .dark-theme .nav {
   background-color: #091930;
-}
-
-.dark-theme .skillsCard {
-  background-color: var(--primary-color);
 }
 
 .dark-theme p, .time {
