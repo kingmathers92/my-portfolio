@@ -23,7 +23,11 @@ function Youtube() {
         const data = await response.json();
 
         if (data.items && data.items.length > 0) {
-          setVideos(data.items);
+          // Exclude shorts
+          const filteredVideos = data.items.filter(
+            (video) => video.snippet && video.snippet.title.length >= 40
+          );
+          setVideos(filteredVideos);
         } else {
           console.error("No videos found in response!");
         }
