@@ -3,10 +3,11 @@ import { skillsData } from "../data/SkillsData.js";
 
 const Skills = () => {
   const skill = skillsData;
+
   return (
     <div name="skills" className="w-full md:h-screen text-gray-300 mb-8">
       {/* Container */}
-      <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
+      <div className="max-w-screen-lg mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div>
           <p className="skill text-4xl font-bold inline border-b-4 border-blue-600 ">
             Skills
