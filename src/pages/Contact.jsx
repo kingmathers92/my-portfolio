@@ -13,7 +13,7 @@ const Contact = ({ nav }) => {
       <form
         method="POST"
         action="https://getform.io/f/65c92a0f-7a6c-4355-83a7-dcd78c5a552f"
-        className="flex flex-col max-w-[600px] w-full font-bold text-[#0A192F]"
+        className="flex flex-col max-w-screen-md w-full font-bold text-[#0A192F]"
       >
         <div className="pb-6">
           <p className="text-4xl inline border-b-4 border-blue-600">Contact</p>
@@ -43,7 +43,7 @@ const Contact = ({ nav }) => {
           required
         ></textarea>
         <button
-          disabled={userEmail & (userMessage === "")}
+          disabled={!userEmail || !userMessage}
           type="submit"
           className="collab-btn text-white border-2 hover:bg-blue-600 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center"
         >
