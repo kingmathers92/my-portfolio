@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 function Youtube() {
   const [videos, setVideos] = useState([]);
+  const [sliderPosition, setSliderPosition] = useState(0);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,20 +42,22 @@ function Youtube() {
   }, []);
 
   const slideLeft = () => {
-    const slider = document.getElementById("slider");
-    const scrollAmount = Math.min(slider.clientWidth, 500);
-    slider.scrollLeft -= scrollAmount;
+   if (sliderRef.current) {
+    const scrollAmount = Math.min(sliderRef.current.clientWidth, 500);
+    setSliderPosition((prevPosition) => prevPosition - scrollAmount);
+   }
   };
 
   const slideRight = () => {
-    const slider = document.getElementById("slider");
-    const scrollAmount = Math.min(slider.clientWidth, 500);
-    slider.scrollLeft += scrollAmount;
+    if (sliderRef.current) {
+      const scrollAmount = Math.min(sliderRef.current.clientWidth, 500);
+      setSliderPosition((prevPosition) => prevPosition + scrollAmount);
+     }
   };
 
   return (
     <div name="youtube" className="w-full md:h-screen">
-      <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
+      <div className="max-w-screen-lg mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-blue-600">
             Youtube
@@ -66,23 +70,26 @@ function Youtube() {
             size={40}
           />
           <div
-            id="slider"
+            ref={sliderRef}
+            style={{ transofrm: `translateX(-${sliderPosition}px)` }}
             className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide"
           >
-            {videos &&
-              videos.map((video) => (
+            {videos.map((video) => {
+              const { id } = video;
+              return (
                 <div
-                  key={video.id.videoId}
+                  key={id.videoId}
                   className="inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
                 >
                   <iframe
                     className="video"
                     title="Youtube player"
                     sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation allowFullScreen"
-                    src={`https://youtube.com/embed/${video.id.videoId}?autoplay=0`}
+                    src={`https://youtube.com/embed/${id.videoId}?autoplay=0`}
                   ></iframe>
                 </div>
-              ))}
+              );
+            })}
           </div>
           <MdChevronRight
             className="opacity-50 cursor-pointer hover:opacity-100"
