@@ -1,10 +1,11 @@
 import { useState, useEffect, Suspense, lazy } from "react";
 import { Navbar } from "./components/index";
-import { Home, Blog, Youtube, Contact } from "./pages/index";
+import { Home, Blog, Contact } from "./pages/index";
 import { MrMiyagi } from "@uiball/loaders";
 
 const Skills = lazy(() => import("./pages/Skills"));
 const Work = lazy(() => import("./pages/Work"));
+const Youtube = lazy(() => import("./pages/Youtube"));
 
 function App() {
   const [theme, setTheme] = useState("light");
