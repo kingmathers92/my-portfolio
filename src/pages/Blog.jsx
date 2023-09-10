@@ -3,9 +3,17 @@ import { Pagination } from "../components/index";
 import { blogData } from "../data/BlogData.js";
 import face from "../assets/face-min.png";
 
+const itemsPerPage = 3;
+
+const truncateText = (text, limit) => {
+  if (text.length > limit) {
+    return text.slice(0, limit) + "...";
+  }
+  return text;
+};
+
 function Blog() {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
   const sortedPosts = blogData.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
@@ -21,24 +29,17 @@ function Blog() {
     setCurrentPage(pageNumber);
   };
 
-  const truncateText = (text, limit) => {
-    if (text.length > limit) {
-      return text.slice(0, limit) + "...";
-    }
-    return text;
-  };
-
   return (
     <div name="blog" className="w-full md:h-screen pt-20">
-      <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full">
+      <div className="max-w-scree-lg mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-blue-600">
             Blog
           </p>
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 font-semibold">
-          {currentPosts.map((post, index) => (
-            <div key={index} className="rounded-lg group p-3">
+          {currentPosts.map((post) => (
+            <div key={post.id} className="rounded-lg group p-3">
               <a href={post.link} target="_blank" rel="noreferrer">
                 <img
                   src={post.image}
