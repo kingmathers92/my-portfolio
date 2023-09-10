@@ -22,8 +22,8 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   useEffect(() => {
     // Get the preferred theme of the user's device so it would be set as default intially
     const preferredColorScheme =
