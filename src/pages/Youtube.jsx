@@ -42,17 +42,17 @@ function Youtube() {
   }, []);
 
   const slideLeft = () => {
-   if (sliderRef.current) {
-    const scrollAmount = Math.min(sliderRef.current.clientWidth, 500);
-    setSliderPosition((prevPosition) => prevPosition - scrollAmount);
-   }
+    if (sliderRef.current) {
+      const scrollAmount = Math.min(sliderRef.current.clientWidth, 500);
+      setSliderPosition((prevPosition) => prevPosition - scrollAmount);
+    }
   };
 
   const slideRight = () => {
     if (sliderRef.current) {
       const scrollAmount = Math.min(sliderRef.current.clientWidth, 500);
       setSliderPosition((prevPosition) => prevPosition + scrollAmount);
-     }
+    }
   };
 
   return (

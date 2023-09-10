@@ -15,8 +15,8 @@ const Home = () => {
         </h2>
         <p className="about text-[#8892b0] font-semibold py-4 max-w-screen-md right-animate">
           I’m Software Developer specializing in building exceptional digital
-          experiences. Currently, I’m focused on building responsive
-          full-stack web applications.
+          experiences. Currently, I’m focused on building responsive full-stack
+          web applications.
         </p>
         <p className="about font-semibold left-animate">
           What would you do if you had a software expert available at your
