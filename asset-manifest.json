@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.2f8fbc63.css",
-    "main.js": "/static/js/main.a14b2890.js",
-    "static/js/250.9a602d44.chunk.js": "/static/js/250.9a602d44.chunk.js",
+    "main.js": "/static/js/main.71ce98a5.js",
+    "static/js/250.a9b12540.chunk.js": "/static/js/250.a9b12540.chunk.js",
     "static/js/856.d83a09c8.chunk.js": "/static/js/856.d83a09c8.chunk.js",
     "static/media/moviehub.png": "/static/media/moviehub.8c76bcf4847d0d04db61.png",
     "static/media/travel.png": "/static/media/travel.e4b6771fb667cf4f81c3.png",
@@ -17,12 +17,12 @@
     "static/media/tenzies.png": "/static/media/tenzies.c753447b9654b1c4c6e7.png",
     "index.html": "/index.html",
     "main.2f8fbc63.css.map": "/static/css/main.2f8fbc63.css.map",
-    "main.a14b2890.js.map": "/static/js/main.a14b2890.js.map",
-    "250.9a602d44.chunk.js.map": "/static/js/250.9a602d44.chunk.js.map",
+    "main.71ce98a5.js.map": "/static/js/main.71ce98a5.js.map",
+    "250.a9b12540.chunk.js.map": "/static/js/250.a9b12540.chunk.js.map",
     "856.d83a09c8.chunk.js.map": "/static/js/856.d83a09c8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2f8fbc63.css",
-    "static/js/main.a14b2890.js"
+    "static/js/main.71ce98a5.js"
   ]
 }
