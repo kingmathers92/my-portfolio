@@ -51,7 +51,7 @@ const Navbar = ({ theme, setTheme }) => {
           </Link>
         </li>
         <li className="no-underline hover:underline">
-          <Link to="youtube" smooth={true} offset={160} duration={500}>
+          <Link to="youtube" smooth={true} offset={30} duration={500}>
             Youtube
           </Link>
         </li>
