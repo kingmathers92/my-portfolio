@@ -1,5 +1,6 @@
 export const blogData = [
   {
+    id: 1,
     title: "My way of learning..",
     description:
       "Lately, I’ve found I’ve been able to successfully make whatever I’m attempting in any language I’m trying to. Without failure. Am I smart?",
@@ -9,6 +10,7 @@ export const blogData = [
     date: "2022-01-28",
   },
   {
+    id: 2,
     title: "How to Effectively Remove .env File from Git Repo/History",
     description:
       "The .env file is typically located in the root directory of a project and is not committed to version control systems, such as Git",
@@ -19,6 +21,7 @@ export const blogData = [
   },
 
   {
+    id: 3,
     title: "Redux for State Management",
     description:
       "Redux is a predictable state container for JavaScript applications that can help you manage your application’s global state in a more organized and maintainable way",
@@ -29,6 +32,7 @@ export const blogData = [
   },
 
   {
+    id: 4,
     title:
       "Convert your Existing React js App to Android App Using the Ionic Capacitor",
     description:
@@ -41,6 +45,7 @@ export const blogData = [
   },
 
   {
+    id: 5,
     title:
       "Supercharge Redux with ‘immer’: Using ‘immer’ to update Redux state in a more readable and safer way.",
     description:
