@@ -31,32 +31,50 @@ const Navbar = ({ theme, setTheme }) => {
 
       <menu className="hidden md:flex">
         <li className="no-underline hover:underline">
-          <Link to="about" smooth={true} offset={-20} duration={500}>
+          <Link to="about" spy={true} smooth={true} offset={-20} duration={500}>
             About
           </Link>
         </li>
         <li className="no-underline hover:underline">
-          <Link to="skills" smooth={true} offset={-50} duration={500}>
+          <Link
+            to="skills"
+            spy={true}
+            smooth={true}
+            offset={-30}
+            duration={500}
+          >
             Skills
           </Link>
         </li>
         <li className="no-underline hover:underline">
-          <Link to="work" smooth={true} offset={-30} duration={500}>
+          <Link to="work" spy={true} smooth={true} offset={-30} duration={500}>
             Work
           </Link>
         </li>
         <li className="no-underline hover:underline">
-          <Link to="blog" smooth={true} offset={-30} duration={500}>
+          <Link to="blog" spy={true} smooth={true} offset={-30} duration={500}>
             Blog
           </Link>
         </li>
         <li className="no-underline hover:underline">
-          <Link to="youtube" smooth={true} offset={30} duration={500}>
+          <Link
+            to="youtube"
+            spy={true}
+            smooth={true}
+            offset={30}
+            duration={500}
+          >
             Youtube
           </Link>
         </li>
         <li className="no-underline hover:underline">
-          <Link to="contact" smooth={true} offset={-20} duration={500}>
+          <Link
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-20}
+            duration={500}
+          >
             Contact
           </Link>
         </li>
@@ -125,32 +143,71 @@ const Navbar = ({ theme, setTheme }) => {
           </li>
         </div>
         <li className="py-6 text-4xl no-underline hover:underline">
-          <Link onClick={handleClick} to="about" smooth={true} duration={500}>
+          <Link
+            onClick={handleClick}
+            to="about"
+            spy={true}
+            smooth={true}
+            duration={500}
+          >
             About
           </Link>
         </li>
         <li className="py-6 text-4xl no-underline hover:underline">
-          <Link onClick={handleClick} to="skills" smooth={true} duration={500}>
+          <Link
+            onClick={handleClick}
+            to="skills"
+            spy={true}
+            smooth={true}
+            offset={-50}
+            duration={500}
+          >
             Skills
           </Link>
         </li>
         <li className="py-6 text-4xl no-underline hover:underline">
-          <Link onClick={handleClick} to="work" smooth={true} duration={500}>
+          <Link
+            onClick={handleClick}
+            to="work"
+            spy={true}
+            smooth={true}
+            offset={-50}
+            duration={500}
+          >
             Work
           </Link>
         </li>
         <li className="py-6 text-4xl no-underline hover:underline">
-          <Link onClick={handleClick} to="blog" smooth={true} duration={500}>
+          <Link
+            onClick={handleClick}
+            to="blog"
+            spy={true}
+            smooth={true}
+            duration={500}
+          >
             Blog
           </Link>
         </li>
         <li className="py-6 text-4xl no-underline hover:underline">
-          <Link onClick={handleClick} to="blog" smooth={true} duration={500}>
+          <Link
+            onClick={handleClick}
+            to="youtube"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-50}
+          >
             Youtube
           </Link>
         </li>
         <li className="py-6 text-4xl no-underline hover:underline">
-          <Link onClick={handleClick} to="contact" smooth={true} duration={500}>
+          <Link
+            onClick={handleClick}
+            to="contact"
+            spy={true}
+            smooth={true}
+            duration={500}
+          >
             Contact
           </Link>
         </li>

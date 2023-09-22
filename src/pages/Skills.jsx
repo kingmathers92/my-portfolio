@@ -5,7 +5,11 @@ const Skills = () => {
   const skill = skillsData;
 
   return (
-    <div name="skills" className="w-full md:h-screen text-gray-300 mb-8">
+    <div
+      name="skills"
+      id="skills"
+      className="w-full md:h-screen text-gray-300 mb-8"
+    >
       {/* Container */}
       <div className="max-w-screen-lg mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div>

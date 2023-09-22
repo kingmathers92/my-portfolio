@@ -56,7 +56,7 @@ function Youtube() {
   };
 
   return (
-    <div name="youtube" className="w-full md:h-screen">
+    <div name="youtube" id="youtube" className="w-full md:h-screen">
       <div className="max-w-screen-lg mx-auto p-4 flex flex-col justify-center w-full h-full">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-blue-600">

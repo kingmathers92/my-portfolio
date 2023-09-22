@@ -8,6 +8,7 @@ const Contact = ({ nav }) => {
   return (
     <div
       name="contact"
+      id="contact"
       className="w-full h-screen flex justify-center items-center p-8"
     >
       <form
