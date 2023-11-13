@@ -29,7 +29,7 @@ const Work = () => {
         </div>
 
         {/* Container for projects */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
           {/* Grid Item */}
           {projectSlice.map((project) => (
             <Project key={project.id} project={project} />

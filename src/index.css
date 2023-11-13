@@ -14,13 +14,19 @@
   }
 }
 
+@layer utilities {
+  .paused {
+    animation-play-state: paused;
+  }
+}
+
 /* Color Variables */
 :root {
-  --primary-color: #0A192F;
+  --primary-color: #0a192f;
   --secondary-color: #68d391;
   --light-theme-bg: #fff;
-  --text-color-dark: #D1D5DB;
-  --accent-color-light: #8892B0;
+  --text-color-dark: #d1d5db;
+  --accent-color-light: #8892b0;
   --accent-color-dark: #111;
 }
 
@@ -30,7 +36,8 @@
   box-sizing: border-box;
 }
 
-.nav, .progress_wrapper {
+.nav,
+.progress_wrapper {
   z-index: 10;
 }
 
@@ -68,7 +75,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 200px;
+  width: 480px;
+  height: 250px;
   opacity: 1;
   transition: opacity 0.3s;
 }
@@ -114,8 +122,7 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
-  transition: background-color .3s,
-    opacity .5s, visibility .5s;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
   opacity: 1;
   z-index: 1000;
 }
@@ -132,7 +139,7 @@
 
 #btnTop:hover {
   cursor: pointer;
-  background-color: #2563EB;
+  background-color: #2563eb;
 }
 
 #btnTop:active {
@@ -152,7 +159,8 @@
   background-color: var(--accent-color-light);
 }
 
-.light-theme p, .about {
+.light-theme p,
+.about {
   color: var(--primary-color);
 }
 
@@ -160,7 +168,7 @@
   color: var(--primary-color);
 }
 
-.light-theme .group{
+.light-theme .group {
   border: 1px solid var(--primary-color);
 }
 
@@ -168,7 +176,8 @@
   color: var(--accent-color-light);
 }
 
-.light-theme .web, .title {
+.light-theme .web,
+.title {
   color: var(--primary-color);
 }
 
@@ -180,7 +189,8 @@
   background-color: var(--primary-color);
 }
 
-.dark-theme, .mobileMenu {
+.dark-theme,
+.mobileMenu {
   background-color: var(--primary-color);
   color: var(--light-theme-bg);
 }
@@ -193,7 +203,8 @@
   background-color: #091930;
 }
 
-.dark-theme p, .time {
+.dark-theme p,
+.time {
   color: var(--light-theme-bg);
 }
 
@@ -244,7 +255,7 @@ canvas {
   height: auto;
 }
 
-.web::before{
+.web::before {
   content: "I'm a Software Developer.";
   position: absolute;
   overflow: hidden;
@@ -257,7 +268,7 @@ canvas {
   animation: sway 6s linear infinite;
 }
 
-.light-theme .web::before{
+.light-theme .web::before {
   color: --accent-color-light;
   border-right: 4px solid --accent-color-light;
 }
@@ -269,7 +280,7 @@ canvas {
 }
 
 .collab-btn:hover .rocket {
-  animation-duration:5s;
+  animation-duration: 5s;
   animation-name: animate-rocket;
 }
 
@@ -295,11 +306,15 @@ canvas {
 }
 
 @keyframes sway {
-  0%, 10%, 100% {
+  0%,
+  10%,
+  100% {
     width: 0%;
     height: 110%;
   }
-  70%, 80%, 90% {
+  70%,
+  80%,
+  90% {
     width: 100%;
     height: 110%;
   }
@@ -312,13 +327,12 @@ canvas {
     height: auto;
     overflow: hidden;
   }
-  .web::before{
+  .web::before {
     max-width: 100%;
     font-size: 1.5rem;
     height: auto;
     overflow: hidden;
   }
-
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
