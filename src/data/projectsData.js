@@ -4,6 +4,7 @@ import tenzies from "../assets/tenzies.png";
 import pdfToAdudio from "../assets/logo-color.png";
 import crypto from "../assets/cryptod.png";
 import moviehub from "../assets/moviehub.png";
+import pizzasi from "../assets/pizzasi.png";
 
 export const projectsData = [
   {
@@ -53,5 +54,13 @@ export const projectsData = [
     github: "https://github.com/kingmathers92/moviehub",
     live: "https://moviehubnet.netlify.app/",
     date: "2023-03-14",
+  },
+  {
+    id: 7,
+    name: "PizzaSi",
+    image: pizzasi,
+    github: "https://github.com/kingmathers92/pizza-si",
+    live: "",
+    date: "2023-09-21",
   },
 ];
