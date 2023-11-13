@@ -47,7 +47,7 @@ const Navbar = ({ theme, setTheme }) => {
           </Link>
         </li>
         <li className="no-underline hover:underline">
-          <Link to="work" spy={true} smooth={true} offset={-30} duration={500}>
+          <Link to="work" spy={true} smooth={true} offset={-80} duration={500}>
             Work
           </Link>
         </li>

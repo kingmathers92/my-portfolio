@@ -25,7 +25,7 @@ const Project = ({ project }) => {
   return (
     <div
       style={{ backgroundImage: `url(${project.image})` }}
-      className="group container object-contain rounded-md flex justify-center text-center items-center mx-auto content-div"
+      className="group object-contain rounded-md flex justify-center text-center items-center mx-auto content-div relative"
     >
       <div className="opacity-0 group-hover:opacity-100">
         <span className="text-2xl font-bold text-white tracking-wider">
@@ -38,6 +38,29 @@ const Project = ({ project }) => {
             </button>
           </a>
           {renderLiveButton()}
+        </div>
+      </div>
+      {/* Logos Container */}
+      <div className="flex absolute bottom-0 w-60 p-2 overflow-hidden space-x-10 group rounded-md bg-[#0a192f]">
+        <div className="flex space-x-10 animate-loop-scroll group-hover:paused">
+          {project.logos.map((logo, index) => (
+            <img
+              key={index}
+              src={logo.src}
+              alt={`Logo ${index + 1}`}
+              className="max-w-none h-8"
+            />
+          ))}
+        </div>
+        <div className="flex space-x-10 animate-loop-scroll" aria-hidden={true}>
+          {project.logos.map((logo, index) => (
+            <img
+              key={index}
+              src={logo.src}
+              alt={`Logo ${index + 1}`}
+              className="max-w-none h-8"
+            />
+          ))}
         </div>
       </div>
     </div>
