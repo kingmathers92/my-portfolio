@@ -1,63 +1,62 @@
-import HTML from "../assets/html.png";
-import CSS from "../assets/css.png";
-import JavaScript from "../assets/javascript.png";
-import ReactImg from "../assets/react.png";
-import Node from "../assets/node.png";
-import GitHub from "../assets/github.png";
-import Bootstrap from "../assets/bootstrap.png";
-import Django from "../assets/django.png";
-import Python from "../assets/python.png";
-import Tailwind from "../assets/tailwind.png";
-
 export const skillsData = [
   {
     id: 1,
     name: "HTML",
-    image: HTML,
+    image: "https://www.cdnlogo.com/logos/h/84/html.svg",
   },
   {
     id: 2,
     name: "CSS",
-    image: CSS,
+    image: "https://www.cdnlogo.com/logos/c/18/css.svg",
   },
   {
     id: 3,
     name: "JavaScript",
-    image: JavaScript,
+    image: "https://www.cdnlogo.com/logos/j/33/javascript.svg",
   },
   {
     id: 4,
     name: "ReactJS",
-    image: ReactImg,
+    image: "https://www.cdnlogo.com/logos/r/63/react.svg",
   },
   {
     id: 5,
     name: "NodeJS",
-    image: Node,
+    image: "https://www.cdnlogo.com/logos/n/94/nodejs-icon.svg",
   },
   {
     id: 6,
     name: "GitHub",
-    image: GitHub,
+    image: "https://www.cdnlogo.com/logos/g/69/github-icon.svg",
   },
   {
     id: 7,
     name: "Bootstrap",
-    image: Bootstrap,
+    image: "https://www.cdnlogo.com/logos/b/50/bootstrap.svg",
   },
   {
     id: 8,
     name: "Django",
-    image: Django,
+    image: "https://www.cdnlogo.com/logos/d/97/django-community.svg",
   },
   {
     id: 9,
     name: "Python",
-    image: Python,
+    image: "https://www.cdnlogo.com/logos/p/3/python.svg",
   },
   {
     id: 10,
     name: "Tailwind CSS",
-    image: Tailwind,
+    image: "https://www.cdnlogo.com/logos/t/58/tailwind-css.svg",
+  },
+  {
+    id: 11,
+    name: "MongoDB",
+    image: "https://www.cdnlogo.com/logos/m/25/mongodb.svg",
+  },
+  {
+    id: 12,
+    name: "Firebase",
+    image: "https://www.cdnlogo.com/logos/f/67/firebase.svg",
   },
 ];

@@ -22,13 +22,12 @@ const Skills = () => {
           {skill.map((item, index) => (
             <div
               key={index}
-              className="font-bold rounded-md hover:scale-110 duration-500 group"
+              className="font-bold rounded-md hover:scale-110 duration-500 group flex flex-col items-center justify-center p-5"
             >
               <img
-                style={{ padding: "10px" }}
-                className="w-30 h-20 mx-auto"
                 src={item.image}
-                alt="icon"
+                alt={`Logo ${index + 1}`}
+                className="max-w-none h-8"
               />
               <p className="my-4">{item.name}</p>
             </div>
