@@ -41,7 +41,7 @@ const Project = ({ project }) => {
         </div>
       </div>
       {/* Logos Container */}
-      <div className="flex absolute bottom-0 w-60 p-2 overflow-hidden space-x-10 group rounded-md bg-[#0a192f]">
+      <div className="flex absolute bottom-0 border-b-0 w-60 p-2 overflow-hidden space-x-10 group rounded-md bg-[#0a192f]">
         <div className="flex space-x-10 animate-loop-scroll group-hover:paused">
           {project.logos.map((logo, index) => (
             <img
