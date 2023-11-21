@@ -281,7 +281,7 @@ canvas {
 }
 
 .collab-btn:hover .rocket {
-  animation-duration: 6s;
+  animation-duration: 5s;
   animation-name: animate-rocket;
 }
 
