@@ -277,7 +277,7 @@ canvas {
 /* Rocket Animation */
 .rocket {
   display: inline-block;
-  margin-left: 4px;
+  margin-left: 3px;
 }
 
 .collab-btn:hover .rocket {
