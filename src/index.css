@@ -274,17 +274,6 @@ canvas {
   border-right: 4px solid --accent-color-light;
 }
 
-/* Rocket Animation */
-.rocket {
-  display: inline-block;
-  margin-left: 3px;
-}
-
-.collab-btn:hover .rocket {
-  animation-duration: 4s;
-  animation-name: animate-rocket;
-}
-
 @keyframes animate-rocket {
   0% {
     transform: scale(1) rotate(10deg);
