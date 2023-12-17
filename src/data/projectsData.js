@@ -86,7 +86,7 @@ export const projectsData = [
     ],
     image: pizzasi,
     github: "https://github.com/kingmathers92/pizza-si",
-    live: "",
+    live: "https://pizzasi.vercel.app/",
     date: "2023-09-21",
   },
 ];
