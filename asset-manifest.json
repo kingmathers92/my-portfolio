@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/static/css/main.a418a34c.css",
-    "main.js": "/static/js/main.47872266.js",
+    "main.js": "/static/js/main.7417c679.js",
     "static/js/250.c7099316.chunk.js": "/static/js/250.c7099316.chunk.js",
     "static/js/856.0d937d94.chunk.js": "/static/js/856.0d937d94.chunk.js",
     "static/media/moviehub.png": "/static/media/moviehub.8c76bcf4847d0d04db61.png",
     "static/media/pizzasi.png": "/static/media/pizzasi.9aab48e8505bfc9668f5.png",
     "static/media/face-min.png": "/static/media/face-min.99b294172f81b930cfed.png",
-    "static/media/resume.pdf": "/static/media/resume.320c6f90e8d724d02698.pdf",
+    "static/media/resume.pdf": "/static/media/resume.f56ad5e15902f44b8925.pdf",
     "static/media/kby.png": "/static/media/kby.87246c79e2e22b67dd25.png",
     "static/media/cryptod.png": "/static/media/cryptod.43513449d2c9377f1f49.png",
     "static/media/tenzies.png": "/static/media/tenzies.c753447b9654b1c4c6e7.png",
     "index.html": "/index.html",
     "main.a418a34c.css.map": "/static/css/main.a418a34c.css.map",
-    "main.47872266.js.map": "/static/js/main.47872266.js.map",
+    "main.7417c679.js.map": "/static/js/main.7417c679.js.map",
     "250.c7099316.chunk.js.map": "/static/js/250.c7099316.chunk.js.map",
     "856.0d937d94.chunk.js.map": "/static/js/856.0d937d94.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a418a34c.css",
-    "static/js/main.47872266.js"
+    "static/js/main.7417c679.js"
   ]
 }
