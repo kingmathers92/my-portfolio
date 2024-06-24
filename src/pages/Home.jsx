@@ -18,10 +18,7 @@ const Home = () => {
           experiences. Currently, I’m focused on building responsive full-stack
           web applications.
         </p>
-        <p className="about font-semibold left-animate">
-          What would you do if you had a software expert available at your
-          fingertips?
-        </p>
+        <p className="about font-semibold left-animate">Let’ Collaborate!</p>
         <div>
           <Link to="work" smooth={true} duration={500}>
             <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-blue-600 hover:border-blue-600">
