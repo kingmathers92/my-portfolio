@@ -17,7 +17,7 @@ const Navbar = ({ theme, setTheme }) => {
 
   const handleClick = () => setNav(!nav);
 
-  const toggleDarkMode = (checked: boolean) => {
+  const toggleDarkMode = (checked) => {
     setTheme(checked ? "dark" : "light");
   };
 
