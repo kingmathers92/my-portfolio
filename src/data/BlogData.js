@@ -56,4 +56,16 @@ export const blogData = [
     link: "https://medium.com/@khaledb.yahya/supercharge-redux-with-immer-using-immer-to-update-redux-state-in-a-more-readable-and-safer-2d6655086d89",
     date: "2023-08-22",
   },
+
+  {
+    id: 6,
+    title: "Demystifying the IntersectionObserver API: A Simple Guide",
+    description:
+      "The IntersectionObserver API lets you know when an element (like an image or a button) enters or exits the viewport (the visible part of the webpage) or another specified element",
+    image:
+      "https://miro.medium.com/v2/resize:fit:828/format:webp/1*yqUWqRLXQUn7F-kxtdlvNw.png",
+    time: "3 mins read",
+    link: "https://medium.com/@khaledb.yahya/demystifying-the-intersectionobserver-api-a-simple-guide-93084a4a4be5",
+    date: "2024-07-08",
+  },
 ];
