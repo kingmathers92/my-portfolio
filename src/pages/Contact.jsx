@@ -1,9 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { ScrollBackToTop } from "../components/index";
+import { validateEmail } from "../utils/emailValidation.js";
 
 const Contact = ({ nav }) => {
   const [userEmail, setUserEmail] = useState("");
   const [userMessage, setUserMessasge] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const errorTimerRef = useRef(null);
+
+  const handleEmailChange = (e) => {
+    const email = e.target.value;
+    setUserEmail(email);
+    const error = validateEmail(email);
+    setEmailError(error);
+
+    if (errorTimerRef.current) {
+      clearTimeout(errorTimerRef.current);
+    }
+
+    if (error) {
+      errorTimerRef.current = setTimeout(() => {
+        setEmailError("");
+      }, 3000);
+    }
+  };
+
+  const handleFormSubmit = (e) => {
+    const error = validateEmail(userEmail);
+    if (error) {
+      e.preventDefault();
+      setEmailError(error);
+
+      if (errorTimerRef.current) {
+        clearTimeout(errorTimerRef.current);
+      }
+      errorTimerRef.current = setTimeout(() => {
+        setEmailError("");
+      }, 3000);
+    }
+  };
 
   return (
     <div
@@ -12,6 +47,7 @@ const Contact = ({ nav }) => {
       className="w-full h-screen flex justify-center items-center p-8"
     >
       <form
+        onSubmit={handleFormSubmit}
         method="POST"
         action="https://getform.io/f/65c92a0f-7a6c-4355-83a7-dcd78c5a552f"
         className="flex flex-col max-w-screen-md w-full font-bold text-[#0A192F]"
@@ -31,9 +67,10 @@ const Contact = ({ nav }) => {
           placeholder="Email"
           name="email"
           value={userEmail}
-          onChange={(e) => setUserEmail(e.target.value)}
+          onChange={handleEmailChange}
           required
         />
+        {emailError && <p className="text-red-500">{emailError}</p>}
         <textarea
           className="bg-[#ccd6f6] p-2"
           name="message"
@@ -44,9 +81,9 @@ const Contact = ({ nav }) => {
           required
         ></textarea>
         <button
-          disabled={!userEmail || !userMessage}
+          disabled={!userEmail || !userMessage || emailError}
           type="submit"
-          className="collab-btn text-white border-2 hover:bg-blue-600 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center"
+          className="collab-btn text-white border-2 hover:bg-blue-600 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center hover:cursor-pointer"
         >
           Let's Collaborate
         </button>
