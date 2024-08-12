@@ -3,6 +3,17 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        "primary-color": "#0a192f",
+        "secondary-color": "#68d391",
+        "light-theme-bg": "#fff",
+        "text-color-dark": "#d1d5db",
+        "accent-color-light": "#8892b0",
+        "accent-color-dark": "#111",
+      },
+      fontFamily: {
+        playfair: ['"Playfair Display"', "serif"],
+      },
       animation: {
         "loop-scroll": "loop-scroll 50s linear infinite",
       },
