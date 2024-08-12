@@ -11,9 +11,6 @@ module.exports = {
         "accent-color-light": "#8892b0",
         "accent-color-dark": "#111",
       },
-      fontFamily: {
-        playfair: ['"Playfair Display"', "serif"],
-      },
       animation: {
         "loop-scroll": "loop-scroll 50s linear infinite",
       },
