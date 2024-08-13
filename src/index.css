@@ -337,3 +337,20 @@ canvas {
     overflow: hidden;
   }
 }
+
+@media print {
+  body {
+    font-size: 12pt;
+  }
+  .nav,
+  .progress_wrapper,
+  #btnTop {
+    display: none;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  @page {
+    margin: 2cm;
+  }
+}
