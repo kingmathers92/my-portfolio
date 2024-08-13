@@ -1,7 +1,6 @@
 import React from "react";
 import { skillsData } from "../data/SkillsData.js";
-import AnimatedElement from "../components/AnimatedElements.jsx";
-
+import { AnimatedElement } from "../components/index";
 const Skills = () => {
   const skill = skillsData;
 
