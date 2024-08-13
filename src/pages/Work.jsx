@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { projectsData } from "../data/ProjectsData.js";
-import { Pagination } from "../components/index";
-import Project from "../components/Project";
-import AnimatedElement from "../components/AnimatedElements.jsx";
+import { Pagination, Project, AnimatedElement } from "../components/index";
 
 const Work = () => {
   const [currentPage, setCurrentPage] = useState(1);

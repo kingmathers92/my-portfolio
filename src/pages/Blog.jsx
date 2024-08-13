@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Pagination } from "../components/index";
+import { Pagination, AnimatedElement } from "../components/index";
 import { blogData } from "../data/BlogData.js";
 import face from "../assets/face-min.png";
-import AnimatedElement from "../components/AnimatedElements.jsx";
 
 const itemsPerPage = 3;
 
