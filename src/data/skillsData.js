@@ -31,8 +31,8 @@ export const skillsData = [
   },
   {
     id: 7,
-    name: "Bootstrap",
-    image: "https://www.cdnlogo.com/logos/b/50/bootstrap.svg",
+    name: "Next.js",
+    image: "https://www.cdnlogo.com/logos/n/80/next-js.svg",
   },
   {
     id: 8,
