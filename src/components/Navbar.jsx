@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import {
   FaBars,
   FaTimes,
@@ -12,7 +12,7 @@ import Logo from "../assets/kby.png";
 import { Link } from "react-scroll";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
-const Navbar = ({ theme, setTheme }) => {
+const Navbar = memo(({ theme, setTheme }) => {
   const [nav, setNav] = useState(false);
 
   const handleClick = () => setNav(!nav);
@@ -264,6 +264,6 @@ const Navbar = ({ theme, setTheme }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Navbar;
