@@ -18,17 +18,17 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8 transform: none; transform-origin: 50% -10000% 0px;">
+        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8">
           {skill.map((item, index) => (
             <AnimatedElement key={index} delay={index * 100}>
               <div
                 key={index}
-                className="font-bold rounded-md hover:scale-110 duration-500 group flex flex-col items-center justify-center p-5"
+                className="skill-item font-bold rounded-md hover:scale-110 duration-500 group flex flex-col items-center justify-center p-5"
               >
                 <img
                   src={item.image}
                   alt={`Logo ${index + 1}`}
-                  className="max-w-none h-8"
+                  className="max-w-none h-8 transition-transform duration-300 hover:rotate-12"
                 />
                 <p className="my-4">{item.name}</p>
               </div>
