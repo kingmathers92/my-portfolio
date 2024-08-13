@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { projectsData } from "../data/ProjectsData.js";
 import { Pagination } from "../components/index";
-import Project from "../components/Project"; // Import the Project component
+import Project from "../components/Project";
+import AnimatedElement from "../components/AnimatedElements.jsx";
 
 const Work = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,8 +32,10 @@ const Work = () => {
         {/* Container for projects */}
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
           {/* Grid Item */}
-          {projectSlice.map((project) => (
-            <Project key={project.id} project={project} />
+          {projectSlice.map((project, index) => (
+            <AnimatedElement key={project.id} delay={index * 200}>
+              <Project key={project.id} project={project} />
+            </AnimatedElement>
           ))}
         </div>
         <Pagination
