@@ -1,6 +1,7 @@
 import { useState, useEffect, Suspense, lazy } from "react";
 import { Navbar } from "./components/index";
 import { Home, Blog, Contact } from "./pages/index";
+import { ErrorBoundary } from "./components/index";
 import { MrMiyagi } from "@uiball/loaders";
 
 const Skills = lazy(() => import("./pages/Skills"));
@@ -37,7 +38,7 @@ function App() {
   document.body.className = theme === "light" ? "light-theme" : "dark-theme";
 
   return (
-    <>
+    <ErrorBoundary>
       <Suspense
         fallback={
           <div
@@ -67,7 +68,7 @@ function App() {
         <Youtube />
         <Contact nav={nav} />
       </Suspense>
-    </>
+    </ErrorBoundary>
   );
 }
 
