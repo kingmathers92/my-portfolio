@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
-const Project = ({ project }) => {
+const Project = memo(({ project }) => {
   const { live, github, name, image, logos } = project;
 
   return (
@@ -58,6 +58,6 @@ const Project = ({ project }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Project;
