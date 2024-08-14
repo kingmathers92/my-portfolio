@@ -170,6 +170,15 @@
   color: var(--primary-color);
 }
 
+.light-theme .quote-container {
+  background-color: var(--light-theme-bg);
+  border-color: var(--primary-color);
+}
+
+.light-theme .quote {
+  color: var(--primary-color);
+}
+
 .light-theme .group {
   border: 1px solid var(--primary-color);
 }
