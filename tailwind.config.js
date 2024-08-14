@@ -4,12 +4,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary-color": "#0a192f",
-        "secondary-color": "#68d391",
-        "light-theme-bg": "#fff",
-        "text-color-dark": "#d1d5db",
-        "accent-color-light": "#8892b0",
-        "accent-color-dark": "#111",
+        "primary-color": "var(--primary-color)",
+        "secondary-color": "var(--secondary-color)",
+        "light-theme-bg": "var(--light-theme-bg)",
+        "accent-color-light": "var(--accent-color-light)",
+        "accent-color-dark": "var(--accent-color-dark)",
+        "text-color-dark": "var(--text-color-dark)",
+        "text-color-light": "var(--text-color-light)",
       },
       animation: {
         "loop-scroll": "loop-scroll 50s linear infinite",
