@@ -67,7 +67,7 @@ const Home = () => {
             <div className="absolute -top-3 left-4 w-8 h-8 sm:w-12 sm:h-12 bg-secondary-color opacity-20 rounded-full"></div>
             <div className="absolute -bottom-3 right-4 w-6 h-6 sm:w-8 sm:h-8 bg-secondary-color opacity-20 rounded-full"></div>
             <div className="bg-primary-color bg-opacity-80 backdrop-filter backdrop-blur-sm p-4 sm:p-6 rounded-lg shadow-lg border border-secondary-color border-opacity-30">
-              <p className="text-light-theme-bg text-base sm:text-lg md:text-xl font-normal italic leading-relaxed">
+              <p className="quote text-base sm:text-lg md:text-xl font-normal italic leading-relaxed">
                 "{quote}"
               </p>
               <div className="mt-3 sm:mt-4 w-8 sm:w-12 h-0.5 sm:h-1 bg-secondary-color"></div>
