@@ -284,6 +284,24 @@ canvas {
   border-right: 4px solid --accent-color-light;
 }
 
+.visitor-counter {
+  background-color: var(--light-theme-bg);
+  border: 1px solid var(--primary-color);
+  color: var(--text-color-dark);
+}
+
+.visitor-counter p {
+  margin: 0;
+}
+
+.visitor-counter .text-xl {
+  color: var(--primary-color);
+}
+
+.visitor-counter .text-3xl {
+  color: var(--accent-color-light);
+}
+
 @keyframes animate-rocket {
   0% {
     transform: scale(1) rotate(10deg);
