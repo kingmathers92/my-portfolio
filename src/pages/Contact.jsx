@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { ScrollBackToTop } from "../components/index";
 import { validateEmail } from "../utils/emailValidation.js";
+import VisitorCounter from "../components/Counter";
 
 const Contact = ({ nav }) => {
   const [userEmail, setUserEmail] = useState("");
@@ -88,6 +89,7 @@ const Contact = ({ nav }) => {
           Let's Collaborate
         </button>
       </form>
+      <VisitorCounter />
       {!nav && <ScrollBackToTop />}
     </div>
   );
