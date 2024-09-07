@@ -1,26 +1,30 @@
+/* Tailwind Base Styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Google Fonts Import */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
 
+/* Tailwind Base Layer */
 @layer base {
   body {
     @apply font-[Raleway];
   }
+
   li {
-    @apply px-4;
-    @apply cursor-pointer;
+    @apply px-4 cursor-pointer;
   }
 }
 
+/* Tailwind Utilities Layer */
 @layer utilities {
   .paused {
     animation-play-state: paused;
   }
 }
 
-/* Color Variables */
+/* Color variables */
 :root {
   --primary-color: #0a192f;
   --secondary-color: #68d391;
@@ -31,12 +35,14 @@
   --accent-color-dark: #111;
 }
 
+/* Global styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Navigation and progress bar */
 .nav,
 .progress_wrapper {
   z-index: 10;
@@ -58,7 +64,7 @@
   background-color: var(--secondary-color);
 }
 
-/* Custom Scroll-Bar */
+/* Custom Scroll Bar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -72,6 +78,7 @@
   border-radius: 4px;
 }
 
+/* Content Div */
 .content-div {
   background-repeat: no-repeat;
   background-size: cover;
@@ -96,6 +103,7 @@
   width: 70px;
 }
 
+/* Socials */
 .socialsHidden {
   position: absolute;
   top: 50%;
@@ -113,6 +121,7 @@
   transform: scale(1.3);
 }
 
+/* Back to Top Button */
 #btnTop {
   display: inline-block;
   background-color: var(--primary-color);
@@ -136,7 +145,7 @@
   font-style: normal;
   font-size: 2em;
   line-height: 50px;
-  color: --light-theme-bg;
+  color: var(--light-theme-bg);
 }
 
 #btnTop:hover {
@@ -152,6 +161,7 @@
   color: var(--light-theme-bg);
 }
 
+/* Light Theme */
 .light-theme {
   background-color: var(--light-theme-bg);
   color: var(--accent-color-dark);
@@ -162,7 +172,9 @@
 }
 
 .light-theme p,
-.about {
+.about,
+.title,
+.web {
   color: var(--primary-color);
 }
 
@@ -175,11 +187,9 @@
   border-color: var(--primary-color);
 }
 
-.light-theme .quote {
-  color: var(--primary-color);
-}
-
+.light-theme .quote,
 .light-theme .group {
+  color: var(--primary-color);
   border: 1px solid var(--primary-color);
 }
 
@@ -187,19 +197,7 @@
   color: var(--accent-color-light);
 }
 
-.light-theme .web,
-.title {
-  color: var(--primary-color);
-}
-
-.light-theme button {
-  background-color: var(--primary-color);
-}
-
-.light-theme .nav {
-  background-color: var(--primary-color);
-}
-
+/* Dark Theme */
 .dark-theme,
 .mobileMenu {
   background-color: var(--primary-color);
@@ -227,7 +225,7 @@ canvas {
   background-color: transparent;
 }
 
-/* CSS Animation for about section*/
+/* Animations */
 @keyframes slideInLeft {
   0% {
     opacity: 0;
@@ -258,48 +256,19 @@ canvas {
   animation: slideInRight 1s ease-in-out;
 }
 
-.web {
-  position: relative;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 65vw;
-  height: auto;
-}
-
-.web::before {
-  content: "I'm a Software Developer.";
-  position: absolute;
-  overflow: hidden;
-  color: var(--secondary-color);
-  border-right: 4px solid var(--secondary-color);
-  top: 0;
-  left: 0;
-  width: 0;
-  height: auto;
-  animation: sway 6s linear infinite;
-}
-
-.light-theme .web::before {
-  color: --accent-color-light;
-  border-right: 4px solid --accent-color-light;
-}
-
-.visitor-counter {
-  background-color: var(--light-theme-bg);
-  border: 1px solid var(--primary-color);
-  color: var(--text-color-dark);
-}
-
-.visitor-counter p {
-  margin: 0;
-}
-
-.visitor-counter .text-xl {
-  color: var(--primary-color);
-}
-
-.visitor-counter .text-3xl {
-  color: var(--accent-color-light);
+@keyframes sway {
+  0%,
+  10%,
+  100% {
+    width: 0%;
+    height: 110%;
+  }
+  70%,
+  80%,
+  90% {
+    width: 100%;
+    height: 110%;
+  }
 }
 
 @keyframes animate-rocket {
@@ -323,21 +292,53 @@ canvas {
   }
 }
 
-@keyframes sway {
-  0%,
-  10%,
-  100% {
-    width: 0%;
-    height: 110%;
-  }
-  70%,
-  80%,
-  90% {
-    width: 100%;
-    height: 110%;
-  }
+/* Web Element */
+.web {
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 65vw;
+  height: auto;
 }
 
+.web::before {
+  content: "I'm a Software Developer.";
+  position: absolute;
+  overflow: hidden;
+  color: var(--secondary-color);
+  border-right: 4px solid var(--secondary-color);
+  top: 0;
+  left: 0;
+  width: 0;
+  height: auto;
+  animation: sway 6s linear infinite;
+}
+
+.light-theme .web::before {
+  color: var(--accent-color-light);
+  border-right: 4px solid var(--accent-color-light);
+}
+
+/* Visitor Counter */
+.visitor-counter {
+  background-color: var(--light-theme-bg);
+  border: 1px solid var(--primary-color);
+  color: var(--text-color-dark);
+}
+
+.visitor-counter p {
+  margin: 0;
+}
+
+.visitor-counter .text-xl {
+  color: var(--primary-color);
+}
+
+.visitor-counter .text-3xl {
+  color: var(--accent-color-light);
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .web {
     max-width: 100%;
@@ -366,6 +367,7 @@ canvas {
   }
 }
 
+/* Print Styles */
 @media print {
   body {
     font-size: 12pt;

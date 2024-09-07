@@ -1,13 +1,10 @@
-// components/VisitorCounter.js
 import React, { useEffect, useState } from "react";
 
 const VisitorCounter = () => {
   const [visitorCount, setVisitorCount] = useState(0);
 
   useEffect(() => {
-    // Simulate fetching visitor count from an API
-    // Replace with real API call in production
-    setVisitorCount(1234); // Example static value
+    setVisitorCount(1234);
   }, []);
 
   return (
