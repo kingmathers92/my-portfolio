@@ -1,13 +1,20 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ScrollBackToTop } from "../components/index";
 import { validateEmail } from "../utils/emailValidation.js";
-import VisitorCounter from "../components/Counter";
 
 const Contact = ({ nav }) => {
   const [userEmail, setUserEmail] = useState("");
-  const [userMessage, setUserMessasge] = useState("");
+  const [userMessage, setUserMessage] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [visitorCount, setVisitorCount] = useState(0);
   const errorTimerRef = useRef(null);
+
+  useEffect(() => {
+    fetch("https://khaledbenyahya.com")
+      .then((response) => response.json())
+      .then((data) => setVisitorCount(data.count))
+      .catch((error) => console.error("Error fetching visitor count:", error));
+  }, []);
 
   const handleEmailChange = (e) => {
     const email = e.target.value;
@@ -45,17 +52,23 @@ const Contact = ({ nav }) => {
     <div
       name="contact"
       id="contact"
-      className="w-full h-screen flex justify-center items-center p-8"
+      className="w-full h-screen flex flex-col justify-center items-center p-8"
     >
+      <div className="mb-4 text-center">
+        <p className="text-4xl font-bold inline border-b-4 border-blue-600">
+          Contact
+        </p>
+        <p className="mt-4 text-lg text-gray-600">
+          You've joined <span className="text-blue-600">{visitorCount}</span>{" "}
+          people who have visited my site!
+        </p>
+      </div>
       <form
         onSubmit={handleFormSubmit}
         method="POST"
         action="https://getform.io/f/65c92a0f-7a6c-4355-83a7-dcd78c5a552f"
         className="flex flex-col max-w-screen-md w-full font-bold text-[#0A192F]"
       >
-        <div className="pb-6">
-          <p className="text-4xl inline border-b-4 border-blue-600">Contact</p>
-        </div>
         <input
           className="bg-[#ccd6f6] p-2"
           type="text"
@@ -77,7 +90,7 @@ const Contact = ({ nav }) => {
           name="message"
           rows="5"
           placeholder="Message"
-          onChange={(e) => setUserMessasge(e.target.value)}
+          onChange={(e) => setUserMessage(e.target.value)}
           value={userMessage}
           required
         ></textarea>
@@ -89,7 +102,6 @@ const Contact = ({ nav }) => {
           Let's Collaborate
         </button>
       </form>
-      <VisitorCounter />
       {!nav && <ScrollBackToTop />}
     </div>
   );
