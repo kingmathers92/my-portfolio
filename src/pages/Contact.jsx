@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ScrollBackToTop } from "../components/index";
 import { validateEmail } from "../utils/emailValidation.js";
+import { motion } from "framer-motion";
+import { FaUsers } from "react-icons/fa";
 
 const Contact = ({ nav }) => {
   const [userEmail, setUserEmail] = useState("");
@@ -58,10 +60,20 @@ const Contact = ({ nav }) => {
         <p className="text-4xl font-bold inline border-b-4 border-blue-600">
           Contact
         </p>
-        <p className="mt-4 text-lg text-gray-600">
-          You've joined <span className="text-blue-600">{visitorCount}</span>{" "}
-          people who have visited my site!
-        </p>
+        <motion.div
+          className="mt-4 text-lg text-gray-600 flex flex-col items-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <FaUsers className="text-6xl text-blue-600 mb-2" />
+          <p className="font-semibold">
+            You're among{" "}
+            <span className="text-blue-600 text-3xl">{visitorCount}</span>{" "}
+            amazing people
+          </p>
+          <p className="text-gray-500">who have visited my site!</p>
+        </motion.div>
       </div>
       <form
         onSubmit={handleFormSubmit}
