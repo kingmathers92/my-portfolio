@@ -40,6 +40,15 @@ const Contact = ({ nav }) => {
     const error = validateEmail(userEmail);
     const messageError = validateMessage(userMessage);
     const honeypotValue = e.target.honeypot.value;
+    const lastSubmissionTime = localStorage.getItem("lastSubmissionTime");
+    const currentTime = new Date().getTime();
+
+    const oneMonth = 30 * 24 * 60 * 60 * 1000;
+
+    if (lastSubmissionTime && currentTime - lastSubmissionTime < oneMonth) {
+      e.preventDefault();
+      return;
+    }
 
     if (messageError) {
       e.preventDefault();
