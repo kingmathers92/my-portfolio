@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ScrollBackToTop } from "../components/index";
 import { validateEmail } from "../utils/emailValidation.js";
+import { validateMessage } from "../utils/messageValidtion.js";
 import { motion } from "framer-motion";
 import { FaUsers } from "react-icons/fa";
 
@@ -37,8 +38,13 @@ const Contact = ({ nav }) => {
 
   const handleFormSubmit = (e) => {
     const error = validateEmail(userEmail);
+    const messageError = validateMessage(userMessage);
     const honeypotValue = e.target.honeypot.value;
 
+    if (messageError) {
+      e.preventDefault();
+      return;
+    }
     if (honeypotValue) {
       e.preventDefault();
       return;
