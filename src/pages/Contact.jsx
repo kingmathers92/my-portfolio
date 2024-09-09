@@ -37,6 +37,13 @@ const Contact = ({ nav }) => {
 
   const handleFormSubmit = (e) => {
     const error = validateEmail(userEmail);
+    const honeypotValue = e.target.honeypot.value;
+
+    if (honeypotValue) {
+      e.preventDefault();
+      return;
+    }
+
     if (error) {
       e.preventDefault();
       setEmailError(error);
@@ -81,6 +88,7 @@ const Contact = ({ nav }) => {
         action="https://getform.io/f/65c92a0f-7a6c-4355-83a7-dcd78c5a552f"
         className="flex flex-col max-w-screen-md w-full font-bold text-[#0A192F]"
       >
+        <input type="text" name="honeypot" style={{ display: "none" }} />
         <input
           className="bg-[#ccd6f6] p-2"
           type="text"
