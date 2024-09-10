@@ -5,6 +5,7 @@ import InputField from "../components/InputField.jsx";
 import TextArea from "../components/TextArea.jsx";
 import { validateEmail } from "../utils/emailValidation.js";
 import { validateMessage } from "../utils/messageValidation.js";
+import Newsletter from "../components/Newsletter";
 import SuccessModal from "../components/SuccessModal";
 import emailjs from "emailjs-com";
 
@@ -120,6 +121,7 @@ const Contact = ({ nav }) => {
         isVisible={showSuccessModal}
         onClose={() => setShowSuccessModal(false)}
       />
+      <Newsletter />
       {!nav && <ScrollBackToTop />}
     </div>
   );
