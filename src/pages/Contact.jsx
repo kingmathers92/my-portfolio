@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { ScrollBackToTop } from "../components/index";
 import VisitorCount from "../components/VisitorCount.jsx";
+import InputField from "../components/InputField.jsx";
+import TextArea from "../components/TextArea.jsx";
 import { validateEmail } from "../utils/emailValidation.js";
 import { validateMessage } from "../utils/messageValidation.js";
 import emailjs from "emailjs-com";
@@ -9,16 +11,8 @@ const Contact = ({ nav }) => {
   const [userEmail, setUserEmail] = useState("");
   const [userMessage, setUserMessage] = useState("");
   const [emailError, setEmailError] = useState("");
-  const [visitorCount, setVisitorCount] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const errorTimerRef = useRef(null);
-
-  useEffect(() => {
-    fetch("https://khaledbenyahya.com")
-      .then((response) => response.json())
-      .then((data) => setVisitorCount(data.count))
-      .catch((error) => console.error("Error fetching visitor count:", error));
-  }, []);
 
   const handleEmailChange = (e) => {
     const email = e.target.value;
@@ -84,38 +78,34 @@ const Contact = ({ nav }) => {
         <p className="text-4xl font-bold inline border-b-4 border-blue-600">
           Contact
         </p>
-        <VisitorCount visitorCount={visitorCount} />
+        <VisitorCount />
       </div>
       <form
         onSubmit={handleFormSubmit}
         className="flex flex-col max-w-screen-md w-full font-bold text-[#0A192F]"
       >
         <input type="text" name="honeypot" style={{ display: "none" }} />
-        <input
-          className="bg-[#ccd6f6] p-2"
+        <InputField
           type="text"
           placeholder="Name"
           name="name"
+          required={true}
         />
-        <input
-          className="my-4 p-2 bg-[#ccd6f6]"
+        <InputField
           type="email"
           placeholder="Email"
           name="email"
           value={userEmail}
           onChange={handleEmailChange}
-          required
+          required={true}
         />
         {emailError && <p className="text-red-500">{emailError}</p>}
-        <textarea
-          className="bg-[#ccd6f6] p-2"
-          name="message"
-          rows="5"
+        <TextArea
           placeholder="Message"
-          onChange={(e) => setUserMessage(e.target.value)}
+          name="message"
           value={userMessage}
-          required
-        ></textarea>
+          onChange={(e) => setUserMessage(e.target.value)}
+        />
         <button
           disabled={isSubmitting || !userEmail || !userMessage || emailError}
           type="submit"

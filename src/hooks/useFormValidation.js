@@ -3,34 +3,29 @@ import { validateEmail } from "../utils/emailValidation";
 import { validateMessage } from "../utils/messageValidation";
 
 export const useFormValidation = () => {
-  const [userEmail, setUserEmail] = useState("");
-  const [userMessage, setUserMessage] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [messageError, setMessageError] = useState("");
+  const [formData, setFormData] = useState({
+    userEmail: "",
+    userMessage: "",
+  });
+  const [errors, setErrors] = useState({});
   const errorTimerRef = useRef(null);
 
-  const handleEmailChange = (e) => {
-    const email = e.target.value;
-    setUserEmail(email);
-    const error = validateEmail(email);
-    setEmailError(error);
-
-    if (errorTimerRef.current) {
-      clearTimeout(errorTimerRef.current);
-    }
-
-    if (error) {
-      errorTimerRef.current = setTimeout(() => {
-        setEmailError("");
-      }, 3000);
-    }
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    validateField(name, value);
   };
 
-  const handleMessageChange = (e) => {
-    const message = e.target.value;
-    setUserMessage(message);
-    const error = validateMessage(message);
-    setMessageError(error);
+  const validateField = (name, value) => {
+    let error = "";
+
+    if (name === "userEmail") {
+      error = validateEmail(value);
+    } else if (name === "userMessage") {
+      error = validateMessage(value);
+    }
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
 
     if (errorTimerRef.current) {
       clearTimeout(errorTimerRef.current);
@@ -38,35 +33,32 @@ export const useFormValidation = () => {
 
     if (error) {
       errorTimerRef.current = setTimeout(() => {
-        setMessageError("");
+        setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
       }, 3000);
     }
   };
 
   const validateForm = (honeypotValue) => {
+    const hasErrors = Object.values(errors).some((error) => error);
     const oneMonth = 30 * 24 * 60 * 60 * 1000;
-    const currentTime = new Date().getTime();
     const lastSubmissionTime = localStorage.getItem("lastSubmissionTime");
 
-    if (lastSubmissionTime && currentTime - lastSubmissionTime < oneMonth) {
-      console.log("Submission blocked: Form submitted too recently.");
+    const canSubmit =
+      !honeypotValue &&
+      !hasErrors &&
+      Date.now() - lastSubmissionTime > oneMonth;
+
+    if (!canSubmit) {
+      console.log("Form validation failed.");
       return false;
     }
-
-    if (honeypotValue || emailError || messageError) {
-      return false;
-    }
-
     return true;
   };
 
   return {
-    userEmail,
-    userMessage,
-    emailError,
-    messageError,
-    handleEmailChange,
-    handleMessageChange,
+    formData,
+    errors,
+    handleInputChange,
     validateForm,
   };
 };
