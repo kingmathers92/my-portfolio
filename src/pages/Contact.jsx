@@ -1,49 +1,26 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { ScrollBackToTop } from "../components/index";
 import VisitorCount from "../components/VisitorCount.jsx";
 import InputField from "../components/InputField.jsx";
 import TextArea from "../components/TextArea.jsx";
-import { validateEmail } from "../utils/emailValidation.js";
-import { validateMessage } from "../utils/messageValidation.js";
-import Newsletter from "../components/Newsletter";
+import { useFormValidation } from "../hooks/useFormValidation";
+//import Newsletter from "../components/Newsletter";
 import SuccessModal from "../components/SuccessModal";
 import emailjs from "emailjs-com";
 
 const Contact = ({ nav }) => {
-  const [userEmail, setUserEmail] = useState("");
-  const [userMessage, setUserMessage] = useState("");
-  const [emailError, setEmailError] = useState("");
+  const { formData, errors, handleInputChange, validateForm } =
+    useFormValidation();
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const errorTimerRef = useRef(null);
-
-  const handleEmailChange = (e) => {
-    const email = e.target.value;
-    setUserEmail(email);
-    const error = validateEmail(email);
-    setEmailError(error);
-
-    if (errorTimerRef.current) {
-      clearTimeout(errorTimerRef.current);
-    }
-
-    if (error) {
-      errorTimerRef.current = setTimeout(() => {
-        setEmailError("");
-      }, 3000);
-    }
-  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const error = validateEmail(userEmail);
-    const messageError = validateMessage(userMessage);
     const honeypotValue = e.target.honeypot.value;
-
-    if (error || messageError || honeypotValue) {
-      setEmailError(error || messageError);
+    if (!validateForm(honeypotValue)) {
       setIsSubmitting(false);
       return;
     }
@@ -60,8 +37,9 @@ const Contact = ({ nav }) => {
           console.log("Email successfully sent", result.text);
           setShowSuccessModal(true);
           setIsSubmitting(false);
-          setUserEmail("");
-          setUserMessage("");
+
+          handleInputChange({ target: { name: "userEmail", value: "" } });
+          handleInputChange({ target: { name: "userMessage", value: "" } });
         },
         (error) => {
           console.log("Failed to send email", error.text);
@@ -92,25 +70,31 @@ const Contact = ({ nav }) => {
           type="text"
           placeholder="Name"
           name="name"
+          onChange={handleInputChange}
           required={true}
         />
         <InputField
           type="email"
           placeholder="Email"
-          name="email"
-          value={userEmail}
-          onChange={handleEmailChange}
+          name="userEmail"
+          value={formData.userEmail}
+          onChange={handleInputChange}
           required={true}
         />
-        {emailError && <p className="text-red-500">{emailError}</p>}
+        {errors.userEmail && <p className="text-red-500">{errors.userEmail}</p>}
         <TextArea
           placeholder="Message"
-          name="message"
-          value={userMessage}
-          onChange={(e) => setUserMessage(e.target.value)}
+          name="userMessage"
+          value={formData.userMessage}
+          onChange={handleInputChange}
         />
         <button
-          disabled={isSubmitting || !userEmail || !userMessage || emailError}
+          disabled={
+            isSubmitting ||
+            !formData.userEmail ||
+            !formData.userMessage ||
+            errors.userEmail
+          }
           type="submit"
           className="collab-btn text-white border-2 hover:bg-blue-600 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center hover:cursor-pointer"
         >
@@ -121,7 +105,7 @@ const Contact = ({ nav }) => {
         isVisible={showSuccessModal}
         onClose={() => setShowSuccessModal(false)}
       />
-      <Newsletter />
+      {/* <Newsletter /> */}
       {!nav && <ScrollBackToTop />}
     </div>
   );
