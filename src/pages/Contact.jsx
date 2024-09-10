@@ -2,13 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { ScrollBackToTop } from "../components/index";
 import VisitorCount from "../components/VisitorCount.jsx";
 import { validateEmail } from "../utils/emailValidation.js";
-import { validateMessage } from "../utils/messageValidtion.js";
+import { validateMessage } from "../utils/messageValidation.js";
+import emailjs from "emailjs-com";
 
 const Contact = ({ nav }) => {
   const [userEmail, setUserEmail] = useState("");
   const [userMessage, setUserMessage] = useState("");
   const [emailError, setEmailError] = useState("");
   const [visitorCount, setVisitorCount] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const errorTimerRef = useRef(null);
 
   useEffect(() => {
@@ -36,41 +38,40 @@ const Contact = ({ nav }) => {
   };
 
   const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
     const error = validateEmail(userEmail);
     const messageError = validateMessage(userMessage);
     const honeypotValue = e.target.honeypot.value;
-    const lastSubmissionTime = localStorage.getItem("lastSubmissionTime");
-    const currentTime = new Date().getTime();
 
-    const oneMonth = 30 * 24 * 60 * 60 * 1000;
-
-    if (lastSubmissionTime && currentTime - lastSubmissionTime < oneMonth) {
-      e.preventDefault();
+    if (error || messageError || honeypotValue) {
+      setEmailError(error || messageError);
+      setIsSubmitting(false);
       return;
     }
 
-    localStorage.setItem("lastSubmissionTime", currentTime);
-
-    if (messageError) {
-      e.preventDefault();
-      return;
-    }
-    if (honeypotValue) {
-      e.preventDefault();
-      return;
-    }
-
-    if (error) {
-      e.preventDefault();
-      setEmailError(error);
-
-      if (errorTimerRef.current) {
-        clearTimeout(errorTimerRef.current);
-      }
-      errorTimerRef.current = setTimeout(() => {
-        setEmailError("");
-      }, 3000);
-    }
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        e.target,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log("Email successfully sent", result.text);
+          alert("Your message has been successfully submitted!");
+          setIsSubmitting(false);
+          setUserEmail("");
+          setUserMessage("");
+        },
+        (error) => {
+          console.log("Failed to send email", error.text);
+          alert("Failed to send your message. Please try again later.");
+          setIsSubmitting(false);
+        }
+      );
   };
 
   return (
@@ -87,8 +88,6 @@ const Contact = ({ nav }) => {
       </div>
       <form
         onSubmit={handleFormSubmit}
-        method="POST"
-        action="https://getform.io/f/65c92a0f-7a6c-4355-83a7-dcd78c5a552f"
         className="flex flex-col max-w-screen-md w-full font-bold text-[#0A192F]"
       >
         <input type="text" name="honeypot" style={{ display: "none" }} />
@@ -118,11 +117,11 @@ const Contact = ({ nav }) => {
           required
         ></textarea>
         <button
-          disabled={!userEmail || !userMessage || emailError}
+          disabled={isSubmitting || !userEmail || !userMessage || emailError}
           type="submit"
           className="collab-btn text-white border-2 hover:bg-blue-600 hover:border-blue-600 px-4 py-3 my-8 mx-auto flex items-center hover:cursor-pointer"
         >
-          Let's Collaborate
+          {isSubmitting ? "Submitting..." : "Let's Collaborate"}
         </button>
       </form>
       {!nav && <ScrollBackToTop />}
