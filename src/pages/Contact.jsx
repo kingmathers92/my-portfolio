@@ -47,10 +47,10 @@ const Contact = ({ nav }) => {
 
     emailjs
       .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        "service_3azu725",
+        "template_nwwnc02",
         e.target,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        "PmZfW_YwK4_ZVx6IF"
       )
       .then(
         (result) => {
