@@ -5,6 +5,7 @@ import InputField from "../components/InputField.jsx";
 import TextArea from "../components/TextArea.jsx";
 import { validateEmail } from "../utils/emailValidation.js";
 import { validateMessage } from "../utils/messageValidation.js";
+import SuccessModal from "../components/SuccessModal";
 import emailjs from "emailjs-com";
 
 const Contact = ({ nav }) => {
@@ -12,6 +13,7 @@ const Contact = ({ nav }) => {
   const [userMessage, setUserMessage] = useState("");
   const [emailError, setEmailError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const errorTimerRef = useRef(null);
 
   const handleEmailChange = (e) => {
@@ -55,7 +57,7 @@ const Contact = ({ nav }) => {
       .then(
         (result) => {
           console.log("Email successfully sent", result.text);
-          alert("Your message has been successfully submitted!");
+          setShowSuccessModal(true);
           setIsSubmitting(false);
           setUserEmail("");
           setUserMessage("");
@@ -114,6 +116,10 @@ const Contact = ({ nav }) => {
           {isSubmitting ? "Submitting..." : "Let's Collaborate"}
         </button>
       </form>
+      <SuccessModal
+        isVisible={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+      />
       {!nav && <ScrollBackToTop />}
     </div>
   );
