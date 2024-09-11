@@ -6,8 +6,13 @@ const VisitorCount = () => {
   const [visitorCount, setVisitorCount] = useState(0);
 
   useEffect(() => {
-    fetch("https://khaledbenyahya.com")
-      .then((response) => response.json())
+    fetch("https://khaledbenyahya.com/api/visitor-count")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json(); // parse JSON only if the response is valid
+      })
       .then((data) => setVisitorCount(data.count))
       .catch((error) => console.error("Error fetching visitor count:", error));
   }, []);
