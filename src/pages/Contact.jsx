@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ScrollBackToTop } from "../components/index";
-import VisitorCount from "../components/VisitorCount.jsx";
 import InputField from "../components/InputField.jsx";
 import TextArea from "../components/TextArea.jsx";
 import { useFormValidation } from "../hooks/useFormValidation";
@@ -59,7 +58,6 @@ const Contact = ({ nav }) => {
         <p className="text-4xl font-bold inline border-b-4 border-blue-600">
           Contact
         </p>
-        <VisitorCount />
       </div>
       <form
         onSubmit={handleFormSubmit}

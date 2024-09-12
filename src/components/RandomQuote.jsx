@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import quotes from "../data/Quotes"; // Import the quotes
+import quotes from "../data/Quotes";
 
 const RandomQuote = () => {
   const [quote, setQuote] = useState({});
