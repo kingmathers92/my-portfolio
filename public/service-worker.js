@@ -17,9 +17,11 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    fetch(event.request).catch((error) => {
-      console.error("Fetch failed, returning offline page", error);
-      return caches.match("/offline.html"); // Fallback to an offline page or cached version
+    caches.match(event.request).then((response) => {
+      if (response) {
+        return response;
+      }
+      return fetch(event.request);
     })
   );
 });
