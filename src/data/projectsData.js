@@ -7,6 +7,8 @@ export const projectsData = [
   {
     id: 1,
     name: "Tenzies Game",
+    description:
+      "A dice game where you match 10 dice by holding and rolling until all match.",
     logos: [
       {
         src: "https://www.cdnlogo.com/logos/r/63/react.svg",
@@ -26,6 +28,8 @@ export const projectsData = [
   {
     id: 2,
     name: "Crypto Monitor",
+    description:
+      "Track cryptocurrency stats and prices using CoinGecko API with Firebase for authentication.",
     logos: [
       {
         src: "https://www.cdnlogo.com/logos/r/63/react.svg",
@@ -48,6 +52,8 @@ export const projectsData = [
   {
     id: 3,
     name: "Moviehub",
+    description:
+      "Moviehub uses React, Redux, and Alan AI to provide advanced movie search capabilities.",
     logos: [
       {
         src: "https://www.cdnlogo.com/logos/r/63/react.svg",
@@ -67,6 +73,8 @@ export const projectsData = [
   {
     id: 4,
     name: "PizzaSi",
+    description:
+      "A pizza ordering web app designed to assist a local Italian restaurant's business.",
     logos: [
       {
         src: "https://www.cdnlogo.com/logos/r/63/react.svg",
