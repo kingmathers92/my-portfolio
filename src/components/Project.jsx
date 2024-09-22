@@ -27,20 +27,20 @@ const Project = memo(({ project }) => {
               Code
             </button>
           </a>
-          {live ? (
-            <a href={live} target="_blank" rel="noreferrer">
-              <button className="text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg">
-                Live
-              </button>
-            </a>
-          ) : (
+          <a
+            href={live || "#"}
+            target={live ? "_blank" : "_self"}
+            rel="noreferrer"
+          >
             <button
-              className="text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg opacity-50 cursor-not-allowed"
-              disabled
+              className={`text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg ${
+                live ? "" : "opacity-50 cursor-not-allowed"
+              }`}
+              disabled={!live}
             >
               Live
             </button>
-          )}
+          </a>
         </div>
       </div>
       <div className="flex absolute bottom-0 border-b-0 w-60 p-2 overflow-hidden space-x-10 group rounded-md bg-[#0a192f]">
