@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 const Project = memo(({ project }) => {
-  const { live, github, name, image, logos } = project;
+  const { live, github, name, image, logos, description } = project;
 
   const logoElements = logos.map((logo, index) => (
     <img
@@ -21,7 +21,8 @@ const Project = memo(({ project }) => {
         <span className="text-2xl font-bold text-white tracking-wider">
           {name}
         </span>
-        <div className="pt-8 text-center">
+        <p className="text-white mt-2">{description}</p>
+        <div className=" text-center">
           <a href={github} target="_blank" rel="noreferrer">
             <button className="text-center rounded-lg px-4 py-3 m-2 bg-white text-gray-700 font-bold text-lg">
               Code
