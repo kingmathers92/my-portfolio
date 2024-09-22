@@ -3,6 +3,15 @@ import React, { memo } from "react";
 const Project = memo(({ project }) => {
   const { live, github, name, image, logos } = project;
 
+  const logoElements = logos.map((logo, index) => (
+    <img
+      key={index}
+      src={logo.src}
+      alt={`Logo ${index + 1}`}
+      className="max-w-none h-8"
+    />
+  ));
+
   return (
     <div
       style={{ backgroundImage: `url(${image})` }}
@@ -36,24 +45,10 @@ const Project = memo(({ project }) => {
       </div>
       <div className="flex absolute bottom-0 border-b-0 w-60 p-2 overflow-hidden space-x-10 group rounded-md bg-[#0a192f]">
         <div className="flex space-x-10 animate-loop-scroll group-hover:paused">
-          {logos.map((logo, index) => (
-            <img
-              key={index}
-              src={logo.src}
-              alt={`Logo ${index + 1}`}
-              className="max-w-none h-8"
-            />
-          ))}
+          {logoElements}
         </div>
         <div className="flex space-x-10 animate-loop-scroll" aria-hidden={true}>
-          {logos.map((logo, index) => (
-            <img
-              key={index}
-              src={logo.src}
-              alt={`Logo ${index + 1}`}
-              className="max-w-none h-8"
-            />
-          ))}
+          {logoElements}
         </div>
       </div>
     </div>
