@@ -1,4 +1,4 @@
-import React, { useState, memo } from "react";
+import { useState, memo } from "react";
 import {
   FaBars,
   FaTimes,
@@ -7,7 +7,6 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import { BsFillPersonLinesFill } from "react-icons/bs";
 import Logo from "../assets/kby.png";
 import { Link } from "react-scroll";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
@@ -136,11 +135,6 @@ const Navbar = memo(({ theme, setTheme }) => {
               <HiOutlineMail size={30} />
             </a>
           </li>
-          <li>
-            <a href={require("../assets/resume.pdf")} download="Resume">
-              <BsFillPersonLinesFill size={30} />
-            </a>
-          </li>
         </div>
         <li className="py-6 text-4xl no-underline hover:underline">
           <Link
@@ -249,15 +243,6 @@ const Navbar = memo(({ theme, setTheme }) => {
               target="blank"
             >
               Email <HiOutlineMail size={30} />
-            </a>
-          </li>
-          <li className="w-[160px] h-[40px] rounded-b flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#34A853]">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href={require("../assets/resume.pdf")}
-              download="Resume"
-            >
-              Resume <BsFillPersonLinesFill size={30} />
             </a>
           </li>
         </ul>
