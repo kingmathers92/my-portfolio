@@ -7,247 +7,165 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import Logo from "../assets/kby.png";
 import { Link } from "react-scroll";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import Logo from "../assets/kby.png";
+
+const NAV_LINKS = [
+  { to: "about", label: "About", offset: -20 },
+  { to: "skills", label: "Skills", offset: -30 },
+  { to: "work", label: "Work", offset: -80 },
+  { to: "blog", label: "Blog", offset: -30 },
+  { to: "youtube", label: "Youtube", offset: 30 },
+  { to: "contact", label: "Contact", offset: -20 },
+];
+
+const SOCIAL_LINKS = [
+  {
+    href: "https://www.linkedin.com/in/khaledbenyahya/",
+    icon: <FaLinkedin size={30} />,
+    label: "Linkedin",
+    bgColor: "bg-blue-600",
+  },
+  {
+    href: "https://github.com/kingmathers92",
+    icon: <FaGithub size={30} />,
+    label: "Github",
+    bgColor: "bg-[#333333]",
+  },
+  {
+    href: "https://www.youtube.com/@devstuff92",
+    icon: <FaYoutube size={30} />,
+    label: "Youtube",
+    bgColor: "bg-[#c4302b]",
+  },
+  {
+    href: "mailto:khaledb.yahya@gmail.com",
+    icon: <HiOutlineMail size={30} />,
+    label: "Email",
+    bgColor: "bg-[#00A4EF]",
+  },
+];
 
 const Navbar = memo(({ theme, setTheme }) => {
-  const [nav, setNav] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const handleClick = () => setNav(!nav);
+  const toggleNav = () => setIsNavOpen((prev) => !prev);
+  const toggleDarkMode = (checked) => setTheme(checked ? "dark" : "light");
 
-  const toggleDarkMode = (checked) => {
-    setTheme(checked ? "dark" : "light");
-  };
+  const renderNavLink = ({ to, label, offset }) => (
+    <li key={to} className="no-underline hover:underline">
+      <Link
+        to={to}
+        spy
+        smooth
+        offset={offset}
+        duration={500}
+        onClick={isNavOpen ? toggleNav : undefined}
+      >
+        {label}
+      </Link>
+    </li>
+  );
+
+  const renderSocialLink = (
+    { href, icon, label, bgColor },
+    isMobile = false
+  ) => (
+    <li
+      key={href}
+      className={
+        isMobile
+          ? undefined
+          : `w-[160px] h-[40px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 ${bgColor}`
+      }
+    >
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={
+          isMobile
+            ? undefined
+            : "flex justify-between items-center w-full text-gray-300"
+        }
+      >
+        {isMobile ? icon : `${label} ${icon}`}
+      </a>
+    </li>
+  );
 
   return (
-    <div className="nav fixed w-full h-[60px] flex justify-between items-center px-4 text-gray-300">
+    <nav className="nav fixed w-full h-[60px] flex justify-between items-center px-4 text-gray-300">
       <div>
         <a href="/">
-          <img id="logo" src={Logo} alt="Logo" />
+          <img id="logo" src={Logo} alt="Logo" className="h-10" />
         </a>
       </div>
 
-      <menu className="hidden md:flex">
-        <li className="no-underline hover:underline">
-          <Link to="about" spy={true} smooth={true} offset={-20} duration={500}>
-            About
-          </Link>
-        </li>
-        <li className="no-underline hover:underline">
-          <Link
-            to="skills"
-            spy={true}
-            smooth={true}
-            offset={-30}
-            duration={500}
-          >
-            Skills
-          </Link>
-        </li>
-        <li className="no-underline hover:underline">
-          <Link to="work" spy={true} smooth={true} offset={-80} duration={500}>
-            Work
-          </Link>
-        </li>
-        <li className="no-underline hover:underline">
-          <Link to="blog" spy={true} smooth={true} offset={-30} duration={500}>
-            Blog
-          </Link>
-        </li>
-        <li className="no-underline hover:underline">
-          <Link
-            to="youtube"
-            spy={true}
-            smooth={true}
-            offset={30}
-            duration={500}
-          >
-            Youtube
-          </Link>
-        </li>
-        <li className="no-underline hover:underline">
-          <Link
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={-20}
-            duration={500}
-          >
-            Contact
-          </Link>
-        </li>
-        <DarkModeSwitch
-          style={{ marginBottom: "0rem", color: "#fff" }}
-          checked={theme === "dark"}
-          onChange={toggleDarkMode}
-          size={25}
-        />
-      </menu>
-
-      <div
-        onClick={handleClick}
-        className="md:hidden z-10 hover:cursor-pointer text-2xl"
-      >
-        {!nav ? (
-          <FaBars style={{ color: "#fff" }} />
-        ) : (
-          <FaTimes style={{ color: "#fff" }} />
-        )}
-      </div>
-
-      <ul
-        className={
-          !nav
-            ? "hidden"
-            : "absolute top-0 left-0 w-full h-screen mobileMenu flex flex-col justify-center items-center"
-        }
-      >
-        <div className="darkModeMobile">
+      <ul className="hidden md:flex items-center space-x-6">
+        {NAV_LINKS.map(renderNavLink)}
+        <li>
           <DarkModeSwitch
-            style={{ marginBottom: "0rem" }}
             checked={theme === "dark"}
             onChange={toggleDarkMode}
             size={25}
+            className="text-white"
           />
-        </div>
-        <div className="socialsHidden">
-          <li>
-            <a
-              href="https://www.linkedin.com/in/khaledbenyahya/"
-              target="blank"
-            >
-              <FaLinkedin size={30} />
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/kingmathers92" target="blank">
-              <FaGithub size={30} />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/@devstuff92" target="blank">
-              <FaYoutube size={30} />
-            </a>
-          </li>
-          <li>
-            <a href="mailto:khaledb.yahya@gmail.com" target="blank">
-              <HiOutlineMail size={30} />
-            </a>
-          </li>
-        </div>
-        <li className="py-6 text-4xl no-underline hover:underline">
-          <Link
-            onClick={handleClick}
-            to="about"
-            spy={true}
-            smooth={true}
-            duration={500}
-          >
-            About
-          </Link>
-        </li>
-        <li className="py-6 text-4xl no-underline hover:underline">
-          <Link
-            onClick={handleClick}
-            to="skills"
-            spy={true}
-            smooth={true}
-            offset={-50}
-            duration={500}
-          >
-            Skills
-          </Link>
-        </li>
-        <li className="py-6 text-4xl no-underline hover:underline">
-          <Link
-            onClick={handleClick}
-            to="work"
-            spy={true}
-            smooth={true}
-            offset={-50}
-            duration={500}
-          >
-            Work
-          </Link>
-        </li>
-        <li className="py-6 text-4xl no-underline hover:underline">
-          <Link
-            onClick={handleClick}
-            to="blog"
-            spy={true}
-            smooth={true}
-            duration={500}
-          >
-            Blog
-          </Link>
-        </li>
-        <li className="py-6 text-4xl no-underline hover:underline">
-          <Link
-            onClick={handleClick}
-            to="youtube"
-            spy={true}
-            smooth={true}
-            duration={500}
-            offset={-50}
-          >
-            Youtube
-          </Link>
-        </li>
-        <li className="py-6 text-4xl no-underline hover:underline">
-          <Link
-            onClick={handleClick}
-            to="contact"
-            spy={true}
-            smooth={true}
-            duration={500}
-          >
-            Contact
-          </Link>
         </li>
       </ul>
 
-      <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
-        <ul>
-          <li className="w-[160px] h-[40px] rounded-t flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-blue-600">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="https://www.linkedin.com/in/khaledbenyahya/"
-              target="blank"
-            >
-              Linkedin <FaLinkedin size={30} />
-            </a>
-          </li>
-          <li className="w-[160px] h-[40px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#333333]">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="https://github.com/kingmathers92"
-              target="blank"
-            >
-              Github <FaGithub size={30} />
-            </a>
-          </li>
-          <li className="w-[160px] h-[40px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#c4302b]">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="https://www.youtube.com/@devstuff92"
-              target="blank"
-            >
-              Youtube <FaYoutube size={30} />
-            </a>
-          </li>
-          <li className="w-[160px] h-[40px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-500 bg-[#00A4EF]">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="mailto:khaledb.yahya@gmail.com"
-              target="blank"
-            >
-              Email <HiOutlineMail size={30} />
-            </a>
-          </li>
+      <button
+        onClick={toggleNav}
+        className="md:hidden z-10 text-2xl hover:cursor-pointer"
+        aria-label={isNavOpen ? "Close menu" : "Open menu"}
+      >
+        {isNavOpen ? (
+          <FaTimes className="text-white" />
+        ) : (
+          <FaBars className="text-white" />
+        )}
+      </button>
+
+      <ul
+        className={`${
+          isNavOpen ? "flex" : "hidden"
+        } absolute top-0 left-0 w-full h-screen mobileMenu flex flex-col justify-center items-center`}
+      >
+        <li className="mb-4">
+          <DarkModeSwitch
+            checked={theme === "dark"}
+            onChange={toggleDarkMode}
+            size={25}
+            className="text-white"
+          />
+        </li>
+        <ul className="flex space-x-6 mb-6">
+          {SOCIAL_LINKS.map((link) => renderSocialLink(link, true))}
         </ul>
+        {NAV_LINKS.map((link) => (
+          <li
+            key={link.to}
+            className="py-6 text-4xl no-underline hover:underline"
+          >
+            <Link
+              to={link.to}
+              spy
+              smooth
+              offset={link.offset}
+              duration={500}
+              onClick={toggleNav}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
+        <ul>{SOCIAL_LINKS.map((link) => renderSocialLink(link))}</ul>
       </div>
-    </div>
+    </nav>
   );
 });
 
