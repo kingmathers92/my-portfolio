@@ -1,24 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.2bef95a5.css",
-    "main.js": "/static/js/main.8303a4a3.js",
-    "static/js/250.a9b12540.chunk.js": "/static/js/250.a9b12540.chunk.js",
-    "static/js/856.d83a09c8.chunk.js": "/static/js/856.d83a09c8.chunk.js",
+    "main.css": "/static/css/main.824d612d.css",
+    "main.js": "/static/js/main.b5abd7b4.js",
+    "static/js/666.a7e1b31a.chunk.js": "/static/js/666.a7e1b31a.chunk.js",
+    "static/js/149.e43f9c12.chunk.js": "/static/js/149.e43f9c12.chunk.js",
     "static/media/moviehub.png": "/static/media/moviehub.8c76bcf4847d0d04db61.png",
     "static/media/pizzasi.png": "/static/media/pizzasi.9aab48e8505bfc9668f5.png",
     "static/media/face-min.png": "/static/media/face-min.99b294172f81b930cfed.png",
-    "static/media/resume.pdf": "/static/media/resume.f56ad5e15902f44b8925.pdf",
     "static/media/kby.png": "/static/media/kby.87246c79e2e22b67dd25.png",
     "static/media/cryptod.png": "/static/media/cryptod.43513449d2c9377f1f49.png",
-    "static/media/tenzies.png": "/static/media/tenzies.c753447b9654b1c4c6e7.png",
     "index.html": "/index.html",
-    "main.2bef95a5.css.map": "/static/css/main.2bef95a5.css.map",
-    "main.8303a4a3.js.map": "/static/js/main.8303a4a3.js.map",
-    "250.a9b12540.chunk.js.map": "/static/js/250.a9b12540.chunk.js.map",
-    "856.d83a09c8.chunk.js.map": "/static/js/856.d83a09c8.chunk.js.map"
+    "main.824d612d.css.map": "/static/css/main.824d612d.css.map",
+    "main.b5abd7b4.js.map": "/static/js/main.b5abd7b4.js.map",
+    "666.a7e1b31a.chunk.js.map": "/static/js/666.a7e1b31a.chunk.js.map",
+    "149.e43f9c12.chunk.js.map": "/static/js/149.e43f9c12.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2bef95a5.css",
-    "static/js/main.8303a4a3.js"
+    "static/css/main.824d612d.css",
+    "static/js/main.b5abd7b4.js"
   ]
 }
