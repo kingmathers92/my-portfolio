@@ -1,5 +1,5 @@
 
-import './App.css'
+import { T } from './shared/theme'
 
 function App() {
 
@@ -7,7 +7,7 @@ function App() {
     <>
 
         <div >
-<h1>Khaled Ben Yahya</h1>
+<h1 style={{color: T.accent}}>Khaled Ben Yahya</h1>
         </div>
 
     </>
