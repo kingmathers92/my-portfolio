@@ -1,18 +1,16 @@
-
-import { T } from './shared/theme'
-import {useReveal} from './shared/useReveal'
+import { T } from "./shared/theme";
+import { useReveal } from "./shared/useReveal";
 
 function App() {
-useReveal()
+  useReveal();
   return (
     <>
-
-        <div >
-<h1 className="reveal" style={{color: T.accent}}>Khaled Ben Yahya</h1>
-        </div>
-
+      <div className="noise" />
+      <h1 className="reveal" style={{ color: T.accent }}>
+        Khaled Ben Yahya
+      </h1>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
