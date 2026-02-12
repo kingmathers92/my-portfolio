@@ -1,10 +1,10 @@
-import { T } from './shared/theme'
-import { useReveal } from './shared/useReveal'
-import { Cursor } from './components/Cursor'
-import { Nav } from './components/Nav'
+import { T } from "./shared/theme";
+import { useReveal } from "./shared/useReveal";
+import { Cursor } from "./components/Cursor";
+import { Nav } from "./components/Nav";
 
 function App() {
-  useReveal()
+  useReveal();
 
   return (
     <>
@@ -15,7 +15,7 @@ function App() {
         Khaled Ben Yahya
       </h1>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
