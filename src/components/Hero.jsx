@@ -175,8 +175,59 @@ export function Hero() {
             <span style={{ fontSize: 14 }}>✦</span> Try AI Twin
           </a>
         </div>
-      </div>
 
+        {/* Stats*/}
+        <div
+          className="reveal"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 1,
+            background: T.border,
+            border: `1px solid ${T.border}`,
+            borderRadius: 3,
+            overflow: "hidden",
+            marginTop: 32,
+          }}
+        >
+          {[
+            ["3+", "Years"],
+            ["10+", "Projects"],
+            ["🇹🇳", "Tunisia"],
+          ].map(([num, label]) => (
+            <div
+              key={label}
+              style={{
+                background: T.surface,
+                padding: "18px 12px",
+                textAlign: "center",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "'Syne', sans-serif",
+                  fontSize: 26,
+                  fontWeight: 800,
+                  color: T.accent,
+                  display: "block",
+                }}
+              >
+                {num}
+              </span>
+              <span
+                style={{
+                  fontSize: 10,
+                  color: T.muted,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                }}
+              >
+                {label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
       {/* Right column */}
       <div className="hcode" style={{ position: "relative", zIndex: 2 }}>
         <p style={{ color: T.muted }}>Code card coming soon</p>
