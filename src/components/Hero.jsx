@@ -1,4 +1,5 @@
 import { T } from "../shared/theme";
+import { Typewriter } from "./Typewriter";
 
 export function Hero() {
   return (
@@ -74,6 +75,19 @@ export function Hero() {
           />
           Available for work
         </div>
+
+        <p
+          style={{ marginBottom: 14, animation: "fadeUp 0.7s 0.15s ease both" }}
+        >
+          <Typewriter
+            strings={[
+              "Frontend Developer.",
+              "React Specialist.",
+              "Next.js Enthusiast.",
+              "UI/UX Craftsman.",
+            ]}
+          />
+        </p>
 
         {/* Name */}
         <h1
