@@ -1,5 +1,6 @@
 import { T } from "../shared/theme";
 import { Typewriter } from "./Typewriter";
+import { CodeCard } from "./CodeCard";
 
 export function Hero() {
   return (
@@ -244,7 +245,36 @@ export function Hero() {
       </div>
       {/* Right column */}
       <div className="hcode" style={{ position: "relative", zIndex: 2 }}>
-        <p style={{ color: T.muted }}>Code card coming soon</p>
+        <div
+          className="hcode"
+          style={{
+            position: "relative",
+            zIndex: 2,
+            animation: "fadeUp 0.8s 0.25s ease both",
+          }}
+        >
+          <CodeCard />
+        </div>
+      </div>
+
+      {/* Scroll hint */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 40,
+          left: 48,
+          display: "flex",
+          alignItems: "center",
+          gap: 12,
+          fontSize: 10,
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
+          color: T.muted,
+          animation: "fadeUp 0.6s 0.9s ease both",
+        }}
+      >
+        <span style={{ width: 40, height: 1, background: T.muted2 }} /> Scroll
+        to explore
       </div>
     </section>
   );
