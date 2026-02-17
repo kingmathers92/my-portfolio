@@ -3,6 +3,7 @@ import { useReveal } from "./shared/useReveal";
 import { Cursor } from "./components/Cursor";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
+import { About } from "./components/About";
 
 function App() {
   useReveal();
@@ -13,6 +14,7 @@ function App() {
       <Cursor />
       <Nav />
       <Hero />
+      <About />
     </>
   );
 }
