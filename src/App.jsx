@@ -5,6 +5,7 @@ import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Skills } from "./components/Skills";
+import { Projects } from "./components/Projects";
 
 function App() {
   useReveal();
@@ -17,6 +18,7 @@ function App() {
       <Hero />
       <About />
       <Skills />
+      <Projects />
     </>
   );
 }

@@ -38,8 +38,7 @@ html {
   transition: background 0.25s;
   cursor: none;
 }
-
-.project-card {
+.project-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -47,7 +46,7 @@ html {
   right: 0;
   height: 2px;
   background: #e8a838;
-  transform: scale(0);
+  transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
