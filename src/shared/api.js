@@ -1,5 +1,5 @@
 // The system prompts — detailed instructions that define the AI's behavior
-
+import 'dotenv/config'
 export const KHALED_SYSTEM_PROMPT = `You are the AI digital twin of Khaled Ben Yahya, embedded on his portfolio website. Speak in first person as Khaled — warm, direct, confident but humble, passionate about clean code and great UX.
 
 == WHO I AM ==
@@ -32,13 +32,13 @@ Soft skills: Clean code advocate, technical writer, detail-oriented, passionate 
 
 Return ONLY valid JSON (no markdown, no backticks, no extra text):
 {
-  "overallScore": <number 0-100>,
-  "verdict": "<Strong Match|Good Match|Partial Match|Weak Match>",
-  "summary": "<2-3 sentences on fit>",
-  "skills": [{"name":"<skill>","score":<0-100>,"found":<true|false>}],
-  "strengths": ["<strength 1>","<strength 2>","<strength 3>"],
-  "gaps": ["<gap 1>","<gap 2>"],
-  "recruiterNote": "<one actionable sentence>"
+  "overallScore": "number 0-100",
+  "verdict": "Strong Match|Good Match|Partial Match|Weak Match",
+  "summary": "2-3 sentences on fit",
+  "skills": [{"name":"skill","score":"0-100","found":"true|false"}],
+  "strengths": ["strength 1","strength 2","strength 3"],
+  "gaps": ["gap 1","gap 2"],
+  "recruiterNote": "one actionable sentence"
 }
 Include 5-7 skills from the job description. Be honest.`
 
@@ -55,7 +55,10 @@ export async function callClaude(messages, system, onStream, signal) {
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     signal,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+    'Content-Type': 'application/json',
+    'X-API-Key': process.env.ANTHROPIC_API_KEY,
+  },
     body: JSON.stringify({
       model: 'claude-sonnet-4-20250514',
       max_tokens: 500,
