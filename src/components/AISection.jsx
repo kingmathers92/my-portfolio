@@ -521,3 +521,263 @@ function JobMatcher() {
     </div>
   );
 }
+
+export function AISection() {
+  const demoMessages = [
+    {
+      from: "recruiter",
+      text: "Are you available for a full-time remote role?",
+    },
+    {
+      from: "khaled",
+      text: "Yes! Actively looking for the right opportunity — remote-first is ideal. Happy to jump on a call.",
+    },
+    { from: "recruiter", text: "What's your strongest tech stack?" },
+    {
+      from: "khaled",
+      text: "React and Next.js are where I'm sharpest. Shipped everything from AI-powered UIs to full-stack apps.",
+    },
+  ];
+
+  return (
+    <section
+      id="ai"
+      style={{
+        padding: "100px 48px",
+        background: T.bg,
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Glow */}
+      <div
+        style={{
+          position: "absolute",
+          width: 500,
+          height: 500,
+          background:
+            "radial-gradient(circle, rgba(232,168,56,.05) 0%, transparent 70%)",
+          top: "20%",
+          right: "-80px",
+          pointerEvents: "none",
+        }}
+      />
+
+      <SectionLabel>AI-Powered</SectionLabel>
+
+      <div className="reveal" style={{ marginBottom: 48 }}>
+        <h2
+          style={{
+            fontFamily: "'Syne',sans-serif",
+            fontSize: "clamp(30px, 4vw, 50px)",
+            fontWeight: 800,
+            letterSpacing: -1.5,
+            lineHeight: 1.1,
+            marginBottom: 14,
+          }}
+        >
+          Recruiter{" "}
+          <em
+            style={{
+              fontFamily: "'Instrument Serif',serif",
+              fontStyle: "italic",
+              fontWeight: 400,
+              color: T.accent,
+            }}
+          >
+            Toolkit
+          </em>
+        </h2>
+        <p
+          style={{
+            fontSize: 14,
+            color: T.muted,
+            maxWidth: 560,
+            lineHeight: 1.8,
+          }}
+        >
+          Two live AI tools — a digital twin you can actually talk to, and a job
+          match analyzer. Both powered by Claude.
+        </p>
+      </div>
+
+      <div
+        className="aigrid reveal"
+        style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}
+      >
+        {/* Left: chat preview */}
+        <div
+          style={{
+            background: T.surface,
+            border: `1px solid ${T.border}`,
+            borderRadius: 8,
+            overflow: "hidden",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <div
+            style={{
+              padding: "20px 28px",
+              borderBottom: `1px solid ${T.border}`,
+              background: T.surface2,
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+            }}
+          >
+            <div
+              style={{
+                width: 36,
+                height: 36,
+                background: T.bg,
+                border: `2px solid ${T.accent}`,
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 18,
+              }}
+            >
+              🤖
+            </div>
+            <div>
+              <div
+                style={{
+                  fontFamily: "'Syne',sans-serif",
+                  fontWeight: 700,
+                  fontSize: 15,
+                }}
+              >
+                Khaled's AI Twin
+              </div>
+              <div
+                style={{
+                  fontSize: 11,
+                  color: T.muted,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                }}
+              >
+                <span
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    background: "#28C840",
+                    animation: "pulse 2s infinite",
+                  }}
+                />
+                Online · Powered by Claude
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              padding: 24,
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: 12,
+            }}
+          >
+            {demoMessages.map((m, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  justifyContent:
+                    m.from === "recruiter" ? "flex-end" : "flex-start",
+                  animation: `scanIn .4s ${i * 0.12}s ease both`,
+                }}
+              >
+                {m.from === "khaled" && (
+                  <div
+                    style={{
+                      width: 26,
+                      height: 26,
+                      borderRadius: "50%",
+                      background: T.bg,
+                      border: `1px solid ${T.border}`,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: 12,
+                      marginRight: 8,
+                      marginTop: 2,
+                      flexShrink: 0,
+                    }}
+                  >
+                    🤖
+                  </div>
+                )}
+                <div
+                  style={{
+                    maxWidth: "80%",
+                    background: m.from === "recruiter" ? T.accent : T.surface2,
+                    color: m.from === "recruiter" ? "#000" : T.text,
+                    padding: "9px 13px",
+                    borderRadius:
+                      m.from === "recruiter"
+                        ? "12px 12px 2px 12px"
+                        : "12px 12px 12px 2px",
+                    fontSize: 12.5,
+                    lineHeight: 1.65,
+                  }}
+                >
+                  {m.text}
+                </div>
+              </div>
+            ))}
+            <div
+              style={{
+                marginTop: 8,
+                padding: 14,
+                background: T.bg,
+                border: `1px dashed ${T.border}`,
+                borderRadius: 6,
+                textAlign: "center",
+              }}
+            >
+              <div style={{ fontSize: 11, color: T.muted, marginBottom: 10 }}>
+                💬 Open the chat bubble (bottom-right) to ask anything
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  gap: 6,
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                }}
+              >
+                {[
+                  "What's your rate?",
+                  "Tell me about Ballagh",
+                  "Open to relocation?",
+                ].map((q) => (
+                  <span
+                    key={q}
+                    style={{
+                      fontSize: 10,
+                      background: T.surface2,
+                      border: `1px solid ${T.border}`,
+                      padding: "4px 10px",
+                      borderRadius: 12,
+                      color: T.muted,
+                    }}
+                  >
+                    {q}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Job matcher */}
+        <JobMatcher />
+      </div>
+    </section>
+  );
+}
