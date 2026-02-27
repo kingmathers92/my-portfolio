@@ -9,6 +9,7 @@ export function CodeCard() {
         borderRadius: 10,
         overflow: "hidden",
         animation: "float 7s ease-in-out infinite",
+        width: 420,
       }}
     >
       {/* Window chrome */}

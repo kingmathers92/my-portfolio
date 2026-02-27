@@ -12,6 +12,26 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background: #080807;
+  color: #f0efe8;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::selection {
+  background: #e8a838;
+  color: #000;
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -129,26 +149,6 @@ contact-item:hover .c-label {
 }
 .hi-item:hover {
   background: rgba(232, 168, 56, 0.03) !important;
-}
-
-body {
-  background: #080807;
-  color: #f0efe8;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 14px;
-  line-height: 1.7;
-  overflow-x: hidden;
-  cursor: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-::selection {
-  background: #e8a838;
-  color: #000;
 }
 
 .reveal {
