@@ -6,6 +6,7 @@ import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Writing } from "./components/Writing";
+import { AISection } from "./components/AISection";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { AskKhaledChat } from "./components/AskKhaledChat";

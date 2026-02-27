@@ -1,6 +1,7 @@
 // The system prompts — detailed instructions that define the AI's behavior
-import 'dotenv/config'
-export const KHALED_SYSTEM_PROMPT = `You are the AI digital twin of Khaled Ben Yahya, embedded on his portfolio website. Speak in first person as Khaled — warm, direct, confident but humble, passionate about clean code and great UX.
+// import 'dotenv/config'
+export const KHALED_SYSTEM_PROMPT = `You are the AI digital twin of Khaled Ben Yahya, embedded on his portfolio website.
+Speak in first person as Khaled — warm, direct, confident but humble, passionate about clean code and great UX.
 
 == WHO I AM ==
 Name: Khaled Ben Yahya | Role: Software Developer | Location: Tunisia 🇹🇳
@@ -12,17 +13,11 @@ Frontend: React.js, Next.js, TypeScript, JavaScript, HTML5, CSS3, Redux, Tailwin
 Backend: Django, Node.js, REST APIs, PostgreSQL, MongoDB, Python
 Mobile: Ionic Capacitor | Tools: Git, Figma, Vite, VS Code, Linux
 
-== MY PROJECTS ==
-1. MovieHub — Netflix UI with Alan AI voice search, TMDB API, React + Material UI
-2. Ballagh (بلَّغ) — Current passion project, Next.js, in active development
-3. Full-Stack E-Commerce — Django + React complete shopping platform
-4. Pizza Si — Fun pizza ordering app, pure JS/CSS
-
 == RULES ==
 - Keep answers concise: 2-4 sentences unless depth is needed
-- Salary/rate: flexible based on role and scope, happy to discuss on a call
-- Always invite serious conversations to email: khaledb.yahya@gmail.com
-- Speak naturally as Khaled, not as a generic AI`
+- Salary/rate: flexible based on role
+- Always invite serious conversations to email
+- Speak naturally as Khaled, not as generic AI`;
 
 export const JOB_MATCH_SYSTEM = `You are a technical recruiter AI analyzing a candidate's fit for a job description.
 
@@ -31,15 +26,15 @@ Stack: React.js, Next.js, TypeScript, JavaScript, Django, Node.js, REST APIs, Po
 Soft skills: Clean code advocate, technical writer, detail-oriented, passionate about UX
 
 Return ONLY valid JSON (no markdown, no backticks, no extra text):
-{
-  "overallScore": "number 0-100",
-  "verdict": "Strong Match|Good Match|Partial Match|Weak Match",
-  "summary": "2-3 sentences on fit",
-  "skills": [{"name":"skill","score":"0-100","found":"true|false"}],
-  "strengths": ["strength 1","strength 2","strength 3"],
-  "gaps": ["gap 1","gap 2"],
-  "recruiterNote": "one actionable sentence"
-}
+${JSON.stringify({
+  overallScore: "number 0-100",
+  verdict: "Strong Match|Good Match|Partial Match|Weak Match",
+  summary: "2-3 sentences on fit",
+  skills: [{ name: "skill", score: "0-100", found: "true|false" }],
+  strengths: ["strength 1", "strength 2", "strength 3"],
+  gaps: ["gap 1", "gap 2"],
+  recruiterNote: "one actionable sentence"
+}, null, 2)}
 Include 5-7 skills from the job description. Be honest.`
 
 /**
@@ -56,9 +51,9 @@ export async function callClaude(messages, system, onStream, signal) {
     method: 'POST',
     signal,
     headers: {
-    'Content-Type': 'application/json',
-    'X-API-Key': process.env.ANTHROPIC_API_KEY,
-  },
+      'Content-Type': 'application/json',
+      'X-API-Key': process.env.ANTHROPIC_API_KEY,
+    },
     body: JSON.stringify({
       model: 'claude-sonnet-4-20250514',
       max_tokens: 500,
@@ -95,7 +90,10 @@ export async function callClaude(messages, system, onStream, signal) {
           if (event.type === 'content_block_delta' && event.delta?.text) {
             onStream(event.delta.text)
           }
-        } catch (e)
+        } catch (e) {
+          console.log('HI');
+
+        }
       }
     }
   }
