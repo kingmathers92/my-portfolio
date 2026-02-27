@@ -1,4 +1,3 @@
-import { T } from "./shared/theme";
 import { useReveal } from "./shared/useReveal";
 import { Cursor } from "./components/Cursor";
 import { Nav } from "./components/Nav";
@@ -9,6 +8,7 @@ import { Projects } from "./components/Projects";
 import { Writing } from "./components/Writing";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { AskKhaledChat } from "./components/AskKhaledChat";
 
 function App() {
   useReveal();
@@ -18,13 +18,17 @@ function App() {
       <div className="noise" />
       <Cursor />
       <Nav />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Writing />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Writing />
+        <AISection />
+        <Contact />
+      </main>
       <Footer />
+      <AskKhaledChat />
     </>
   );
 }
