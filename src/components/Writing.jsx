@@ -1,6 +1,6 @@
-import { T } from "../shared/theme";
-import { SectionLabel } from "../shared/SectionLabel";
-import { SectionTitle } from "../shared/SectionTitle";
+import { T } from "../lib/theme";
+import { SectionLabel } from "./SectionLabel";
+import { SectionTitle } from "./SectionTitle";
 
 export function Writing() {
   const articles = [

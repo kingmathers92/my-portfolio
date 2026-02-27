@@ -1,4 +1,4 @@
-import { T } from "../shared/theme";
+import { T } from "../lib/theme";
 
 export function CodeCard() {
   return (

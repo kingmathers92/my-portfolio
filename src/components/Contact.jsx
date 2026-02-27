@@ -1,6 +1,6 @@
-import { T } from "../shared/theme";
-import { SectionLabel } from "../shared/SectionLabel";
-import { SectionTitle } from "../shared/SectionTitle";
+import { T } from "../lib/theme";
+import { SectionLabel } from "./SectionLabel";
+import { SectionTitle } from "./SectionTitle";
 
 const GithubIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

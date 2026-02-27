@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { T } from "../shared/theme";
+import { T } from "../lib/theme";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);

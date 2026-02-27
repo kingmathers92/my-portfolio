@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { T } from "../shared/theme";
+import { T } from "../lib/theme";
 
 export function Cursor() {
   const dotRef = useRef(null);

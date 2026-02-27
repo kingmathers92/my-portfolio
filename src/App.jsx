@@ -1,4 +1,4 @@
-import { useReveal } from "./shared/useReveal";
+import { useReveal } from "./lib/useReveal";
 import { Cursor } from "./components/Cursor";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
@@ -6,10 +6,10 @@ import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Writing } from "./components/Writing";
-import { AISection } from "./components/AISection";
+import { AISection } from "./components/AI/AISection";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
-import { AskKhaledChat } from "./components/AskKhaledChat";
+import { AskKhaledChat } from "./components/AI/AskKhaledChat";
 
 function App() {
   useReveal();

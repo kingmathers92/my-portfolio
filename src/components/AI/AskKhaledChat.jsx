@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { T } from "../shared/theme";
-import { callClaude, KHALED_SYSTEM_PROMPT } from "../shared/api";
+import { T } from "../../lib/theme";
+import { callClaude, KHALED_SYSTEM_PROMPT } from "../../lib/api";
 
 function TypingDots() {
   return (

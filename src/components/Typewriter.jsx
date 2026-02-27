@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { T } from "../shared/theme";
+import { T } from "../lib/theme";
 
 export function Typewriter({ strings, speed = 80, pause = 1800 }) {
   const [stringIndex, setStringIndex] = useState(0);

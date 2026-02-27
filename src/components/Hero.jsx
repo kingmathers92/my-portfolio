@@ -1,4 +1,4 @@
-import { T } from "../shared/theme";
+import { T } from "../lib/theme";
 import { Typewriter } from "./Typewriter";
 import { CodeCard } from "./CodeCard";
 

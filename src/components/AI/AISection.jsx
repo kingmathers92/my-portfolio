@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { T } from "../shared/theme";
-import { SectionLabel } from "../shared/SectionLabel";
-import { callClaude, JOB_MATCH_SYSTEM } from "../shared/api";
+import { T } from "../../lib/theme";
+import { SectionLabel } from "../SectionLabel";
+import { callClaude, JOB_MATCH_SYSTEM } from "../../lib/api";
 
 function ScoreRing({ score }) {
   const radius = 44;
