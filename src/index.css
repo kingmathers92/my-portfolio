@@ -210,7 +210,7 @@ a {
   }
 }
 
-@keyframes fadeup {
+@keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(28px);
