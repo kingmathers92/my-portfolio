@@ -66,7 +66,10 @@ export function Nav() {
         K<span style={{ color: T.accent }}>.</span>BY
       </a>
 
-      <ul style={{ display: "flex", gap: 28, listStyle: "none" }}>
+      <ul
+        className="navlinks"
+        style={{ display: "flex", gap: 28, listStyle: "none" }}
+      >
         {["About", "Skills", "Projects", "Writing", "AI", "Contact"].map(
           (link) => {
             const id = link.toLowerCase();
