@@ -7,8 +7,8 @@ export function Writing() {
     {
       platform: "DEV.to",
       title: "Convert Your React App to Android with Iconic Capacitor",
-      des: "Go cross-pltaform with your existing React app -- no rewrite required.",
-      dar: "Ju 2023",
+      desc: "Go cross-pltaform with your existing React app -- no rewrite required.",
+      date: "Ju 2023",
       url: "https://dev.to/khaledbenyahya_/convert-your-existing-react-js-app-to-android-app-using-the-ionic-capacitor-4g61",
     },
     {
@@ -55,7 +55,7 @@ export function Writing() {
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: T.accent,
-                margingBottom: 12,
+                marginBottom: 12,
               }}
             >
               {a.platform}
@@ -68,7 +68,7 @@ export function Writing() {
                 letterSpacing: "-0.3",
                 lineHeight: 1.3,
                 flex: 1,
-                margingBottom: 10,
+                marginBottom: 10,
               }}
             >
               {a.title}
@@ -79,7 +79,7 @@ export function Writing() {
                 lineHeight: 1.7,
                 letterSpacing: "0.12em",
                 color: T.muted,
-                margingBottom: 20,
+                marginBottom: 20,
               }}
             >
               {a.desc}
@@ -93,7 +93,7 @@ export function Writing() {
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: T.muted2,
-                margingBottom: 12,
+                marginBottom: 12,
               }}
             >
               <svg
@@ -123,7 +123,7 @@ export function Writing() {
             background: "transparent",
             border: `1px dashed ${T.border}`,
             padding: 28,
-            borderRdius: 3,
+            borderRadius: 3,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
