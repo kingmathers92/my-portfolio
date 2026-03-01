@@ -78,10 +78,11 @@ a {
 }
 
 /* Skill tags*/
-skill-tag {
+.skill-tag {
   transition: all 0.18s;
 }
-skill-tag:hover {
+
+.skill-tag:hover {
   border-color: #e8a838 !important;
   color: #e8a838 !important;
 }
@@ -112,7 +113,7 @@ skill-tag:hover {
   background: rgba(232, 168, 56, 0.04) !important;
 }
 .contact-item:hover .c-arrow {
-  transform: translateX(3px, -3px);
+  transform: translate(3px, -3px);
   color: #e8a838;
 }
 .c-arrow {
@@ -120,7 +121,7 @@ skill-tag:hover {
     transform 0.2s,
     color 0.2s;
 }
-contact-item:hover .c-label {
+.contact-item:hover .c-label {
   color: #e8a838;
 }
 .c-label {
