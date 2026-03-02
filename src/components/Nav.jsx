@@ -4,6 +4,7 @@ import { T } from "../lib/theme";
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -19,7 +20,6 @@ export function Nav() {
         "contact",
       ];
 
-      // Find which section is active
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && window.scrollY >= el.offsetTop - 130) {
@@ -33,67 +33,175 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleLinkClick = () => setMenuOpen(false);
+
+  const links = ["About", "Skills", "Projects", "Writing", "AI", "Contact"];
+
   return (
-    <nav
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: scrolled ? "14px 48px" : "22px 48px",
-        background: scrolled ? "rgba(8,8,7,0.9)" : "transparent",
-        backdropFilter: scrolled ? "blur(14px)" : "none",
-        borderBottom: scrolled
-          ? `1px solid ${T.border}`
-          : "1px solid transparent",
-        transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
-      }}
-    >
-      <a
-        href="#hero"
+    <>
+      <nav
         style={{
-          fontFamily: "'Syne', sans-serif",
-          fontWeight: 800,
-          fontSize: 18,
-          letterSpacing: -0.5,
-          color: T.text,
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 100,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: scrolled ? "14px 48px" : "22px 48px",
+          background: scrolled ? "rgba(8,8,7,0.9)" : "transparent",
+          backdropFilter: scrolled ? "blur(14px)" : "none",
+          borderBottom: scrolled
+            ? `1px solid ${T.border}`
+            : "1px solid transparent",
+          transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        K<span style={{ color: T.accent }}>.</span>BY
-      </a>
+        {/* Logo */}
+        <a
+          href="#hero"
+          style={{
+            fontFamily: "'Syne', sans-serif",
+            fontWeight: 800,
+            fontSize: 18,
+            letterSpacing: -0.5,
+            color: T.text,
+          }}
+        >
+          K<span style={{ color: T.accent }}>.</span>BY
+        </a>
 
-      <ul
-        className="navlinks"
-        style={{ display: "flex", gap: 28, listStyle: "none" }}
-      >
-        {["About", "Skills", "Projects", "Writing", "AI", "Contact"].map(
-          (link) => {
-            const id = link.toLowerCase();
+        {/* Desktop nav */}
+        <ul
+          className="navlinks"
+          style={{
+            display: "flex",
+            gap: 28,
+            listStyle: "none",
+          }}
+        >
+          {links.map((link) => (
+            <li key={link}>
+              <a
+                href={`#${link.toLowerCase()}`}
+                className="nav-link"
+                style={{
+                  color:
+                    activeSection === link.toLowerCase() ? T.text : T.muted,
+                  fontSize: 11,
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                }}
+              >
+                {link}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-            return (
-              <li key={link}>
-                <a
-                  href={`#${id}`}
-                  className="nav-link"
-                  style={{
-                    color:
-                      activeSection === link.toLowerCase() ? T.text : T.muted,
-                    fontSize: 11,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {link}
-                </a>
-              </li>
-            );
-          },
-        )}
-      </ul>
-    </nav>
+        {/* Hamburger */}
+        <button
+          onClick={() => setMenuOpen((o) => !o)}
+          className="hamburger"
+          style={{
+            display: "none",
+            background: "transparent",
+            border: `1px solid ${T.border}`,
+            borderRadius: 4,
+            padding: "6px 10px",
+            cursor: "pointer",
+            flexDirection: "column",
+            gap: 5,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <span
+            style={{
+              width: 20,
+              height: 1.5,
+              background: menuOpen ? T.accent : T.text,
+              transform: menuOpen
+                ? "rotate(45deg) translate(4.5px, 4.5px)"
+                : "none",
+              transition: "all 0.25s",
+            }}
+          />
+          <span
+            style={{
+              width: 20,
+              height: 1.5,
+              background: T.text,
+              opacity: menuOpen ? 0 : 1,
+              transition: "all 0.25s",
+            }}
+          />
+          <span
+            style={{
+              width: 20,
+              height: 1.5,
+              background: menuOpen ? T.accent : T.text,
+              transform: menuOpen
+                ? "rotate(-45deg) translate(4.5px, -4.5px)"
+                : "none",
+              transition: "all 0.25s",
+            }}
+          />
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 99,
+            background: "rgba(8,8,7,0.97)",
+            backdropFilter: "blur(20px)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
+          }}
+        >
+          {links.map((link, i) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              onClick={handleLinkClick}
+              style={{
+                fontFamily: "'Syne', sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(32px, 8vw, 48px)",
+                letterSpacing: -1,
+                color: activeSection === link.toLowerCase() ? T.accent : T.text,
+                padding: "8px 0",
+                opacity: 0,
+                animation: `fadeUp 0.4s ${i * 0.06}s ease forwards`,
+              }}
+            >
+              {link}
+            </a>
+          ))}
+
+          {/* Footer text */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: 48,
+              fontSize: 11,
+              color: T.muted,
+              letterSpacing: "0.1em",
+              textAlign: "center",
+            }}
+          >
+            khaledb.yahya@gmail.com
+          </div>
+        </div>
+      )}
+    </>
   );
 }

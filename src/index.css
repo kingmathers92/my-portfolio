@@ -210,6 +210,19 @@ a {
   }
 }
 
+.hamburger {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .navlinks {
+    display: none !important;
+  }
+  .hamburger {
+    display: flex !important;
+  }
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
