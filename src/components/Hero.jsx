@@ -1,5 +1,4 @@
 import { T } from "../lib/theme";
-import { Typewriter } from "./Typewriter";
 import { CodeCard } from "./CodeCard";
 
 export function Hero() {
@@ -76,19 +75,6 @@ export function Hero() {
           />
           Available for work
         </div>
-
-        <p
-          style={{ marginBottom: 14, animation: "fadeUp 0.7s 0.15s ease both" }}
-        >
-          <Typewriter
-            strings={[
-              "Frontend Developer.",
-              "React Specialist.",
-              "Next.js Enthusiast.",
-              "UI/UX Craftsman.",
-            ]}
-          />
-        </p>
 
         {/* Name */}
         <h1
@@ -244,13 +230,16 @@ export function Hero() {
         </div>
       </div>
       {/* Right column */}
-      <div className="hcode" style={{ position: "relative", zIndex: 2 }}>
+      <div
+        className="hcode"
+        style={{ position: "relative", zIndex: 2, marginLeft: "90px" }}
+      >
         <div
           className="hcode"
           style={{
             position: "relative",
             zIndex: 2,
-            animation: "fadeUp 0.8s 0.25s ease both",
+            animation: "fadeUp 0.8s 0.5s ease both",
           }}
         >
           <CodeCard />
