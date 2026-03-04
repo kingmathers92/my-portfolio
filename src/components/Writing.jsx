@@ -8,14 +8,14 @@ export function Writing() {
       platform: "DEV.to",
       title: "Convert Your React App to Android with Iconic Capacitor",
       desc: "Go cross-pltaform with your existing React app -- no rewrite required.",
-      date: "Ju 2023",
+      date: "Jul 2023",
       url: "https://dev.to/khaledbenyahya_/convert-your-existing-react-js-app-to-android-app-using-the-ionic-capacitor-4g61",
     },
     {
       platform: "Medium",
       title: "Demystifying the IntersectionObserver API",
       des: "A beginner-friendly breakdown — from lazy loading to infinite scroll, explained simply.",
-      dar: "Ju 2024",
+      date: "Jul 2024",
       url: "https://medium.com/@khaledb.yahya/demystifying-the-intersectionobserver-api-a-simple-guide-93084a4a4be5",
     },
   ];

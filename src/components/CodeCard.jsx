@@ -64,7 +64,7 @@ export function CodeCard() {
           [
             <>
               &nbsp;&nbsp;role:{" "}
-              <span style={{ color: "#c3e88d" }}>"Frontend Developer"</span>,
+              <span style={{ color: "#c3e88d" }}>"Software Developer"</span>,
             </>,
           ],
           [
