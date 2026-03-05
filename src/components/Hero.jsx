@@ -46,36 +46,6 @@ export function Hero() {
 
       {/* Left column */}
       <div style={{ position: "relative", zIndex: 2 }}>
-        {/* Available tag */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            background: T.surface2,
-            border: `1px solid ${T.border}`,
-            padding: "6px 14px",
-            borderRadius: 2,
-            fontSize: 11,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: T.accent,
-            marginBottom: 28,
-            animation: "fadeUp 0.6s ease both",
-          }}
-        >
-          <span
-            style={{
-              width: 6,
-              height: 6,
-              borderRadius: "50%",
-              background: T.accent,
-              animation: "pulse 2s infinite",
-            }}
-          />
-          Available for work
-        </div>
-
         {/* Name */}
         <h1
           style={{
