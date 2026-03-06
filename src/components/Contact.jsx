@@ -23,12 +23,6 @@ export function Contact() {
       href: "https://github.com/kingmathers92",
     },
     {
-      icon: "📝",
-      label: "DEV.to",
-      value: "@khaledbenyahya_",
-      href: "https://dev.to/khaledbenyahya_",
-    },
-    {
       icon: "📖",
       label: "Medium",
       value: "@khaledb.yahya",
