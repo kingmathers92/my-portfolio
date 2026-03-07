@@ -33,7 +33,10 @@ export function Contact() {
   return (
     <section
       id="contact"
-      style={{ padding: "100px 48px", background: T.surface }}
+      style={{
+        padding: "100px 48px",
+        background: T.surface,
+      }}
     >
       <SectionLabel>Contact</SectionLabel>
       <SectionTitle>

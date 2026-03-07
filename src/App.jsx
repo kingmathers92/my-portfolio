@@ -6,7 +6,7 @@ import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Writing } from "./components/Writing";
-import { AISection } from "./components/AI/AISection";
+//import { AISection } from "./components/AI/AISection";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { AskKhaledChat } from "./components/AI/AskKhaledChat";
@@ -25,7 +25,7 @@ function App() {
         <Skills />
         <Projects />
         <Writing />
-        <AISection />
+        {/* <AISection /> */}
         <Contact />
       </main>
       <Footer />
