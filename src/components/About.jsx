@@ -100,8 +100,8 @@ export function About() {
           </p>
           <p style={{ marginTop: 24 }}>
             Currently building{" "}
-            <strong style={{ color: T.accent }}>Ballagh — بلَّغ</strong>, a
-            project I'm genuinely excited about.
+            <strong style={{ color: T.accent }}>MegaDL</strong>, a project I'm
+            genuinely excited about.
           </p>
         </div>
 

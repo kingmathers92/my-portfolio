@@ -83,7 +83,7 @@ export function CodeCard() {
           [
             <>
               &nbsp;&nbsp;currently:{" "}
-              <span style={{ color: T.accent }}>"Ballagh 🚀"</span>,
+              <span style={{ color: T.accent }}>"MegaDL 🚀"</span>,
             </>,
           ],
           [
