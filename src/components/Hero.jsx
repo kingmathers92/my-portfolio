@@ -202,20 +202,15 @@ export function Hero() {
       {/* Right column */}
       <div
         className="hcode"
-        style={{ position: "relative", zIndex: 2, marginLeft: "90px" }}
+        style={{
+          position: "relative",
+          zIndex: 2,
+          animation: "fadeUp 0.8s 0.5s ease both",
+          marginLeft: "90px",
+        }}
       >
-        <div
-          className="hcode"
-          style={{
-            position: "relative",
-            zIndex: 2,
-            animation: "fadeUp 0.8s 0.5s ease both",
-          }}
-        >
-          <CodeCard />
-        </div>
+        <CodeCard />
       </div>
-
       {/* Scroll hint */}
       <div
         style={{
