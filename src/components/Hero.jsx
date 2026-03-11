@@ -55,7 +55,7 @@ export function Hero() {
             lineHeight: 1.0,
             letterSpacing: -2,
             marginBottom: 14,
-            animation: "fadeUp 0.7s 0.1s ease both",
+            animation: "fadeUp 0.7s 0s ease both",
           }}
         >
           Khaled
