@@ -2,17 +2,100 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preconnect to Google Fonts servers early — saves 200-500ms on load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Favicons — already had these, kept as-is -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#080807" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Khaled Ben Yahya</title>
+
+    <!-- Primary SEO -->
+    <title>Khaled Ben Yahya — Frontend Developer | React & Next.js</title>
+    <meta name="description" content="Frontend Developer from Tunisia specializing in React, Next.js, and TypeScript. Building fast, accessible, and pixel-perfect web experiences. Open to remote opportunities." />
+    <meta name="keywords" content="Frontend Developer, React Developer, Next.js, TypeScript, Tunisia, Remote Developer, Web Developer, Khaled Ben Yahya" />
+    <meta name="author" content="Khaled Ben Yahya" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://khaledbenyahya.com/" />
+
+    <!-- Open Graph — how your link looks on LinkedIn, WhatsApp, Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://khaledbenyahya.com/" />
+    <meta property="og:title" content="Khaled Ben Yahya — Frontend Developer" />
+    <meta property="og:description" content="Frontend Developer from Tunisia. React, Next.js, TypeScript. Building thoughtful web experiences. Open to remote opportunities." />
+    <meta property="og:image" content="https://khaledbenyahya.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Khaled Ben Yahya" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://khaledbenyahya.com/" />
+    <meta name="twitter:title" content="Khaled Ben Yahya — Frontend Developer" />
+    <meta name="twitter:description" content="Frontend Developer from Tunisia. React, Next.js, TypeScript. Open to remote." />
+    <meta name="twitter:image" content="https://khaledbenyahya.com/og-image.png" />
+
+    <!-- Structured data — helps Google understand who you are -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Khaled Ben Yahya",
+      "url": "https://khaledbenyahya.com",
+      "jobTitle": "Software Developer",
+      "description": "Frontend Developer from Tunisia specializing in React and Next.js",
+      "email": "khaledb.yahya@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "TN"
+      },
+      "sameAs": [
+        "https://github.com/kingmathers92",
+        "https://dev.to/khaledbenyahya_",
+        "https://medium.com/@khaledb.yahya"
+      ],
+      "knowsAbout": [
+        "React", "Next.js", "TypeScript", "JavaScript",
+        "Django", "Node.js", "Frontend Development", "Web Development"
+      ]
+    }
+    </script>
+
+    <style>
+      @keyframes _spin {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+      }
+      #root-loader {
+        min-height: 100vh;
+        background: #080807;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #root-loader div {
+        width: 32px;
+        height: 32px;
+        border: 2px solid #222220;
+        border-top-color: #E8A838;
+        border-radius: 50%;
+        animation: _spin 0.7s linear infinite;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="root-loader">
+        <div></div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
