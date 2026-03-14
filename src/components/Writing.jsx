@@ -39,6 +39,7 @@ export function Writing() {
             key={a.title}
             href={a.url}
             target="_blank"
+            rel="noopener noreferrer"
             className="article-card"
             style={{
               background: T.surface,
@@ -118,6 +119,7 @@ export function Writing() {
         <a
           href="https://dev.to/khaledbenyahya_"
           target="_blank"
+          rel="noopener noreferrer"
           className="article-card"
           style={{
             background: "transparent",

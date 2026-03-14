@@ -71,6 +71,7 @@ export function About() {
             <a
               href="https://dev.to/khaledbenyahya_"
               target="_blank"
+              rel="noopener noreferrer"
               style={{ color: T.accent }}
             >
               DEV.to
@@ -79,6 +80,7 @@ export function About() {
             <a
               href="https://medium.com/@khaledb.yahya"
               target="_blank"
+              rel="noopener noreferrer"
               style={{ color: T.accent }}
             >
               Medium

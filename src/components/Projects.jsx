@@ -110,6 +110,7 @@ function ProjectCard({
           <a
             href={ghUrl}
             target="_blank"
+            rel="noopener noreferrer"
             style={{
               fontSize: 11,
               letterSpacing: "0.1em",
@@ -129,6 +130,7 @@ function ProjectCard({
           <a
             href={liveUrl}
             target="_blank"
+            rel="noopener noreferrer"
             style={{
               fontSize: 11,
               letterSpacing: "0.1em",
@@ -228,6 +230,7 @@ export function Projects() {
         <a
           href="https://github.com/kingmathers92"
           target="_blank"
+          rel="noopener noreferrer"
           style={{
             display: "inline-flex",
             alignItems: "center",
