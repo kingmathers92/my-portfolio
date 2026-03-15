@@ -208,18 +208,22 @@ a {
     width: calc(100vw - 32px) !important;
     right: 16px !important;
   }
-}
-
-.hamburger {
-  display: none !important;
-}
-
-@media (max-width: 768px) {
-  .navlinks {
-    display: none !important;
-  }
   .hamburger {
     display: flex !important;
+  }
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  nav {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  footer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 }
 
