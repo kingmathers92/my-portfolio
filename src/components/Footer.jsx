@@ -23,7 +23,7 @@ export function Footer() {
         gap: 16,
       }}
     >
-      <span>© 2025 Khaled Ben Yahya — Crafted with ♥ in Tunisia 🇹🇳</span>
+      <span>© 2026 Khaled Ben Yahya — Crafted with ♥ in Tunisia 🇹🇳</span>
 
       <div
         style={{
