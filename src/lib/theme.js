@@ -6,6 +6,6 @@ export const T = {
   accent:    "#E8A838",
   accentDim: "#8A6020",
   text:      "#F0EFE8",
-  muted:     "#666660",
-  muted2:    "#444440",
+  muted:     '#7A7A74',
+  muted2:    '#555552',
 };
