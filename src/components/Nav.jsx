@@ -61,11 +61,8 @@ export function Nav() {
         {/* Logo */}
         <a
           href="#hero"
+          className="nav-logo"
           style={{
-            fontFamily: "'Syne', sans-serif",
-            fontWeight: 800,
-            fontSize: 18,
-            letterSpacing: -0.5,
             color: T.text,
           }}
         >
@@ -74,9 +71,8 @@ export function Nav() {
 
         {/* Desktop nav */}
         <ul
-          className="navlinks"
+          className="navlinks flex"
           style={{
-            display: "flex",
             gap: 28,
             listStyle: "none",
           }}
@@ -85,13 +81,12 @@ export function Nav() {
             <li key={link}>
               <a
                 href={`#${link.toLowerCase()}`}
-                className="nav-link"
+                className="nav-link uppercase"
                 style={{
                   color:
                     activeSection === link.toLowerCase() ? T.text : T.muted,
                   fontSize: 11,
                   letterSpacing: "0.12em",
-                  textTransform: "uppercase",
                 }}
               >
                 {link}
@@ -154,16 +149,13 @@ export function Nav() {
       {/* Mobile menu */}
       {menuOpen && (
         <div
+          className="flex flex-col items-center justify-center"
           style={{
             position: "fixed",
             inset: 0,
             zIndex: 99,
             background: "rgba(8,8,7,0.97)",
             backdropFilter: "blur(20px)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
             gap: 8,
           }}
         >
@@ -172,9 +164,8 @@ export function Nav() {
               key={link}
               href={`#${link.toLowerCase()}`}
               onClick={handleLinkClick}
+              className="font-syne fw-800"
               style={{
-                fontFamily: "'Syne', sans-serif",
-                fontWeight: 800,
                 fontSize: "clamp(32px, 8vw, 48px)",
                 letterSpacing: -1,
                 color: activeSection === link.toLowerCase() ? T.accent : T.text,
@@ -189,6 +180,7 @@ export function Nav() {
 
           {/* Footer text */}
           <div
+            className="uppercase"
             style={{
               position: "absolute",
               bottom: 48,

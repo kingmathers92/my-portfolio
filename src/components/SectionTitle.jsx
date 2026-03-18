@@ -8,11 +8,9 @@ export function SectionTitle({ children }) {
       return (
         <em
           key="em"
+          className="font-serif-italic text-accent"
           style={{
-            fontFamily: "'Instrument Serif', serif",
-            fontStyle: "italic",
             fontWeight: 400,
-            color: T.accent,
           }}
         >
           {child.props.children}

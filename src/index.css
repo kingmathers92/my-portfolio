@@ -22,6 +22,122 @@ body {
   cursor: none;
 }
 
+/* ── UTILITY CLASSES ─────────────────────────────────────────── */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.relative {
+  position: relative;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.text-center {
+  text-align: center;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.font-syne {
+  font-family: "Syne", sans-serif;
+}
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+.font-serif-italic {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+}
+.fw-700 {
+  font-weight: 700;
+}
+.fw-800 {
+  font-weight: 800;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.text-accent {
+  color: #e8a838;
+}
+.text-muted {
+  color: #7a7a74;
+}
+.text-muted2 {
+  color: #555552;
+}
+.lh-12 {
+  line-height: 1.2;
+}
+.lh-18 {
+  line-height: 1.8;
+}
+.section-title {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(30px, 4vw, 50px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 48px;
+  line-height: 1.1;
+}
+.project-num {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.project-name {
+  font-family: "Syne", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.project-desc {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+.project-link {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.stack-tag {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 3px 10px;
+  border: 1px solid #222220;
+  color: #8a6020;
+}
+.nav-logo {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+}
+
 a {
   text-decoration: none;
   color: inherit;

@@ -21,17 +21,16 @@ function ProjectCard({
 }) {
   return (
     <div
-      className="project-card reveal"
+      className="project-card reveal relative overflow-hidden"
       style={{
         background: T.surface,
         padding: 36,
-        position: "relative",
-        overflow: "hidden",
         transitionDelay: `${delay}s`,
       }}
     >
       {badge && (
         <div
+          className="uppercase"
           style={{
             position: "absolute",
             top: 36,
@@ -41,7 +40,6 @@ function ProjectCard({
             border: badgeAccent ? `1px solid ${T.accent}` : "none",
             fontSize: 9,
             letterSpacing: "0.15em",
-            textTransform: "uppercase",
             padding: "4px 10px",
             borderRadius: 2,
             fontWeight: 500,
@@ -51,75 +49,25 @@ function ProjectCard({
         </div>
       )}
 
-      <div
-        style={{
-          fontSize: 10,
-          letterSpacing: "0.1em",
-          color: T.muted2,
-          marginBottom: 14,
-        }}
-      >
-        {num} —
-      </div>
-      <div
-        style={{
-          fontFamily: "'Syne', sans-serif",
-          fontSize: 22,
-          fontWeight: 700,
-          letterSpacing: -0.5,
-          marginBottom: 10,
-          lineHeight: 1.2,
-        }}
-      >
-        {name}
-      </div>
-      <p
-        style={{
-          fontSize: 13,
-          color: T.muted,
-          lineHeight: 1.8,
-          marginBottom: 22,
-        }}
-      >
-        {desc}
-      </p>
+      <div className="project-num text-muted2">{num} —</div>
+      <div className="project-name">{name}</div>
+      <p className="project-desc text-muted">{desc}</p>
 
-      <div
-        style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 26 }}
-      >
+      <div className="flex flex-wrap" style={{ gap: 8, marginBottom: 26 }}>
         {stack.map((s) => (
-          <span
-            key={s}
-            style={{
-              fontSize: 10,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: T.accentDim,
-              border: `1px solid ${T.border}`,
-              padding: "3px 10px",
-              borderRadius: 2,
-            }}
-          >
+          <span key={s} className="stack-tag">
             {s}
           </span>
         ))}
       </div>
 
-      <div style={{ display: "flex", gap: 18 }}>
+      <div className="flex" style={{ gap: 18 }}>
         {ghUrl && (
           <a
             href={ghUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: T.muted,
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-            }}
+            className="project-link text-muted"
             onMouseEnter={(e) => (e.currentTarget.style.color = T.accent)}
             onMouseLeave={(e) => (e.currentTarget.style.color = T.muted)}
           >
@@ -131,15 +79,7 @@ function ProjectCard({
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: T.muted,
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-            }}
+            className="project-link text-muted"
             onMouseEnter={(e) => (e.currentTarget.style.color = T.accent)}
             onMouseLeave={(e) => (e.currentTarget.style.color = T.muted)}
           >
@@ -226,18 +166,17 @@ export function Projects() {
         ))}
       </div>
 
-      <div className="reveal" style={{ marginTop: 28, textAlign: "center" }}>
+      <div className="reveal text-center" style={{ marginTop: 28 }}>
         <a
           href="https://github.com/kingmathers92"
           target="_blank"
           rel="noopener noreferrer"
+          className="flex items-center uppercase"
           style={{
             display: "inline-flex",
-            alignItems: "center",
             gap: 8,
             fontSize: 12,
             letterSpacing: "0.1em",
-            textTransform: "uppercase",
             color: T.muted,
             border: `1px solid ${T.border}`,
             padding: "12px 24px",
