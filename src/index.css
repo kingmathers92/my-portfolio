@@ -281,6 +281,41 @@ a {
   transform: translateY(0);
 }
 
+/* ── Clippy overrides ─────────────────────────────────────── */
+
+/* Speech bubble — match site theme */
+.clippy-balloon {
+  background: #101010 !important;
+  border: 1px solid #222220 !important;
+  border-radius: 6px !important;
+  color: #f0efe8 !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
+  max-width: 220px !important;
+}
+
+/* Bubble tail */
+.clippy-balloon:after,
+.clippy-balloon:before {
+  border-color: #222220 transparent transparent transparent !important;
+}
+
+/* Close button on bubble */
+.clippy-balloon .clippy-close {
+  color: #444440 !important;
+  font-size: 14px !important;
+}
+.clippy-balloon .clippy-close:hover {
+  color: #e8a838 !important;
+}
+
+/* Keep Clippy above page content but below the chat panel */
+.clippy {
+  z-index: 497 !important;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   body {

@@ -23,8 +23,6 @@ export function Footer() {
         gap: 16,
       }}
     >
-      <span>© 2026 Khaled Ben Yahya — Crafted with ♥ in Tunisia 🇹🇳</span>
-
       <div
         style={{
           display: "flex",
@@ -69,6 +67,7 @@ export function Footer() {
           ↑ Top
         </a>
       </div>
+      <span>© 2026 Khaled Ben Yahya — Crafted with ♥ in Tunisia</span>
     </footer>
   );
 }
