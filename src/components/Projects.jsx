@@ -17,17 +17,38 @@ function ProjectCard({
   badgeAccent,
   ghUrl,
   liveUrl,
+  screenshot,
   delay = 0,
 }) {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   return (
     <div
-      className="project-card reveal relative overflow-hidden"
+      className="project-card reveal"
       style={{
         background: T.surface,
         padding: 36,
+        position: "relative",
+        overflow: "hidden",
         transitionDelay: `${delay}s`,
       }}
     >
+      {!isMobile && screenshot && (
+        <div className="screenshot-layer">
+          <img
+            src={screenshot}
+            alt="screenshot"
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      )}
+
+      <div className="card-corner" />
+
+      {screenshot && <span className="card-preview-label">Preview ↗</span>}
+
+      {/* Badge */}
       {badge && (
         <div
           className="uppercase"
@@ -43,61 +64,67 @@ function ProjectCard({
             padding: "4px 10px",
             borderRadius: 2,
             fontWeight: 500,
+            zIndex: 5,
           }}
         >
           {badge}
         </div>
       )}
 
-      <div className="project-num text-muted2">{num} —</div>
-      <div className="project-name">{name}</div>
-      <p className="project-desc text-muted">{desc}</p>
+      {/* Content */}
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <div className="project-num text-muted2">{num} —</div>
+        <div className="project-name">{name}</div>
+        <p className="project-desc text-muted">{desc}</p>
 
-      <div className="flex flex-wrap" style={{ gap: 8, marginBottom: 26 }}>
-        {stack.map((s) => (
-          <span key={s} className="stack-tag">
-            {s}
-          </span>
-        ))}
-      </div>
+        <div className="flex flex-wrap" style={{ gap: 8, marginBottom: 26 }}>
+          {stack.map((s) => (
+            <span key={s} className="stack-tag">
+              {s}
+            </span>
+          ))}
+        </div>
 
-      <div className="flex" style={{ gap: 18 }}>
-        {ghUrl && (
-          <a
-            href={ghUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link text-muted"
-            onMouseEnter={(e) => (e.currentTarget.style.color = T.accent)}
-            onMouseLeave={(e) => (e.currentTarget.style.color = T.muted)}
-          >
-            <GithubIcon /> GitHub
-          </a>
-        )}
-        {liveUrl && (
-          <a
-            href={liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="project-link text-muted"
-            onMouseEnter={(e) => (e.currentTarget.style.color = T.accent)}
-            onMouseLeave={(e) => (e.currentTarget.style.color = T.muted)}
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
+        {/* ✅ Links side-by-side */}
+        <div className="flex" style={{ gap: 18 }}>
+          {ghUrl && (
+            <a
+              href={ghUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-link text-muted"
+              onMouseEnter={(e) => (e.currentTarget.style.color = T.accent)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = T.muted)}
             >
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-            Live
-          </a>
-        )}
+              <GithubIcon /> GitHub
+            </a>
+          )}
+
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-link text-muted"
+              onMouseEnter={(e) => (e.currentTarget.style.color = T.accent)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = T.muted)}
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              Live
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -108,12 +135,12 @@ export function Projects() {
     {
       num: "01",
       name: "MovieHub",
-      desc: "Netflix-inspired movie platform with voice search powered by Alan AI, real TMDB data, Redux state management, dark mode, and user features like watchlist & favorites.",
-      stack: ["React", "Redux", "Material UI", "Alan AI", "TMDB API"],
+      desc: "Netflix-inspired UI with Alan AI voice search and real TMDB data. Fully responsive React + Material UI.",
+      stack: ["React", "Material UI", "Alan AI", "TMDB API"],
       badge: "Live",
+      screenshot: "https://ik.imagekit.io/mv5mmiy88/moviehub.png",
       ghUrl: "https://github.com/kingmathers92/moviehub",
       liveUrl: "https://moviehubnet.netlify.app/",
-      delay: 0,
     },
     {
       num: "02",
@@ -127,18 +154,21 @@ export function Projects() {
     },
     {
       num: "03",
-      name: "Mega-DL",
-      desc: "Powerful Python tool for downloading albums from file-hosting sites. Features parallel downloads, resume support, speed limiting, and a beautiful dark-mode Tkinter GUI.",
-      stack: ["Python", "Tkinter", "Requests", "Tqdm"],
-      ghUrl: "https://github.com/kingmathers92/mega-dl",
+      name: "Full-Stack E-Commerce",
+      desc: "Complete e-commerce platform — Django backend, React frontend, product catalog, cart, auth, orders.",
+      stack: ["Django", "React", "REST API", "PostgreSQL"],
+      screenshot: "/screenshots/ecommerce.png",
+      ghUrl: "https://github.com/kingmathers92/ecommerce-site",
       delay: 0.12,
     },
     {
       num: "04",
       name: "Pizza Si 🍕",
-      desc: "Delightful pizza ordering experience built for a local restaurant. Focused on smooth animations and intuitive UX.",
-      stack: ["JavaScript", "CSS3", "HTML5", "Framer Motion"],
+      desc: "Interactive pizza ordering site focused on a smooth, delightful UX. Pure JS, zero frameworks.",
+      stack: ["JavaScript", "CSS3", "HTML5"],
+      screenshot: "https://ik.imagekit.io/mv5mmiy88/pizza.png",
       ghUrl: "https://github.com/kingmathers92/pizza-si",
+      liveUrl: "https://pizzasi.vercel.app/",
       delay: 0.18,
     },
   ];
