@@ -124,7 +124,7 @@ export function Hero() {
             </svg>
             View Work
           </a>
-          <a
+          {/* <a
             href="#ai"
             className="btn-s"
             style={{
@@ -144,7 +144,7 @@ export function Hero() {
             }}
           >
             <span style={{ fontSize: 14 }}>✦</span> Try AI Twin
-          </a>
+          </a> */}
         </div>
 
         {/* Stats*/}

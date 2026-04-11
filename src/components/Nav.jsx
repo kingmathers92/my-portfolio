@@ -16,7 +16,6 @@ export function Nav() {
         "skills",
         "projects",
         "writing",
-        "ai",
         "contact",
       ];
 
@@ -35,7 +34,7 @@ export function Nav() {
 
   const handleLinkClick = () => setMenuOpen(false);
 
-  const links = ["About", "Skills", "Projects", "Writing", "AI", "Contact"];
+  const links = ["About", "Skills", "Projects", "Writing", "Contact"];
 
   return (
     <>
@@ -153,6 +152,7 @@ export function Nav() {
           style={{
             position: "fixed",
             inset: 0,
+            marginTop: "80px",
             zIndex: 99,
             background: "rgba(8,8,7,0.97)",
             backdropFilter: "blur(20px)",

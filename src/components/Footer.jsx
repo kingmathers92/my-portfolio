@@ -6,7 +6,6 @@ export function Footer() {
     ["Skills", "#skills"],
     ["Projects", "#projects"],
     ["Writing", "#writing"],
-    ["AI", "#ai"],
   ];
 
   return (
