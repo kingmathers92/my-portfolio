@@ -39,6 +39,7 @@ export function Nav() {
   return (
     <>
       <nav
+        aria-label="Main navigation"
         style={{
           position: "fixed",
           top: 0,
@@ -98,6 +99,8 @@ export function Nav() {
         <button
           onClick={() => setMenuOpen((o) => !o)}
           className="hamburger"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
           style={{
             display: "none",
             background: "transparent",
