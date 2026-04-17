@@ -7,9 +7,7 @@ Showcases selected projects, technical writing, and contact info.
 
 ## Tech Stack
 
-- React 19
-- Vite
-- Vanilla CSS3 (custom design system, no component library)
+![Tech Stack](/public/markmap.svg)
 
 ## Getting Started
 
