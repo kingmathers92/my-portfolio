@@ -5,14 +5,21 @@ export function Cursor() {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
 
-  // Current actual mouse position
   const mousePos = useRef({ x: 0, y: 0 });
-  // Ring's current position (starts at 0,0 and chases the mouse)
   const ringPos = useRef({ x: 0, y: 0 });
   const rafId = useRef(null);
 
   useEffect(() => {
-    // Move dot instantly on every mouse move
+    // Only skip on touch-only devices (no mouse/trackpad/stylus)
+    const hasFinePointer = window.matchMedia("(any-pointer: fine)").matches;
+
+    if (!hasFinePointer) {
+      document.body.style.cursor = "auto";
+      return;
+    }
+
+    document.body.style.cursor = "none";
+
     const onMouseMove = (e) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
       if (dotRef.current) {
@@ -32,6 +39,7 @@ export function Cursor() {
         ringRef.current.style.borderColor = "rgba(232,168,56,0.7)";
       }
     };
+
     const shrink = () => {
       if (dotRef.current) {
         dotRef.current.style.width = "10px";
@@ -44,18 +52,25 @@ export function Cursor() {
       }
     };
 
-    const attachListeners = () => {
-      document
-        .querySelectorAll(
-          "a, button, .project-card, .article-card, .contact-item, .skill-tag",
-        )
-        .forEach((el) => {
-          el.addEventListener("mouseenter", grow);
-          el.addEventListener("mouseleave", shrink);
-        });
+    // Event delegation: one listener covers all current + future elements
+    const onMouseOver = (e) => {
+      const target = e.target.closest(
+        "a, button, .project-card, .article-card, .contact-item, .skill-tag",
+      );
+      if (target) grow();
     };
-    attachListeners();
-    const interval = setInterval(attachListeners, 1500);
+
+    const onMouseOut = (e) => {
+      const target = e.target.closest(
+        "a, button, .project-card, .article-card, .contact-item, .skill-tag",
+      );
+      if (target) shrink();
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseover", onMouseOver);
+    document.addEventListener("mouseout", onMouseOut);
+
     const animate = () => {
       ringPos.current.x += (mousePos.current.x - ringPos.current.x) * 0.13;
       ringPos.current.y += (mousePos.current.y - ringPos.current.y) * 0.13;
@@ -69,12 +84,12 @@ export function Cursor() {
     };
     animate();
 
-    document.addEventListener("mousemove", onMouseMove);
-
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
-      clearInterval(interval);
+      document.removeEventListener("mouseover", onMouseOver);
+      document.removeEventListener("mouseout", onMouseOut);
       cancelAnimationFrame(rafId.current);
+      document.body.style.cursor = "auto";
     };
   }, []);
 
@@ -84,6 +99,8 @@ export function Cursor() {
         ref={dotRef}
         style={{
           position: "fixed",
+          top: 0,
+          left: 0,
           width: 10,
           height: 10,
           background: T.accent,
@@ -100,6 +117,8 @@ export function Cursor() {
         ref={ringRef}
         style={{
           position: "fixed",
+          top: 0,
+          left: 0,
           width: 36,
           height: 36,
           border: "1px solid rgba(232,168,56,0.4)",

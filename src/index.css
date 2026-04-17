@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap");
-
 *,
 *::before,
 *::after {
@@ -19,10 +17,9 @@ body {
   font-size: 14px;
   line-height: 1.7;
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
 }
 
-/* ── UTILITY CLASSES ─────────────────────────────────────────── */
 .flex {
   display: flex;
 }
@@ -168,7 +165,7 @@ a {
   opacity: 0.022;
 }
 
-/* Project Card*/
+/* Project Card */
 .project-card {
   position: relative;
   transition: background 0.25s;
@@ -191,6 +188,24 @@ a {
 }
 .project-card:hover {
   background: #181816 !important;
+}
+
+/* Keyboard accessibility: show screenshot preview on focus too */
+.project-card:focus-within::before {
+  transform: scaleX(1);
+}
+.project-card:focus-within {
+  background: #181816 !important;
+}
+.project-card:focus-within .screenshot-layer {
+  clip-path: polygon(0% 100%, 100% 0%, 100% 100%);
+}
+.project-card:focus-within .card-corner {
+  border-width: 0 0 72px 72px;
+}
+.project-card:focus-within .card-preview-label {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .screenshot-layer {
@@ -350,6 +365,12 @@ a {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #e8a838;
+  outline-offset: 2px;
 }
 
 /* RESPONSIVE */
