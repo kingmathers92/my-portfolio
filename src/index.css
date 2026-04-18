@@ -190,7 +190,6 @@ a {
   background: #181816 !important;
 }
 
-/* Keyboard accessibility: show screenshot preview on focus too */
 .project-card:focus-within::before {
   transform: scaleX(1);
 }
