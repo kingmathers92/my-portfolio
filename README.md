@@ -7,7 +7,7 @@ Showcases selected projects, technical writing, and contact info.
 
 ## Tech Stack
 
-![Tech Stack](/public/markmap.svg)
+![Tech Stack](./public/markmap.svg)
 
 ## Getting Started
 
