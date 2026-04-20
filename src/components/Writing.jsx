@@ -7,18 +7,19 @@ export function Writing() {
     {
       platform: "DEV.to",
       title: "Convert Your React App to Android with Iconic Capacitor",
-      desc: "Go cross-pltaform with your existing React app -- no rewrite required.",
+      desc: "Go cross-platform with your existing React app -- no rewrite required.",
       date: "Jul 2023",
       url: "https://dev.to/khaledbenyahya_/convert-your-existing-react-js-app-to-android-app-using-the-ionic-capacitor-4g61",
     },
     {
       platform: "Medium",
       title: "Demystifying the IntersectionObserver API",
-      des: "A beginner-friendly breakdown — from lazy loading to infinite scroll, explained simply.",
+      desc: "A beginner-friendly breakdown — from lazy loading to infinite scroll, explained simply.",
       date: "Jul 2024",
       url: "https://medium.com/@khaledb.yahya/demystifying-the-intersectionobserver-api-a-simple-guide-93084a4a4be5",
     },
   ];
+
   return (
     <section id="writing" style={{ padding: "100px 48px" }}>
       <SectionLabel>Writing</SectionLabel>
@@ -34,9 +35,9 @@ export function Writing() {
           gap: 20,
         }}
       >
-        {articles.map((a) => (
+        {articles.map((a, i) => (
           <a
-            key={a.title}
+            key={i}
             href={a.url}
             target="_blank"
             rel="noopener noreferrer"
@@ -66,7 +67,7 @@ export function Writing() {
                 fontFamily: "'Syne', sans-serif",
                 fontSize: 16,
                 fontWeight: 700,
-                letterSpacing: "-0.3",
+                letterSpacing: "-0.3px",
                 lineHeight: 1.3,
                 flex: 1,
                 marginBottom: 10,
@@ -94,7 +95,6 @@ export function Writing() {
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: T.muted2,
-                marginBottom: 12,
               }}
             >
               <svg
@@ -115,7 +115,7 @@ export function Writing() {
           </a>
         ))}
 
-        {/* Placeholder Card*/}
+        {/* Placeholder Card */}
         <a
           href="https://dev.to/khaledbenyahya_"
           target="_blank"
