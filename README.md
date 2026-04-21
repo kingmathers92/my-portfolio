@@ -3,7 +3,7 @@
 Personal portfolio site built with React + Vite.
 Showcases selected projects, technical writing, and contact info.
 
-🔗 **Live:** https://khaledbenyahya.com/
+🔗 **Live:** [khaledbenyahya.com](https://khaledbenyahya.com/)
 
 ## Tech Stack
 
