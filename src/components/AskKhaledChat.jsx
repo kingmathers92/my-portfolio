@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { T } from "../lib/theme";
 import { findResponse, SUGGESTED_PROMPTS } from "../lib/knowledgeBase";
 import { initEngine, chatWithAI, isEngineLoading } from "../lib/webllm-helper";
 
@@ -13,17 +12,22 @@ export function AskKhaledChat() {
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [aiMode, setAiMode] = useState(false); // false = hardcoded, true = WebLLM
+  const [aiMode, setAiMode] = useState(false);
   const [aiLoading, setAiLoading] = useState(false);
   const [aiProgress, setAiProgress] = useState(0);
   const [aiHistory, setAiHistory] = useState([]);
+
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const prevMessagesLength = useRef(messages.length);
 
-  // Auto-scroll to bottom
+  // Only scroll when message count changes (new message added), not on every render
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, isTyping]);
+    if (messages.length !== prevMessagesLength.current) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+      prevMessagesLength.current = messages.length;
+    }
+  }, [messages.length]);
 
   const sendHardcoded = async (text) => {
     const userMsg = text.trim();
@@ -33,10 +37,8 @@ export function AskKhaledChat() {
     setInput("");
     setIsTyping(true);
 
-    // Simulate thinking delay (800ms - 1.5s based on response length)
     const response = findResponse(userMsg);
     const delay = Math.min(800 + response.length * 10, 1500);
-
     await new Promise((r) => setTimeout(r, delay));
 
     setIsTyping(false);
@@ -161,79 +163,30 @@ export function AskKhaledChat() {
   };
 
   return (
-    <section
-      id="ask-khaled"
-      style={{ padding: "100px 48px", maxWidth: 800, margin: "0 auto" }}
-    >
+    <section id="ask-khaled" className="chat-section">
       <div style={{ marginBottom: 32 }}>
-        <div
-          style={{
-            fontSize: 10,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: T.accent,
-            marginBottom: 12,
-          }}
-        >
-          Ask Khaled
-        </div>
-        <h2
-          style={{
-            fontFamily: "'Syne', sans-serif",
-            fontSize: "clamp(24px, 3vw, 36px)",
-            fontWeight: 800,
-            letterSpacing: "-1px",
-            lineHeight: 1.1,
-            marginBottom: 12,
-          }}
-        >
+        <div className="chat-label">Ask Khaled</div>
+        <h2 className="chat-title">
           Ask my{" "}
           <em style={{ fontFamily: "'Instrument Serif', serif" }}>AI twin</em>
         </h2>
-        <p style={{ color: T.muted, fontSize: 14, lineHeight: 1.7 }}>
+        <p className="chat-subtitle">
           {aiMode
             ? "🔮 AI Twin active — running locally in your browser. No data leaves your device."
             : "⚡ Instant answers powered by handcrafted responses. Load the AI twin for deeper questions."}
         </p>
       </div>
 
-      <div
-        style={{
-          background: T.surface,
-          border: `1px solid ${T.border}`,
-          borderRadius: 4,
-          overflow: "hidden",
-          marginBottom: 16,
-        }}
-      >
-        {/* Messages */}
-        <div
-          style={{
-            height: 400,
-            overflowY: "auto",
-            padding: "24px 20px",
-            display: "flex",
-            flexDirection: "column",
-            gap: 16,
-          }}
-        >
+      <div className="chat-window">
+        <div className="chat-messages">
           {messages.map((msg, i) => (
             <div
               key={i}
-              style={{
-                alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
-                maxWidth: "85%",
-                padding: "12px 16px",
-                borderRadius:
-                  msg.role === "user"
-                    ? "16px 16px 4px 16px"
-                    : "16px 16px 16px 4px",
-                background: msg.role === "user" ? T.accent : T.surface2,
-                color: msg.role === "user" ? "#000" : T.text,
-                fontSize: 13,
-                lineHeight: 1.7,
-                wordBreak: "break-word",
-              }}
+              className={`chat-bubble ${
+                msg.role === "user"
+                  ? "chat-bubble-user"
+                  : "chat-bubble-assistant"
+              }`}
             >
               {msg.content}
               {msg.role === "assistant" && !msg.content && isTyping && (
@@ -245,16 +198,7 @@ export function AskKhaledChat() {
           {isTyping &&
             !aiMode &&
             messages[messages.length - 1]?.role === "user" && (
-              <div
-                style={{
-                  alignSelf: "flex-start",
-                  padding: "12px 16px",
-                  borderRadius: "16px 16px 16px 4px",
-                  background: T.surface2,
-                  color: T.muted,
-                  fontSize: 13,
-                }}
-              >
+              <div className="chat-typing">
                 <span
                   style={{
                     display: "inline-flex",
@@ -294,15 +238,7 @@ export function AskKhaledChat() {
           <div ref={messagesEndRef} />
         </div>
 
-        <div
-          style={{
-            padding: "16px 20px",
-            borderTop: `1px solid ${T.border}`,
-            display: "flex",
-            gap: 12,
-            alignItems: "center",
-          }}
-        >
+        <div className="chat-input-area">
           <input
             ref={inputRef}
             type="text"
@@ -314,32 +250,16 @@ export function AskKhaledChat() {
                 ? "Ask anything deeper..."
                 : "Ask about my work, stack, or availability..."
             }
-            style={{
-              flex: 1,
-              background: "transparent",
-              border: "none",
-              outline: "none",
-              color: T.text,
-              fontSize: 13,
-              fontFamily: "inherit",
-              lineHeight: 1.7,
-            }}
+            className="chat-input"
           />
           <button
             onClick={handleSend}
             disabled={!input.trim() || isTyping}
-            style={{
-              background: input.trim() && !isTyping ? T.accent : T.border,
-              color: input.trim() && !isTyping ? "#000" : T.muted,
-              border: "none",
-              padding: "8px 16px",
-              borderRadius: 4,
-              fontSize: 12,
-              fontWeight: 700,
-              fontFamily: "'Syne', sans-serif",
-              cursor: input.trim() && !isTyping ? "pointer" : "not-allowed",
-              transition: "all 0.2s",
-            }}
+            className={`chat-send-btn ${
+              input.trim() && !isTyping
+                ? "chat-send-btn-active"
+                : "chat-send-btn-disabled"
+            }`}
           >
             Send
           </button>
@@ -347,37 +267,12 @@ export function AskKhaledChat() {
       </div>
 
       {!aiMode && (
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 8,
-            marginBottom: 16,
-          }}
-        >
+        <div className="chat-suggestions">
           {SUGGESTED_PROMPTS.map((prompt) => (
             <button
               key={prompt}
               onClick={() => suggestedPrompt(prompt)}
-              style={{
-                background: "transparent",
-                border: `1px solid ${T.border}`,
-                color: T.muted,
-                padding: "6px 12px",
-                borderRadius: 4,
-                fontSize: 11,
-                fontFamily: "inherit",
-                cursor: "pointer",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.borderColor = T.accent;
-                e.target.style.color = T.accent;
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.borderColor = T.border;
-                e.target.style.color = T.muted;
-              }}
+              className="chat-suggestion-btn"
             >
               {prompt}
             </button>
@@ -386,68 +281,20 @@ export function AskKhaledChat() {
       )}
 
       {!aiMode && !aiLoading && (
-        <button
-          onClick={loadAI}
-          style={{
-            background: "transparent",
-            border: `1px dashed ${T.accentDim}`,
-            color: T.accent,
-            padding: "10px 20px",
-            borderRadius: 4,
-            fontSize: 12,
-            fontFamily: "'Syne', sans-serif",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            transition: "all 0.2s",
-            width: "100%",
-            justifyContent: "center",
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = "rgba(232, 168, 56, 0.04)";
-            e.target.style.borderStyle = "solid";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = "transparent";
-            e.target.style.borderStyle = "dashed";
-          }}
-        >
+        <button onClick={loadAI} className="chat-load-ai-btn">
           <span>🔮</span> Load AI Twin (runs locally, ~1.2GB download)
         </button>
       )}
 
       {aiLoading && (
-        <div
-          style={{
-            padding: "10px 20px",
-            border: `1px solid ${T.border}`,
-            borderRadius: 4,
-            color: T.muted,
-            fontSize: 12,
-            textAlign: "center",
-          }}
-        >
+        <div className="chat-loading-box">
           <div style={{ marginBottom: 8 }}>
             Downloading AI model... {aiProgress}%
           </div>
-          <div
-            style={{
-              width: "100%",
-              height: 4,
-              background: T.surface2,
-              borderRadius: 2,
-              overflow: "hidden",
-            }}
-          >
+          <div className="chat-progress-bar-bg">
             <div
-              style={{
-                width: `${aiProgress}%`,
-                height: "100%",
-                background: T.accent,
-                transition: "width 0.3s",
-                borderRadius: 2,
-              }}
+              className="chat-progress-bar-fill"
+              style={{ width: `${aiProgress}%` }}
             />
           </div>
           <div style={{ marginTop: 8, fontSize: 11, opacity: 0.7 }}>
@@ -457,27 +304,8 @@ export function AskKhaledChat() {
       )}
 
       {aiMode && (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            color: T.accent,
-            fontSize: 11,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-          }}
-        >
-          <span
-            style={{
-              width: 6,
-              height: 6,
-              background: "#4ade80",
-              borderRadius: "50%",
-              display: "inline-block",
-              animation: "pulse 2s infinite",
-            }}
-          />
+        <div className="chat-ai-status">
+          <span className="chat-status-dot" />
           AI Twin Active · Local · Private
         </div>
       )}
