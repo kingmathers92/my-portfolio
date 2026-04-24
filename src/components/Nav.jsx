@@ -35,7 +35,14 @@ export function Nav() {
 
   const handleLinkClick = () => setMenuOpen(false);
 
-  const links = ["About", "Skills", "Projects", "Writing", "Ask", "Contact"];
+  const links = [
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Writing", href: "#writing" },
+    { label: "Ask", href: "#ask-khaled" },
+    { label: "Contact", href: "#contact" },
+  ];
 
   return (
     <>
@@ -79,18 +86,18 @@ export function Nav() {
           }}
         >
           {links.map((link) => (
-            <li key={link}>
+            <li key={link.label}>
               <a
-                href={`#${link.toLowerCase()}`}
+                href={link.href}
                 className="nav-link uppercase"
                 style={{
                   color:
-                    activeSection === link.toLowerCase() ? T.text : T.muted,
+                    activeSection === link.href.slice(1) ? T.text : T.muted,
                   fontSize: 11,
                   letterSpacing: "0.12em",
                 }}
               >
-                {link}
+                {link.label}
               </a>
             </li>
           ))}
