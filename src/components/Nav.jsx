@@ -16,6 +16,7 @@ export function Nav() {
         "skills",
         "projects",
         "writing",
+        "ask-khaled",
         "contact",
       ];
 
@@ -34,7 +35,7 @@ export function Nav() {
 
   const handleLinkClick = () => setMenuOpen(false);
 
-  const links = ["About", "Skills", "Projects", "Writing", "Contact"];
+  const links = ["About", "Skills", "Projects", "Writing", "Ask", "Contact"];
 
   return (
     <>
