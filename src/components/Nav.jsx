@@ -172,20 +172,20 @@ export function Nav() {
         >
           {links.map((link, i) => (
             <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+              key={link.label}
+              href={link.href}
               onClick={handleLinkClick}
               className="font-syne fw-800"
               style={{
                 fontSize: "clamp(32px, 8vw, 48px)",
                 letterSpacing: -1,
-                color: activeSection === link.toLowerCase() ? T.accent : T.text,
+                color: activeSection === link.href.slice(1) ? T.accent : T.text,
                 padding: "8px 0",
                 opacity: 0,
                 animation: `fadeUp 0.4s ${i * 0.06}s ease forwards`,
               }}
             >
-              {link}
+              {link.label}
             </a>
           ))}
 
