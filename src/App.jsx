@@ -9,7 +9,7 @@ import { Writing } from "./components/Writing";
 //import { AISection } from "./components/AI/AISection";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
-//import { AskKhaledChat } from "./components/AI/AskKhaledChat";
+import { AskKhaledChat } from "./components/AskKhaledChat";
 
 function App() {
   useReveal();
@@ -25,7 +25,7 @@ function App() {
         <Skills />
         <Projects />
         <Writing />
-        {/* <AISection /> */}
+        <AskKhaledChat />
         <Contact />
       </main>
       <Footer />
