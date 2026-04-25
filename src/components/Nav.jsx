@@ -50,6 +50,9 @@ export function Nav() {
         aria-label="Main navigation"
         style={{
           position: "fixed",
+          boxSizing: "border-box",
+          width: "100%",
+          maxWidth: "100vw",
           top: 0,
           left: 0,
           right: 0,

@@ -30,7 +30,6 @@ export function AskKhaledChat() {
   const inputRef = useRef(null);
   const prevMessagesLength = useRef(messages.length);
 
-  // Smooth scroll only when new messages are added
   useEffect(() => {
     if (messages.length !== prevMessagesLength.current) {
       messagesEndRef.current?.scrollIntoView({
@@ -41,7 +40,6 @@ export function AskKhaledChat() {
     }
   }, [messages.length]);
 
-  // Detect WebLLM support
   useEffect(() => {
     let mounted = true;
 
@@ -243,19 +241,18 @@ export function AskKhaledChat() {
   };
 
   return (
-    <section id="ask-khaled" className="chat-section">
-      <div style={{ marginBottom: 32 }}>
+    <section id="ask-khaled" className="chat-section flex flex-col">
+      <div
+        className="flex flex-col"
+        style={{
+          marginBottom: 32,
+          gap: 12,
+        }}
+      >
         <div className="chat-label">Ask Khaled</div>
 
         <h2 className="chat-title">
-          Ask my{" "}
-          <em
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-            }}
-          >
-            AI twin
-          </em>
+          Ask my <em className="font-serif-italic">AI twin</em>
         </h2>
 
         <p className="chat-subtitle">
@@ -265,8 +262,8 @@ export function AskKhaledChat() {
         </p>
       </div>
 
-      <div className="chat-window">
-        <div className="chat-messages">
+      <div className="chat-window flex flex-col overflow-hidden">
+        <div className="chat-messages flex flex-col">
           {messages.map((msg, i) => (
             <div
               key={i}
@@ -288,13 +285,7 @@ export function AskKhaledChat() {
             !aiMode &&
             messages[messages.length - 1]?.role === "user" && (
               <div className="chat-typing">
-                <span
-                  style={{
-                    display: "inline-flex",
-                    gap: 4,
-                    alignItems: "center",
-                  }}
-                >
+                <span className="flex items-center" style={{ gap: 4 }}>
                   Thinking
                   <span
                     style={{
@@ -357,7 +348,7 @@ export function AskKhaledChat() {
       </div>
 
       {!aiMode && (
-        <div className="chat-suggestions">
+        <div className="chat-suggestions flex flex-wrap">
           {SUGGESTED_PROMPTS.map((prompt) => (
             <button
               key={prompt}
@@ -370,84 +361,86 @@ export function AskKhaledChat() {
         </div>
       )}
 
-      {canUseAI && !aiMode && !aiLoading && (
-        <button onClick={loadAI} className="chat-load-ai-btn">
-          <span>🔮</span>
-          Load AI Twin (runs locally, ~1.2GB download)
-        </button>
-      )}
+      <div className="flex flex-col">
+        {canUseAI && !aiMode && !aiLoading && (
+          <button onClick={loadAI} className="chat-load-ai-btn">
+            <span>🔮</span>
+            Load AI Twin (runs locally, ~1.2GB download)
+          </button>
+        )}
 
-      {canUseAI === false && (
-        <div className="chat-loading-box">
-          <div
-            style={{
-              fontSize: 12,
-              lineHeight: 1.7,
-              opacity: 0.8,
-            }}
-          >
-            🔒 Local AI is unavailable on this device/browser.
-            <br />
-            Try Chrome or Edge with hardware acceleration enabled and a modern
-            GPU.
-            <br />
-            <br />
-            Instant handcrafted responses still work perfectly.
-          </div>
-
-          <a
-            href="https://webgpureport.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 6,
-              marginTop: 14,
-              fontSize: 12,
-              textDecoration: "none",
-              opacity: 0.85,
-            }}
-          >
-            🔍 Check WebGPU Support
-          </a>
-        </div>
-      )}
-
-      {aiLoading && (
-        <div className="chat-loading-box">
-          <div style={{ marginBottom: 8 }}>
-            Downloading AI model...
-            {aiProgress}%
-          </div>
-
-          <div className="chat-progress-bar-bg">
+        {canUseAI === false && (
+          <div className="chat-loading-box">
             <div
-              className="chat-progress-bar-fill"
               style={{
-                width: `${aiProgress}%`,
+                fontSize: 12,
+                lineHeight: 1.7,
+                opacity: 0.8,
               }}
-            />
-          </div>
+            >
+              🔒 Local AI is unavailable on this device/browser.
+              <br />
+              Try Chrome or Edge with hardware acceleration enabled and a modern
+              GPU.
+              <br />
+              <br />
+              Instant handcrafted responses still work perfectly.
+            </div>
 
-          <div
-            style={{
-              marginTop: 8,
-              fontSize: 11,
-              opacity: 0.7,
-            }}
-          >
-            This runs entirely in your browser. No data is sent to any server.
+            <a
+              href="https://webgpureport.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+              style={{
+                gap: 6,
+                marginTop: 14,
+                fontSize: 12,
+                textDecoration: "none",
+                opacity: 0.85,
+                justifyContent: "center",
+              }}
+            >
+              🔍 Check WebGPU Support
+            </a>
           </div>
-        </div>
-      )}
+        )}
 
-      {aiMode && (
-        <div className="chat-ai-status">
-          <span className="chat-status-dot" />
-          AI Twin Active · Local · Private
-        </div>
-      )}
+        {aiLoading && (
+          <div className="chat-loading-box">
+            <div style={{ marginBottom: 8 }}>
+              Downloading AI model...
+              {aiProgress}%
+            </div>
+
+            <div className="chat-progress-bar-bg">
+              <div
+                className="chat-progress-bar-fill"
+                style={{
+                  width: `${aiProgress}%`,
+                }}
+              />
+            </div>
+
+            <div
+              style={{
+                marginTop: 8,
+                fontSize: 11,
+                opacity: 0.7,
+              }}
+            >
+              This runs entirely in your browser. No data is sent to any server.
+            </div>
+          </div>
+        )}
+
+        {aiMode && (
+          <div className="chat-ai-status">
+            <span className="chat-status-dot" />
+            AI Twin Active · Local · Private
+          </div>
+        )}
+      </div>
     </section>
   );
 }

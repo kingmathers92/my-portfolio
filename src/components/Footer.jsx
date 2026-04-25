@@ -13,6 +13,9 @@ export function Footer() {
       style={{
         padding: "28px 48px",
         borderTop: `1px solid ${T.border}`,
+        boxSizing: "border-box",
+        width: "100%",
+        maxWidth: "100vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
