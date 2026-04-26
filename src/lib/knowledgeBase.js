@@ -1,3 +1,5 @@
+import { tokenize } from "./tokenize";
+
 export const KNOWLEDGE_BASE = [
   {
     id: 'stack',
@@ -64,16 +66,42 @@ export const KNOWLEDGE_BASE = [
 export const FALLBACK_RESPONSE = `That's a great question — I'd rather answer that personally. Email me at khaled@khaledbenyahya.com and let's talk.`;
 
 export function findResponse(input) {
-  const lower = input.toLowerCase();
+  const tokens = tokenize(input);
 
-  const scored = KNOWLEDGE_BASE.map(entry => {
-    const matches = entry.keywords.filter(k => lower.includes(k)).length;
-    return { entry, matches };
-  });
+  let bestMatch = null;
+  let bestScore = 0;
 
-  scored.sort((a, b) => b.matches - a.matches);
+  for (const entry of KNOWLEDGE_BASE) {
+    let score = 0;
 
-  return scored[0]?.matches > 0 ? scored[0].entry.response : FALLBACK_RESPONSE;
+    for (const keyword of entry.keywords) {
+      const kw = keyword.toLowerCase();
+
+      for (const token of tokens) {
+        // exact
+        if (token === kw) {
+          score += 3;
+        }
+
+        // partial fuzzy
+        else if (
+          token.includes(kw) ||
+          kw.includes(token)
+        ) {
+          score += 1;
+        }
+      }
+    }
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestMatch = entry;
+    }
+  }
+
+  return bestScore > 0
+    ? bestMatch.response
+    : FALLBACK_RESPONSE;
 }
 
 export const SUGGESTED_PROMPTS = [
