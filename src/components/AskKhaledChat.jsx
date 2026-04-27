@@ -365,7 +365,7 @@ export function AskKhaledChat() {
         {canUseAI && !aiMode && !aiLoading && (
           <button onClick={loadAI} className="chat-load-ai-btn">
             <span>🔮</span>
-            Load AI Twin (runs locally, ~1.2GB download)
+            Load Experimental Local AI (~1.2GB)
           </button>
         )}
 
@@ -409,7 +409,7 @@ export function AskKhaledChat() {
         {aiLoading && (
           <div className="chat-loading-box">
             <div style={{ marginBottom: 8 }}>
-              Downloading AI model...
+              Preparing local AI model...
               {aiProgress}%
             </div>
 
