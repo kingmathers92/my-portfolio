@@ -27,13 +27,16 @@ export function AskKhaledChat() {
 
   const [canUseAI, setCanUseAI] = useState(null);
 
-  const messagesEndRef = useRef(null);
+  const messagesContainerRef = useRef(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth",
-    });
+    setTimeout(() => {
+      if (messagesContainerRef.current) {
+        messagesContainerRef.current.scrollTop =
+          messagesContainerRef.current.scrollHeight;
+      }
+    }, 50);
   }, [messages]);
 
   useEffect(() => {
@@ -295,7 +298,7 @@ export function AskKhaledChat() {
       </div>
 
       <div className="chat-window flex flex-col overflow-hidden">
-        <div className="chat-messages flex flex-col">
+        <div ref={messagesContainerRef} className="chat-messages flex flex-col">
           {messages.map((msg, i) => (
             <div
               key={i}
@@ -362,8 +365,6 @@ export function AskKhaledChat() {
                 </span>
               </div>
             )}
-
-          <div ref={messagesEndRef} />
         </div>
 
         <div className="chat-input-area">
