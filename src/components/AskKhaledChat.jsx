@@ -12,7 +12,7 @@ export function AskKhaledChat() {
     {
       role: "assistant",
       content:
-        "Hey! Ask me anything about Khaled's work, stack, or availability. I'll answer instantly — or load the AI twin for deeper questions.",
+        "Hey! Ask me anything about Khaled's work, stack, or availability. Instant responses are built-in, and you can optionally load the experimental local AI assistant for deeper conversations.",
       links: [],
     },
   ]);
@@ -29,17 +29,12 @@ export function AskKhaledChat() {
 
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
-  const prevMessagesLength = useRef(messages.length);
 
   useEffect(() => {
-    if (messages.length !== prevMessagesLength.current) {
-      messagesEndRef.current?.scrollIntoView({
-        behavior: "smooth",
-      });
-
-      prevMessagesLength.current = messages.length;
-    }
-  }, [messages.length]);
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, [messages]);
 
   useEffect(() => {
     let mounted = true;
@@ -58,7 +53,7 @@ export function AskKhaledChat() {
   const sendHardcoded = async (text) => {
     const userMsg = text.trim();
 
-    if (!userMsg) return;
+    if (!userMsg || isTyping) return;
 
     setMessages((prev) => [
       ...prev,
@@ -73,52 +68,65 @@ export function AskKhaledChat() {
 
     const result = findResponse(userMsg);
 
-    const delay = Math.min(800 + result.response.length * 10, 1500);
+    const response = result.response;
+    const links = result.links || [];
 
-    await new Promise((r) => setTimeout(r, delay));
+    const shouldAnimateTyping = response.length < 220;
 
-    setIsTyping(false);
+    await new Promise((r) => setTimeout(r, shouldAnimateTyping ? 500 : 250));
 
-    const words = result.response.split(" ");
-    let currentText = "";
+    if (!shouldAnimateTyping) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: response,
+          links,
+        },
+      ]);
+
+      setIsTyping(false);
+      return;
+    }
 
     setMessages((prev) => [
       ...prev,
       {
         role: "assistant",
         content: "",
-        links: result.links || [],
+        links,
       },
     ]);
+
+    const words = response.split(" ");
+    let currentText = "";
+
+    const speed = response.length > 140 ? 18 : 30;
 
     for (let i = 0; i < words.length; i++) {
       currentText += (i > 0 ? " " : "") + words[i];
 
       setMessages((prev) => {
-        const last = prev[prev.length - 1];
+        const updated = [...prev];
 
-        if (last?.role === "assistant") {
-          return [
-            ...prev.slice(0, -1),
-            {
-              role: "assistant",
-              content: currentText,
-              links: result.links || [],
-            },
-          ];
-        }
+        updated[updated.length - 1] = {
+          ...updated[updated.length - 1],
+          content: currentText,
+        };
 
-        return prev;
+        return updated;
       });
 
-      await new Promise((r) => setTimeout(r, 30));
+      await new Promise((r) => setTimeout(r, speed));
     }
+
+    setIsTyping(false);
   };
 
   const sendAI = async (text) => {
     const userMsg = text.trim();
 
-    if (!userMsg) return;
+    if (!userMsg || isTyping) return;
 
     setMessages((prev) => [
       ...prev,
@@ -135,6 +143,8 @@ export function AskKhaledChat() {
       const reply = await chatWithAI(userMsg, aiHistory);
 
       let fullResponse = "";
+      let pending = "";
+      let lastFlush = Date.now();
 
       setMessages((prev) => [
         ...prev,
@@ -146,27 +156,42 @@ export function AskKhaledChat() {
       ]);
 
       for await (const chunk of reply) {
-        const text = chunk.choices[0]?.delta?.content || "";
+        const textChunk = chunk.choices[0]?.delta?.content || "";
 
-        fullResponse += text;
+        fullResponse += textChunk;
+        pending += textChunk;
 
-        setMessages((prev) => {
-          const last = prev[prev.length - 1];
+        const shouldFlush = pending.length > 12 || Date.now() - lastFlush > 40;
 
-          if (last?.role === "assistant") {
-            return [
-              ...prev.slice(0, -1),
-              {
-                role: "assistant",
-                content: fullResponse,
-                links: [],
-              },
-            ];
-          }
+        if (shouldFlush) {
+          const snapshot = fullResponse;
 
-          return prev;
-        });
+          setMessages((prev) => {
+            const updated = [...prev];
+
+            updated[updated.length - 1] = {
+              ...updated[updated.length - 1],
+              content: snapshot,
+            };
+
+            return updated;
+          });
+
+          pending = "";
+          lastFlush = Date.now();
+        }
       }
+
+      setMessages((prev) => {
+        const updated = [...prev];
+
+        updated[updated.length - 1] = {
+          ...updated[updated.length - 1],
+          content: fullResponse,
+        };
+
+        return updated;
+      });
 
       setAiHistory((prev) => [
         ...prev,
@@ -185,7 +210,7 @@ export function AskKhaledChat() {
         {
           role: "assistant",
           content:
-            "Sorry, my AI twin is having trouble thinking. Try asking me the simple way, or email Khaled directly.",
+            "Sorry, the local AI assistant ran into an issue. Try asking a simpler question or contact Khaled directly.",
           links: [],
         },
       ]);
@@ -225,7 +250,7 @@ export function AskKhaledChat() {
         {
           role: "assistant",
           content:
-            "🔮 AI Twin loaded! I can now answer deeper questions about Khaled's work. What would you like to know?",
+            "🔮 Experimental local AI loaded! You can now ask deeper questions about Khaled's projects, workflow, and technical decisions.",
           links: [],
         },
       ]);
@@ -260,13 +285,13 @@ export function AskKhaledChat() {
         <div className="chat-label">Ask Khaled</div>
 
         <h2 className="chat-title">
-          Ask my <em className="font-serif-italic">AI twin</em>
+          Ask my <em className="font-serif-italic">AI assistant</em>
         </h2>
 
         <p className="chat-subtitle">
           {aiMode
-            ? "🔮 AI Twin active — running locally in your browser. No data leaves your device."
-            : "⚡ Instant answers powered by handcrafted responses. Load the AI twin for deeper questions."}
+            ? "🔮 Experimental local AI active — running privately in your browser."
+            : "⚡ Instant handcrafted responses by default. Optional experimental local AI for deeper conversations."}
         </p>
       </div>
 
@@ -293,7 +318,7 @@ export function AskKhaledChat() {
                       rel="noreferrer"
                       className="ai-link"
                     >
-                      {link.label}
+                      ↗ {link.label}
                     </a>
                   ))}
                 </div>
@@ -351,8 +376,8 @@ export function AskKhaledChat() {
             onKeyDown={handleKeyDown}
             placeholder={
               aiMode
-                ? "Ask anything deeper..."
-                : "Ask about my work, stack, or availability..."
+                ? "Ask deeper technical questions..."
+                : "Ask about projects, stack, or availability..."
             }
             className="chat-input"
           />
@@ -387,10 +412,23 @@ export function AskKhaledChat() {
 
       <div className="flex flex-col">
         {canUseAI && !aiMode && !aiLoading && (
-          <button onClick={loadAI} className="chat-load-ai-btn">
-            <span>🔮</span>
-            Load Experimental Local AI (~1.2GB)
-          </button>
+          <>
+            <button onClick={loadAI} className="chat-load-ai-btn">
+              <span>🔮</span>
+              Load Experimental Local AI (~1.2GB)
+            </button>
+
+            <div
+              style={{
+                marginTop: 10,
+                fontSize: 11,
+                opacity: 0.7,
+                textAlign: "center",
+              }}
+            >
+              First load may take a minute depending on your device.
+            </div>
+          </>
         )}
 
         {canUseAI === false && (
@@ -461,7 +499,7 @@ export function AskKhaledChat() {
         {aiMode && (
           <div className="chat-ai-status">
             <span className="chat-status-dot" />
-            AI Twin Active · Local · Private
+            Experimental Local AI Active · Private
           </div>
         )}
       </div>
