@@ -289,9 +289,8 @@ export function AskKhaledChat() {
         </h2>
 
         <p className="chat-subtitle">
-          {aiMode
-            ? "🔮 Experimental local AI active — running privately in your browser."
-            : "⚡ Instant handcrafted responses by default. Optional experimental local AI for deeper conversations."}
+          {aiMode &&
+            "🔮 Experimental local AI active — running privately in your browser."}
         </p>
       </div>
 
@@ -415,7 +414,7 @@ export function AskKhaledChat() {
           <>
             <button onClick={loadAI} className="chat-load-ai-btn">
               <span>🔮</span>
-              Load Experimental Local AI (~1.2GB)
+              Load Experimental Local AI (~500MB)
             </button>
 
             <div
