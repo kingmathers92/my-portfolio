@@ -13,6 +13,7 @@ export function AskKhaledChat() {
       role: "assistant",
       content:
         "Hey! Ask me anything about Khaled's work, stack, or availability. I'll answer instantly — or load the AI twin for deeper questions.",
+      links: [],
     },
   ]);
 
@@ -70,15 +71,15 @@ export function AskKhaledChat() {
     setInput("");
     setIsTyping(true);
 
-    const response = findResponse(userMsg);
+    const result = findResponse(userMsg);
 
-    const delay = Math.min(800 + response.length * 10, 1500);
+    const delay = Math.min(800 + result.response.length * 10, 1500);
 
     await new Promise((r) => setTimeout(r, delay));
 
     setIsTyping(false);
 
-    const words = response.split(" ");
+    const words = result.response.split(" ");
     let currentText = "";
 
     setMessages((prev) => [
@@ -86,6 +87,7 @@ export function AskKhaledChat() {
       {
         role: "assistant",
         content: "",
+        links: result.links || [],
       },
     ]);
 
@@ -101,6 +103,7 @@ export function AskKhaledChat() {
             {
               role: "assistant",
               content: currentText,
+              links: result.links || [],
             },
           ];
         }
@@ -138,6 +141,7 @@ export function AskKhaledChat() {
         {
           role: "assistant",
           content: "",
+          links: [],
         },
       ]);
 
@@ -155,6 +159,7 @@ export function AskKhaledChat() {
               {
                 role: "assistant",
                 content: fullResponse,
+                links: [],
               },
             ];
           }
@@ -181,6 +186,7 @@ export function AskKhaledChat() {
           role: "assistant",
           content:
             "Sorry, my AI twin is having trouble thinking. Try asking me the simple way, or email Khaled directly.",
+          links: [],
         },
       ]);
     } finally {
@@ -220,6 +226,7 @@ export function AskKhaledChat() {
           role: "assistant",
           content:
             "🔮 AI Twin loaded! I can now answer deeper questions about Khaled's work. What would you like to know?",
+          links: [],
         },
       ]);
     } catch (err) {
@@ -228,6 +235,7 @@ export function AskKhaledChat() {
         {
           role: "assistant",
           content: `⚠️ ${err.message}`,
+          links: [],
         },
       ]);
     } finally {
@@ -273,7 +281,23 @@ export function AskKhaledChat() {
                   : "chat-bubble-assistant"
               }`}
             >
-              {msg.content}
+              <div>{msg.content}</div>
+
+              {msg.links?.length > 0 && (
+                <div className="ai-links">
+                  {msg.links.map((link) => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ai-link"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
 
               {msg.role === "assistant" && !msg.content && isTyping && (
                 <span style={{ opacity: 0.6 }}>Thinking...</span>
