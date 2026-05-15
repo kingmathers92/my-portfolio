@@ -11,7 +11,6 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 //import { AskKhaledChat } from "./components/AI/AskKhaledChat";
 //import { ClippyProvider } from "@react95/clippy";
-//import '@react95/clippy/dist/esm/index.css'
 
 function App() {
   useReveal();
